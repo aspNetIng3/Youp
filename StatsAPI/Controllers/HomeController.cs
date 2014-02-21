@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace StatsAPI.Controllers
+namespace StatsAPI.Controllers.v1
 {
     public class HomeController : Controller
     {

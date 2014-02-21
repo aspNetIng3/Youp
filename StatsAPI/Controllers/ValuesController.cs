@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace StatsAPI.Controllers
+namespace StatsAPI.Controllers.v1
 {
     public class ValuesController : ApiController
     {
