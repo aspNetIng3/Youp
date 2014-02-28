@@ -22,10 +22,10 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("User", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Forum", "About", "Home")</li>
-                    <li>@Html.ActionLink("Blog", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Event", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("User", "Index", "User")</li>
+                    <li>@Html.ActionLink("Forum", "Index", "Forum")</li>
+                    <li>@Html.ActionLink("Blog", "Index", "Blog")</li>
+                    <li>@Html.ActionLink("Event", "Index", "Event")</li>
                 </ul>
             </div>
         </div>
@@ -43,6 +43,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/chart")
+    @Scripts.Render("~/bundles/gauge")
     @RenderSection("scripts", required: false)
 </body>
 </html>

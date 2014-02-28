@@ -13,82 +13,10 @@ namespace StatsDashboard.Controllers
 
         public ActionResult Index()
         {
-            DateTime currentDateTime = DateTime.Now;
-            
-            Dictionary<int, int> userRegisterFormonths = new Dictionary<int, int>();
-            
-            for (int i = 1; i <= 12; i++)
-            {
-                DateTime start = new DateTime(currentDateTime.Year, i, 1, 0, 0, 0);
-                DateTime end = new DateTime(currentDateTime.Year, i, DateTime.DaysInMonth(currentDateTime.Year, i), 23, 59, 59);
-                
-                int count = db.Users.Where(u => u.CreatedAt > start && u.CreatedAt < end).Count();
-                userRegisterFormonths.Add(i, count);
-            }
-
-            ViewData["userRegisterForMonths"] = userRegisterFormonths;
-
-            Dictionary<int, int> userRegisterFormonth = new Dictionary<int, int>();
-
-            for (int i = 1; i <= DateTime.DaysInMonth(currentDateTime.Year, currentDateTime.Month); i++)
-            {
-                DateTime start = new DateTime(currentDateTime.Year, currentDateTime.Month, i, 0, 0, 0);
-                DateTime end = new DateTime(currentDateTime.Year, currentDateTime.Month, i, 23, 59, 59);
-
-                int count = db.Users.Where(u => u.CreatedAt > start && u.CreatedAt < end).Count();
-                userRegisterFormonth.Add(i, count);
-            }
-
-            ViewData["userRegisterForMonth"] = userRegisterFormonth;
-
-            //
-
-            Dictionary<int, int> userDeletedFormonths = new Dictionary<int, int>();
-
-            for (int i = 1; i <= 12; i++)
-            {
-                DateTime start = new DateTime(currentDateTime.Year, i, 1, 0, 0, 0);
-                DateTime end = new DateTime(currentDateTime.Year, i, DateTime.DaysInMonth(currentDateTime.Year, i), 23, 59, 59);
-
-                int count = db.Users.Where(u => !u.DeletedAt.Equals(null) && u.DeletedAt > start && u.DeletedAt < end).Count();
-                userDeletedFormonths.Add(i, count);
-            }
-
-            ViewData["userDeletedFormonths"] = userDeletedFormonths;
-
-            Dictionary<int, int> userDeletedFormonth = new Dictionary<int, int>();
-
-            for (int i = 1; i <= DateTime.DaysInMonth(currentDateTime.Year, currentDateTime.Month); i++)
-            {
-                DateTime start = new DateTime(currentDateTime.Year, currentDateTime.Month, i, 0, 0, 0);
-                DateTime end = new DateTime(currentDateTime.Year, currentDateTime.Month, i, 23, 59, 59);
-
-                int count = db.Users.Where(u => !u.DeletedAt.Equals(null) && u.DeletedAt > start && u.DeletedAt < end).Count();
-                userDeletedFormonth.Add(i, count);
-            }
-
-            ViewData["userDeletedFormonth"] = userDeletedFormonth;
-
-            //
-
             ViewData["countUser"] = db.Users.Count();
             ViewData["countUserDelete"] = db.Users.Where(u => !u.DeletedAt.Equals(null)).Count();
             ViewData["countUserActive"] = db.Users.Where(u => u.IsActive == 1 && u.DeletedAt.Equals(null)).Count();
             ViewData["countUserFacebook"] = db.Users.Where(u => !u.GuidFacebook.Equals(null)).Count();
-
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
 
             return View();
         }
