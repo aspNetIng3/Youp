@@ -1,0 +1,163 @@
+﻿@{
+    ViewBag.Title = "Stats - Users";
+}
+
+<div class="row">
+    <div class="col-md-3">
+        <div id="countThread" style="width:100%;height:200px;"></div>
+    </div>
+    <div class="col-md-3">
+        <div id="countPost" style="width:100%;height:200px;"></div>
+    </div>
+    <div class="col-md-3">
+        <div id="countTheme" style="width:100%;height:200px;"></div>
+    </div>
+    <div class="col-md-3">
+        
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <hr />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h3 style="text-align: center; margin-top: 5px; margin-bottom: 20px;"><span style="color:rgba(255,0,49,1); font-weight: bold;">Thread</span> / <span style="color:rgba(170,170,170,1); font-weight: bold; ">Post</span></h3>
+    </div>
+    <div class="col-md-6">
+        <canvas id="chartYear" height="200"></canvas>
+    </div>
+
+    <div class="col-md-6">
+        <canvas id="chartMonth" height="200"></canvas>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+
+        var dataToDataChartThreadYear = [];
+        @foreach (KeyValuePair<int, int> pair in (Dictionary<int, int>)ViewData["threadCreateFormonths"])
+        {
+        <text>dataToDataChartThreadYear.push(@pair.Value);</text>
+        }
+
+        var dataToDataChartPostYear = [];
+        @foreach (KeyValuePair<int, int> pair in (Dictionary<int, int>)ViewData["postCreateFormonths"])
+        {
+        <text>dataToDataChartPostYear.push(@pair.Value);</text>
+        }
+
+        var dataToDataChartThreadMonth = [];
+        var labelToDataChartThreadMonth = [];
+        @foreach (KeyValuePair<int, int> pair in (Dictionary<int, int>)ViewData["threadCreateFormonth"])
+        {
+        <text>
+        labelToDataChartThreadMonth.push(@pair.Key);
+        dataToDataChartThreadMonth.push(@pair.Value);
+        </text>
+        }
+
+        var dataToDataChartPostMonth = [];
+        @foreach (KeyValuePair<int, int> pair in (Dictionary<int, int>)ViewData["postCreateFormonth"])
+        {
+        <text>
+        dataToDataChartPostMonth.push(@pair.Value);
+        </text>
+        }
+
+        var dataChartYear = {
+            labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+            datasets: [
+                {
+                    fillColor: "rgba(255,0,49,0.5)",
+                    strokeColor: "rgba(255,0,49,1)",
+                    pointColor: "rgba(255,0,49,1)",
+                    pointStrokeColor: "#fff",
+                    data: dataToDataChartThreadYear
+                },
+                {
+                    fillColor: "rgba(170,170,170,0.5)",
+                    strokeColor: "rgba(170,170,170,1)",
+                    pointColor: "rgba(170,170,170,1)",
+                    pointStrokeColor: "#fff",
+                    data: dataToDataChartPostYear
+                }
+            ]
+        }
+
+        var dataChartMonth = {
+            labels: labelToDataChartThreadMonth,
+            datasets: [
+                {
+                    fillColor: "rgba(255,0,49,0.5)",
+                    strokeColor: "rgba(255,0,49,1)",
+                    pointColor: "rgba(255,0,49,1)",
+                    pointStrokeColor: "#fff",
+                    data: dataToDataChartThreadMonth
+                },
+                {
+                    fillColor: "rgba(170,170,170,0.5)",
+                    strokeColor: "rgba(170,170,170,1)",
+                    pointColor: "rgba(170,170,170,1)",
+                    pointStrokeColor: "#fff",
+                    data: dataToDataChartPostMonth
+                }
+            ]
+        }
+       
+       $(document).ready(function () {
+           var options = {
+               scaleFontColor: '#444'
+           };
+
+           var ctxChartYear = $("#chartYear").get(0).getContext("2d");
+           ctxChartYear.canvas.width = $("#chartYear").parent().width();
+           var chartYear = new Chart(ctxChartYear).Line(dataChartYear, options);
+
+           var ctxChartMonth = $("#chartMonth").get(0).getContext("2d");
+           ctxChartMonth.canvas.width = $("#chartMonth").parent().width();
+           var chartMonth = new Chart(ctxChartMonth).Line(dataChartMonth, options);
+
+           var gCountThread = new JustGage({
+                id: "countThread",
+                value: parseInt('@ViewData["countThread"]'),
+                min: 0,
+                max: parseInt('@ViewData["countThread"]'),
+                title: "Threads",
+                showMinMax: false,
+                levelColors: ['rgba(255,0,49,1)'],
+                gaugeColor: 'rgba(220,220,220,0.5)',
+                titleFontColor: '#444'
+            });
+
+           var gCountPost = new JustGage({
+                id: "countPost",
+                value: parseInt('@ViewData["countPost"]'),
+                min: 0,
+                max: parseInt('@ViewData["countPost"]'),
+                title: "Posts",
+                showMinMax: false,
+                levelColors: ['rgba(255,0,49,1)'],
+                gaugeColor: 'rgba(220,220,220,0.5)',
+                titleFontColor: '#444'
+            });
+
+           var gCountTheme = new JustGage({
+                id: "countTheme",
+                value: parseInt('@ViewData["countTheme"]'),
+                min: 0,
+                max: parseInt('@ViewData["countTheme"]'),
+                title: "Themes",
+                showMinMax: false,
+                levelColors: ['rgba(255,0,49,1)'],
+                gaugeColor: 'rgba(220,220,220,0.5)',
+                titleFontColor: '#444'
+            });
+            
+        });
+    </script>
+}

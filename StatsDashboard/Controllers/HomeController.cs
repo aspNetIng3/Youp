@@ -23,6 +23,10 @@ namespace StatsDashboard.Controllers
             ViewData["countEventClose"] = 0;
             ViewData["countEventDelete"] = db.Events.Where(e => !e.DeletedAt.Equals(null)).Count();
 
+            ViewData["countThread"] = db.Threads.Count();
+            ViewData["countPost"] = db.Posts.Count();
+            ViewData["countTheme"] = db.Threads.Select(t => t.ThemeId).Distinct().Count();
+
             return View();
         }
     }

@@ -38,6 +38,27 @@
     </div>
 </div>
 
+<div class="row">
+    <div class="col-md-12">
+        <hr />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <div id="countThread" style="width:100%;height:200px;"></div>
+    </div>
+    <div class="col-md-3">
+        <div id="countPost" style="width:100%;height:200px;"></div>
+    </div>
+    <div class="col-md-3">
+        <div id="countTheme" style="width:100%;height:200px;"></div>
+    </div>
+    <div class="col-md-3">
+
+    </div>
+</div>
+
 @section Scripts {
     <script>
         $(document).ready(function () {
@@ -133,6 +154,42 @@
                 title: "Events deleted",
                 showMinMax: false,
                 levelColors: ['rgba(0,137,250,1)'],
+                gaugeColor: 'rgba(220,220,220,0.5)',
+                titleFontColor: '#444'
+            });
+
+            var gCountThread = new JustGage({
+                id: "countThread",
+                value: parseInt('@ViewData["countThread"]'),
+                min: 0,
+                max: parseInt('@ViewData["countThread"]'),
+                title: "Threads",
+                showMinMax: false,
+                levelColors: ['rgba(255,0,49,1)'],
+                gaugeColor: 'rgba(220,220,220,0.5)',
+                titleFontColor: '#444'
+            });
+
+            var gCountPost = new JustGage({
+                id: "countPost",
+                value: parseInt('@ViewData["countPost"]'),
+                min: 0,
+                max: parseInt('@ViewData["countPost"]'),
+                title: "Posts",
+                showMinMax: false,
+                levelColors: ['rgba(255,0,49,1)'],
+                gaugeColor: 'rgba(220,220,220,0.5)',
+                titleFontColor: '#444'
+            });
+
+            var gCountTheme = new JustGage({
+                id: "countTheme",
+                value: parseInt('@ViewData["countTheme"]'),
+                min: 0,
+                max: parseInt('@ViewData["countTheme"]'),
+                title: "Themes",
+                showMinMax: false,
+                levelColors: ['rgba(255,0,49,1)'],
                 gaugeColor: 'rgba(220,220,220,0.5)',
                 titleFontColor: '#444'
             });
