@@ -76,6 +76,16 @@ namespace StatsDashboard.Controllers
             ViewData["countUserActive"] = db.Users.Where(u => u.IsActive == 1 && u.DeletedAt.Equals(null)).Count();
             ViewData["countUserFacebook"] = db.Users.Where(u => !u.GuidFacebook.Equals(null)).Count();
 
+            List<String> cities = db.Users.Select(u => u.Address).Distinct().ToList();
+            Dictionary<String, int> citiesStats = new Dictionary<string, int>();
+
+            foreach (string city in cities)
+            {
+                citiesStats.Add(city, db.Users.Distinct().Where(u => u.Address == city).Count());
+            }
+
+            ViewData["citiesStats"] = citiesStats;
+
             return View();
         }
 	}

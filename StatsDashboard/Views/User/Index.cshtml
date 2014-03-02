@@ -25,7 +25,7 @@
 
 <div class="row">
     <div class="col-md-12">
-        <h3 style="text-align: center; margin-top: 5px; margin-bottom: 20px;"><span style="color:rgba(220,220,220,1);font-weight:bold;">Registration</span> / <span style="color:rgba(151,187,205,0.5); font-weight: bold;">Unsubscribe</span></h3>
+        <h3 style="text-align: center; margin-top: 5px; margin-bottom: 20px;"><span style="color:rgba(255,169,0,1); font-weight: bold;">Registration</span> / <span style="color:rgba(170,170,170,1); font-weight: bold; ">Unsubscribe</span></h3>
     </div>
     <div class="col-md-6">
         <canvas id="chartUserRegisterYear" height="200"></canvas>
@@ -36,157 +36,204 @@
     </div>
 </div>
 
+<div class="row">
+    <div class="col-md-12">
+        <hr />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div id="map" style="width:100%;height:500px;"></div>
+    </div>
+</div>
+
+
 @section Scripts {
     <script>
-        var dataToDataChartUserRegisterYear = [];
-        @foreach (KeyValuePair<int, int> pair in (Dictionary<int, int>)ViewData["userRegisterForMonths"])
+    var dataToDataChartUserRegisterYear = [];
+    @foreach (KeyValuePair<int, int> pair in (Dictionary<int, int>)ViewData["userRegisterForMonths"])
         {
         <text>dataToDataChartUserRegisterYear.push(@pair.Value);</text>
         }
 
-        var dataToDataChartUserDeletedYear = [];
-        @foreach (KeyValuePair<int, int> pair in (Dictionary<int, int>)ViewData["userDeletedForMonths"])
+    var dataToDataChartUserDeletedYear = [];
+    @foreach (KeyValuePair<int, int> pair in (Dictionary<int, int>)ViewData["userDeletedForMonths"])
         {
         <text>dataToDataChartUserDeletedYear.push(@pair.Value);</text>
         }
 
-        var dataToDataChartUserRegisterMonth = [];
-        var labelToDataChartUserRegisterMonth = [];
-        @foreach (KeyValuePair<int, int> pair in (Dictionary<int, int>)ViewData["userRegisterForMonth"])
+    var dataToDataChartUserRegisterMonth = [];
+    var labelToDataChartUserRegisterMonth = [];
+    @foreach (KeyValuePair<int, int> pair in (Dictionary<int, int>)ViewData["userRegisterForMonth"])
         {
         <text>
-        labelToDataChartUserRegisterMonth.push(@pair.Key);
-        dataToDataChartUserRegisterMonth.push(@pair.Value);
-        </text>
+    labelToDataChartUserRegisterMonth.push(@pair.Key);
+    dataToDataChartUserRegisterMonth.push(@pair.Value);
+    </text>
         }
 
-        var dataToDataChartUserDeletedMonth = [];
-        var labelToDataChartUserDeletedMonth = [];
-        @foreach (KeyValuePair<int, int> pair in (Dictionary<int, int>)ViewData["userDeletedForMonth"])
+    var dataToDataChartUserDeletedMonth = [];
+    var labelToDataChartUserDeletedMonth = [];
+    @foreach (KeyValuePair<int, int> pair in (Dictionary<int, int>)ViewData["userDeletedForMonth"])
         {
         <text>
-        labelToDataChartUserDeletedMonth.push(@pair.Key);
-        dataToDataChartUserDeletedMonth.push(@pair.Value);
-        </text>
+    labelToDataChartUserDeletedMonth.push(@pair.Key);
+    dataToDataChartUserDeletedMonth.push(@pair.Value);
+    </text>
         }
 
-        var dataChartUserRegisterYear = {
-            labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-            datasets: [
-                {
-                    fillColor: "rgba(220,220,220,0.5)",
-                    strokeColor: "rgba(220,220,220,1)",
-                    pointColor: "rgba(220,220,220,1)",
-                    pointStrokeColor: "#fff",
-                    data: dataToDataChartUserRegisterYear
-                },
-                {
-                    fillColor: "rgba(151,187,205,0.5)",
-                    strokeColor: "rgba(151,187,205,1)",
-                    pointColor: "rgba(151,187,205,1)",
-                    pointStrokeColor: "#fff",
-                    data: dataToDataChartUserDeletedYear
-                }
-            ]
-        }
-
-        var dataChartUserRegisterMonth = {
-            labels: labelToDataChartUserRegisterMonth,
-            datasets: [
-                {
-                    fillColor: "rgba(220,220,220,0.5)",
-                    strokeColor: "rgba(220,220,220,1)",
-                    pointColor: "rgba(220,220,220,1)",
-                    pointStrokeColor: "#fff",
-                    data: dataToDataChartUserRegisterMonth
-                },
-                {
-                    fillColor: "rgba(151,187,205,0.5)",
-                    strokeColor: "rgba(151,187,205,1)",
-                    pointColor: "rgba(151,187,205,1)",
-                    pointStrokeColor: "#fff",
-                    data: dataToDataChartUserDeletedMonth
-                }
-            ]
-        }
-
-        var dataChartUserGlobal = [
+    var dataChartUserRegisterYear = {
+        labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+        datasets: [
             {
-                value: '@ViewData["countUser"]',
-                color: '#F7464A'
+                fillColor: "rgba(255,169,0,0.5)",
+                strokeColor: "rgba(255,169,0,1)",
+                pointColor: "rgba(255,169,0,1)",
+                pointStrokeColor: "#fff",
+                data: dataToDataChartUserRegisterYear
             },
             {
-                value: '@ViewData["countUserDelete"]',
-                color: '#E2EAE9'
-            },
-            {
-                value: '@ViewData["countUserActive"]',
-                color: '#D4CCC5'
-            },
-            {
-                value: '@ViewData["countUserFacebook"]',
-                color: '#949FB1'
+                fillColor: "rgba(170,170,170,0.5)",
+                strokeColor: "rgba(170,170,170,1)",
+                pointColor: "rgba(170,170,170,1)",
+                pointStrokeColor: "#fff",
+                data: dataToDataChartUserDeletedYear
             }
-        ];
+        ]
+    }
 
-        $(document).ready(function () {
+    var dataChartUserRegisterMonth = {
+        labels: labelToDataChartUserRegisterMonth,
+        datasets: [
+            {
+                fillColor: "rgba(255,169,0,0.5)",
+                strokeColor: "rgba(255,169,0,1)",
+                pointColor: "rgba(255,169,0,1)",
+                pointStrokeColor: "#fff",
+                data: dataToDataChartUserRegisterMonth
+            },
+            {
+                fillColor: "rgba(170,170,170,0.5)",
+                strokeColor: "rgba(170,170,170,1)",
+                pointColor: "rgba(170,170,170,1)",
+                pointStrokeColor: "#fff",
+                data: dataToDataChartUserDeletedMonth
+            }
+        ]
+    }
 
-            var ctxChartUserRegisterYear = $("#chartUserRegisterYear").get(0).getContext("2d");
-            ctxChartUserRegisterYear.canvas.width = $("#chartUserRegisterYear").parent().width();
-            var chartUserRegisterYear = new Chart(ctxChartUserRegisterYear).Line(dataChartUserRegisterYear, {});
+    $(document).ready(function () {
 
-            var ctxChartUserRegisterMonth = $("#chartUserRegisterMonth").get(0).getContext("2d");
-            ctxChartUserRegisterMonth.canvas.width = $("#chartUserRegisterMonth").parent().width();
-            var chartUserRegisterMonth = new Chart(ctxChartUserRegisterMonth).Line(dataChartUserRegisterMonth, {});
-            
-            var gCountUser = new JustGage({
-                id: "countUser",
-                value: '@ViewData["countUser"]',
-                min: 0,
-                max: '@ViewData["countUser"]',
-                title: "Users",
-                showMinMax: false,
-                levelColors: ['rgba(151,187,205,1)'],
-                gaugeColor: 'rgba(151,187,205,0.5)',
-                titleFontColor: '#333333'
-            });
+        var options = {
+            scaleFontColor: '#444'
+        };
 
-            var gCountUserDelete = new JustGage({
-                id: "countUserDelete",
-                value: parseInt('@ViewData["countUserDelete"]'),
-                min: 0,
-                max: parseInt('@ViewData["countUser"]'),
-                title: "Users deleted",
-                showMinMax: false,
-                levelColors: ['rgba(151,187,205,1)'],
-                gaugeColor: 'rgba(151,187,205,0.5)',
-                titleFontColor: '#333333'
-            });
+        var ctxChartUserRegisterYear = $("#chartUserRegisterYear").get(0).getContext("2d");
+        ctxChartUserRegisterYear.canvas.width = $("#chartUserRegisterYear").parent().width();
+        var chartUserRegisterYear = new Chart(ctxChartUserRegisterYear).Line(dataChartUserRegisterYear, options);
 
-            var gCountUserActive = new JustGage({
-                id: "countUserActive",
-                value: parseInt('@ViewData["countUserActive"]'),
-                min: 0,
-                max: parseInt('@ViewData["countUser"]'),
-                title: "Users active",
-                showMinMax: false,
-                levelColors: ['rgba(151,187,205,1)'],
-                gaugeColor: 'rgba(151,187,205,0.5)',
-                titleFontColor: '#333333'
-            });
+        var ctxChartUserRegisterMonth = $("#chartUserRegisterMonth").get(0).getContext("2d");
+        ctxChartUserRegisterMonth.canvas.width = $("#chartUserRegisterMonth").parent().width();
+        var chartUserRegisterMonth = new Chart(ctxChartUserRegisterMonth).Line(dataChartUserRegisterMonth, options);
 
-            var gCountUserFacebook = new JustGage({
-                id: "countUserFacebook",
-                value: parseInt('@ViewData["countUserFacebook"]'),
-                min: 0,
-                max: parseInt('@ViewData["countUser"]'),
-                title: "Users use Facebook",
-                showMinMax: false,
-                levelColors: ['rgba(151,187,205,1)'],
-                gaugeColor: 'rgba(151,187,205,0.5)',
-                titleFontColor: '#333333'
-            });
-            
+        var gCountUser = new JustGage({
+            id: "countUser",
+            value: parseInt('@ViewData["countUser"]'),
+            min: 0,
+            max: parseInt('@ViewData["countUser"]'),
+            title: "Users",
+            showMinMax: false,
+            levelColors: ['rgba(255,169,0,1)'],
+            gaugeColor: 'rgba(220,220,220,0.5)',
+            titleFontColor: '#444'
         });
+
+        var gCountUserDelete = new JustGage({
+            id: "countUserDelete",
+            value: parseInt('@ViewData["countUserDelete"]'),
+            min: 0,
+            max: parseInt('@ViewData["countUser"]'),
+            title: "Users deleted",
+            showMinMax: false,
+            levelColors: ['rgba(255,169,0,1)'],
+            gaugeColor: 'rgba(220,220,220,0.5)',
+            titleFontColor: '#444'
+        });
+
+        var gCountUserActive = new JustGage({
+            id: "countUserActive",
+            value: parseInt('@ViewData["countUserActive"]'),
+            min: 0,
+            max: parseInt('@ViewData["countUser"]'),
+            title: "Users active",
+            showMinMax: false,
+            levelColors: ['rgba(255,169,0,1)'],
+            gaugeColor: 'rgba(220,220,220,0.5)',
+            titleFontColor: '#444'
+        });
+
+        var gCountUserFacebook = new JustGage({
+            id: "countUserFacebook",
+            value: parseInt('@ViewData["countUserFacebook"]'),
+            min: 0,
+            max: parseInt('@ViewData["countUser"]'),
+            title: "Users use Facebook",
+            showMinMax: false,
+            levelColors: ['rgba(255,169,0,1)'],
+            gaugeColor: 'rgba(220,220,220,0.5)',
+            titleFontColor: '#444'
+        });
+
+    });
+
+    var map = null;
+    var geocoder = null;
+    var markers = [];
+
+    function add() {
+        @foreach (KeyValuePair<string, int> pair in (Dictionary<string, int>)ViewData["citiesStats"])
+        {
+            <text>
+            geocoder.geocode({ 'address': '@pair.Key' }, function (results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    for(var i=0;i <parseInt('@pair.Value');i++) {
+                        markers.push(
+                            new google.maps.Marker({
+                                title: '@pair.Key',
+                                position: results[0].geometry.location,
+                                clickable: false,
+                                draggable: true,
+                                flat: true
+                            })
+                        );
+                    }
+                    updateMarkers();
+                }
+                else {
+                    alert('Geocode was not successful for the following reason: ' + status);
+                }
+            });
+            </text>
+        }
+    }
+
+    function initialize() {
+        geocoder = new google.maps.Geocoder();
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: new google.maps.LatLng(46.52863469527167, 2.43896484375),
+            zoom: 6,
+        });
+
+        add();
+    }
+
+    function updateMarkers() {
+        if (markers) {
+            new MarkerClusterer(map, markers, { maxZoom: 19 });
+        }
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
     </script>
 }

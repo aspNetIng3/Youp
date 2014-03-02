@@ -28,14 +28,14 @@
         $(document).ready(function () {
             var gCountUser = new JustGage({
                 id: "countUser",
-                value: '@ViewData["countUser"]',
+                value: parseInt('@ViewData["countUser"]'),
                 min: 0,
-                max: '@ViewData["countUser"]',
+                max: parseInt('@ViewData["countUser"]'),
                 title: "Users",
                 showMinMax: false,
-                levelColors: ['rgba(151,187,205,1)'],
-                gaugeColor: 'rgba(151,187,205,0.5)',
-                titleFontColor: '#333333'
+                levelColors: ['rgba(255,169,0,1)'],
+                gaugeColor: 'rgba(220,220,220,0.5)',
+                titleFontColor: '#444'
             });
 
             var gCountUserDelete = new JustGage({
@@ -45,9 +45,9 @@
                 max: parseInt('@ViewData["countUser"]'),
                 title: "Users deleted",
                 showMinMax: false,
-                levelColors: ['rgba(151,187,205,1)'],
-                gaugeColor: 'rgba(151,187,205,0.5)',
-                titleFontColor: '#333333'
+                levelColors: ['rgba(255,169,0,1)'],
+                gaugeColor: 'rgba(220,220,220,0.5)',
+                titleFontColor: '#444'
             });
 
             var gCountUserActive = new JustGage({
@@ -57,9 +57,9 @@
                 max: parseInt('@ViewData["countUser"]'),
                 title: "Users active",
                 showMinMax: false,
-                levelColors: ['rgba(151,187,205,1)'],
-                gaugeColor: 'rgba(151,187,205,0.5)',
-                titleFontColor: '#333333'
+                levelColors: ['rgba(255,169,0,1)'],
+                gaugeColor: 'rgba(220,220,220,0.5)',
+                titleFontColor: '#444'
             });
 
             var gCountUserFacebook = new JustGage({
@@ -69,9 +69,9 @@
                 max: parseInt('@ViewData["countUser"]'),
                 title: "Users use Facebook",
                 showMinMax: false,
-                levelColors: ['rgba(151,187,205,1)'],
-                gaugeColor: 'rgba(151,187,205,0.5)',
-                titleFontColor: '#333333'
+                levelColors: ['rgba(255,169,0,1)'],
+                gaugeColor: 'rgba(220,220,220,0.5)',
+                titleFontColor: '#444'
             });
         });
     </script>
