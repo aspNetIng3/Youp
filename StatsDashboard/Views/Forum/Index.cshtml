@@ -36,6 +36,20 @@
     </div>
 </div>
 
+<div class="row">
+    <div class="col-md-12">
+        <hr />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <canvas id="themeThread" height="200"></canvas>
+    </div>
+    <div class="col-md-6">
+    </div>
+</div>
+
 @section Scripts {
     <script>
 
@@ -68,6 +82,19 @@
         dataToDataChartPostMonth.push(@pair.Value);
         </text>
         }
+
+        /*
+        // Impossible : ThemeId NOT NULL dans Theme ...
+        var dataToDataChartThemeThread = [];
+        var labelToDataChartThemeThread = [];
+        @@foreach (KeyValuePair<int, int> pair in (Dictionary<int, int>)ViewData["themeThread"])
+        {
+        <text>
+        labelToDataChartThemeThread.push(@@pair.Key);
+        dataToDataChartThemeThread.push(@@pair.Value);
+        </text>
+        }
+        */
 
         var dataChartYear = {
             labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
@@ -108,7 +135,23 @@
                 }
             ]
         }
-       
+
+        /*
+        // Impossible : ThemeId NOT NULL dans Theme ...
+        var dataChartThemeThread = {
+            labels: labelToDataChartThemeThread,
+            datasets: [
+                {
+                    fillColor: "rgba(255,0,49,0.5)",
+                    strokeColor: "rgba(255,0,49,1)",
+                    pointColor: "rgba(255,0,49,1)",
+                    pointStrokeColor: "#fff",
+                    data: dataToDataChartThemeThread
+                }
+            ]
+        }
+       */
+
        $(document).ready(function () {
            var options = {
                scaleFontColor: '#444'
@@ -121,6 +164,13 @@
            var ctxChartMonth = $("#chartMonth").get(0).getContext("2d");
            ctxChartMonth.canvas.width = $("#chartMonth").parent().width();
            var chartMonth = new Chart(ctxChartMonth).Line(dataChartMonth, options);
+
+           /*
+           // Impossible : ThemeId NOT NULL dans Theme ...
+           var ctxThemeThread = $("#themeThread").get(0).getContext("2d");
+           ctxThemeThread.canvas.width = $("#themeThread").parent().width();
+           var themeThread = new Chart(ctxThemeThread).Line(dataChartThemeThread, options);
+           */
 
            var gCountThread = new JustGage({
                 id: "countThread",

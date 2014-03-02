@@ -55,6 +55,19 @@ namespace StatsDashboard.Controllers
             ViewData["countPost"] = db.Posts.Count();
             ViewData["countTheme"] = db.Threads.Select(t => t.ThemeId).Distinct().Count();
 
+            /*
+            // Impossible : ThemeId NOT NULL dans Theme ...
+            List<Theme> themes = db.Themes.ToList();
+            Dictionary<string, int> themeThread = new Dictionary<string, int>();
+
+            foreach (Theme theme in themes)
+            {
+                themeThread.Add(theme.Name, db.Threads.Where(t => t.ThemeId == theme.Id).Count());
+            }
+
+            ViewData["themeThread"] = themeThread.OrderByDescending(x => x.Value).Take(20).ToDictionary(x => x.Key, x => x.Value); ;
+            */
+
             return View();
         }
 	}
