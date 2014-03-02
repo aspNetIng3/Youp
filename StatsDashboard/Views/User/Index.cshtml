@@ -43,8 +43,18 @@
 </div>
 
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-9">
         <div id="map" style="width:100%;height:500px;"></div>
+    </div>
+    <div class="col-md-3">
+       <ul>
+           @foreach (KeyValuePair<string, int> pair in ((Dictionary<string, int>)ViewData["topTenCities"]))
+           {
+           <li>
+               @pair.Key (@pair.Value)
+           </li>
+           }
+       </ul>
     </div>
 </div>
 

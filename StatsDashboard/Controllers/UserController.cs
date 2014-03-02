@@ -86,6 +86,8 @@ namespace StatsDashboard.Controllers
 
             ViewData["citiesStats"] = citiesStats;
 
+            ViewData["topTenCities"] = citiesStats.OrderByDescending(x => x.Value).Take(10).ToDictionary(x => x.Key, x => x.Value);
+
             return View();
         }
 	}
