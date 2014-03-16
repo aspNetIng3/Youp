@@ -88,6 +88,28 @@ namespace StatsDashboard.Controllers
 
             ViewData["topTenCities"] = citiesStats.OrderByDescending(x => x.Value).Take(10).ToDictionary(x => x.Key, x => x.Value);
 
+            //
+
+            List<User> participants = db.Users.OrderByDescending(u => u.Events.Count).Take(10).ToList();
+            Dictionary<String, int> participations = new Dictionary<string, int>();
+
+            foreach (User u in participants)
+            {
+                participations.Add(u.UserName, u.Events.Count);
+            }
+
+            ViewData["topTenParticipants"] = participations.OrderByDescending(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
+
+            List<User> creators = db.Users.OrderByDescending(u => u.Events1.Count).Take(10).ToList();
+            Dictionary<String, int> creations = new Dictionary<string, int>();
+
+            foreach (User u in creators)
+            {
+                creations.Add(u.UserName, u.Events1.Count);
+            }
+
+            ViewData["topTenCreators"] = creations.OrderByDescending(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
+
             return View();
         }
 	}
