@@ -14,8 +14,10 @@ namespace YoupFO.Models
         public String UserName { get; set; }
 
         [Required(ErrorMessage = "Le mail est requis")]
-        [RegularExpression(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))
-	            ([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$", ErrorMessage = "Le format de l'email est incorrect")]
+//        [RegularExpression(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))
+	//            ([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$", ErrorMessage = "Le format de l'email est incorrect")]
+
+        [RegularExpression("[a-zA-Z0-9\\.\\-_]+@[a-zA-Z0-9\\.\\-_]+\\.[a-zA-Z]+", ErrorMessage = "Le format de l'email est incorrect")]
         public String Email { get; set; }
 
         [Required(ErrorMessage = "Le mot de passe est requis")]
