@@ -50,8 +50,10 @@ namespace YoupFO.Controllers
         }
 
         // DELETE api/apiuser/5
-        public void Delete(int id)
+        public void Delete(Guid id)
         {
+            UserService userService = new UserService();
+            userService.DeleteUser(id);
         }
     }
 }

@@ -45,6 +45,12 @@ namespace YoupService
 
             dataContext.EditUser(id, _user);
         }
+
+        public void DeleteUser(Guid id)
+        {
+            YoupData dataContext = new YoupData();
+            dataContext.DeleteUser(id);
+        }
     }
 }
 
