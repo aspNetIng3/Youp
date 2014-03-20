@@ -29,11 +29,11 @@ namespace YoupRepository
             this.Themes = new HashSet<Theme>();
         }
     
-        public Guid Id { get; set; }
+        public string Id { get; set; }
         public string UserName { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public Guid GuidFacebook { get; set; }
+        public string GuidFacebook { get; set; }
         public Nullable<short> IsActive { get; set; }
         public string Gender { get; set; }
         public Nullable<System.DateTime> Birthday { get; set; }

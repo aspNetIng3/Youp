@@ -18,7 +18,7 @@ namespace YoupService.Models
 
         public Guid GuidFacebook { get; set; }
 
-        public short IsActive { get; set; }
+        public bool IsActive { get; set; }
 
         public String Gender { get; set; }
 
