@@ -67,6 +67,7 @@
     <Compile Include="Message.cs">
       <DependentUpon>Youp.tt</DependentUpon>
     </Compile>
+    <Compile Include="YoupData.cs" />
     <Compile Include="Photo.cs">
       <DependentUpon>Youp.tt</DependentUpon>
     </Compile>

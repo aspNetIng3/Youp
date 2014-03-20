@@ -59,6 +59,29 @@ namespace YoupFO.Models
 
             return _users;
         }
+
+        internal static UserS FromFO(User user)
+        {
+            UserS _user = new UserS
+            {
+                Id = user.Id,
+                UserName = user.UserName,
+                Email = user.Email,
+                Password = user.Password,
+                GuidFacebook = user.GuidFacebook,
+                IsActive = user.IsActive,
+                Gender = user.Gender,
+                Birthday = user.Birthday,
+                Address = user.Address,
+                RankId = user.RankId,
+                RoleId = user.RoleId,
+                CreatedAt = user.CreatedAt,
+                UpdatedAt = user.UpdatedAt,
+                DeletedAt = user.DeletedAt
+            };
+
+            return _user;
+        }
     }
 }
 
