@@ -37,6 +37,14 @@ namespace YoupService
 
             dataContext.CreateUser(_user);
         }
+
+        public void EditUser(Guid id, UserS user)
+        {
+            YoupData dataContext = new YoupData();
+            User _user = ConvertService.FromService(user);
+
+            dataContext.EditUser(id, _user);
+        }
     }
 }
 

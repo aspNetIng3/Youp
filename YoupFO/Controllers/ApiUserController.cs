@@ -43,7 +43,10 @@ namespace YoupFO.Controllers
         // PUT api/apiuser/5
         public void Put(Guid id, User user)
         {
+            UserS _user = ConvertFO.FromFO(user);
+            UserService userService = new UserService();
 
+            userService.EditUser(id, _user);
         }
 
         // DELETE api/apiuser/5
