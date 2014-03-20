@@ -197,6 +197,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Youp.edmx</DependentUpon>
     </Compile>
+    <Compile Include="YoupData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />

@@ -10,7 +10,7 @@ namespace YoupService
 {
     public class UserService
     {
-        public UserS GetUser(Guid id)
+        public UserS GetUser(string id)
         {
             UserS user = new UserS();
             //YoupData dataContext = new YoupData();
@@ -38,15 +38,15 @@ namespace YoupService
             dataContext.CreateUser(_user);
         }
 
-        public void EditUser(Guid id, UserS user)
+        public void EditUser(UserS user)
         {
             YoupData dataContext = new YoupData();
             User _user = ConvertService.FromService(user);
 
-            dataContext.EditUser(id, _user);
+            dataContext.EditUser(_user);
         }
 
-        public void DeleteUser(Guid id)
+        public void DeleteUser(string id)
         {
             YoupData dataContext = new YoupData();
             dataContext.DeleteUser(id);

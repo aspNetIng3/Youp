@@ -3,60 +3,42 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using YoupRepository.DAL;
 
 namespace YoupRepository
 {
     public class YoupData
     {
-        private YoupEntities db;
+        private UserDatabase db;
 
         public YoupData()
         {
-            db = new YoupEntities();
+            db = new UserDatabase();
         }
 
-        public User GetUser(Guid id)
+        public User GetUser(string id)
         {
-            return db.Users.SingleOrDefault(u => u.Id == id.ToString() && u.IsActive.HasValue && u.IsActive.Value != 0);
+            return db.getUser(id);
         }
 
         public List<User> GetUsers()
         {
-            return db.Users.ToList();
+            return db.getUsers();
         }
 
         public void CreateUser(User user)
         {
-            db.Users.Add(user);
-            db.SaveChanges();
+            db.Create(user);
         }
 
-        public void EditUser(Guid id, User user)
+        public void EditUser(User user)
         {
-            User _user = db.Users.SingleOrDefault(u => u.Id == id.ToString());
-            _user.UserName = user.UserName;
-            _user.Email = user.Email;
-            _user.Password = user.Password;
-            _user.GuidFacebook = user.GuidFacebook;
-            _user.IsActive = user.IsActive;
-            _user.Gender = user.Gender;
-            _user.Birthday = user.Birthday;
-            _user.Address = user.Address;
-            _user.RankId = user.RankId;
-            _user.RoleId = user.RoleId;
-            _user.CreatedAt = user.CreatedAt;
-            _user.UpdatedAt = DateTime.Now;
-            _user.DeletedAt = user.DeletedAt;
-            db.SaveChanges();
-
+            db.Update(user);
         }
 
-        public void DeleteUser(Guid id)
+        public void DeleteUser(string id)
         {
-            User user = db.Users.SingleOrDefault(u => u.Id == id.ToString());
-            user.DeletedAt = DateTime.Now;
-            user.IsActive = 0;
-            db.SaveChanges();
+            db.Delete(id);
         }
     }
 }

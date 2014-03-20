@@ -26,7 +26,9 @@ namespace YoupFO.Models
                 RoleId = user.RoleId,
                 CreatedAt = user.CreatedAt,
                 UpdatedAt = user.UpdatedAt,
-                DeletedAt = user.DeletedAt
+                DeletedAt = user.DeletedAt,
+                ResetPasswordToken = user.ResetPasswordToken,
+                ResetTokenSentAt = user.ResetTokenSentAt
             };
 
             return _user;
@@ -53,7 +55,9 @@ namespace YoupFO.Models
                     RoleId = u.RoleId,
                     CreatedAt = u.CreatedAt,
                     UpdatedAt = u.UpdatedAt,
-                    DeletedAt = u.DeletedAt
+                    DeletedAt = u.DeletedAt,
+                    ResetPasswordToken = u.ResetPasswordToken,
+                    ResetTokenSentAt = u.ResetTokenSentAt
                 });
             }
 
@@ -77,7 +81,9 @@ namespace YoupFO.Models
                 RoleId = user.RoleId,
                 CreatedAt = user.CreatedAt,
                 UpdatedAt = user.UpdatedAt,
-                DeletedAt = user.DeletedAt
+                DeletedAt = user.DeletedAt,
+                ResetPasswordToken = user.ResetPasswordToken,
+                ResetTokenSentAt = user.ResetTokenSentAt
             };
 
             return _user;

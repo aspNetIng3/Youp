@@ -44,5 +44,9 @@ namespace YoupFO.Models
         public DateTime UpdatedAt { get; set; }
 
         public DateTime DeletedAt { get; set; }
+
+        public String ResetPasswordToken { get; set; }
+
+        public DateTime ResetTokenSentAt { get; set; }
     }
 }

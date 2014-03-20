@@ -24,7 +24,7 @@ namespace YoupFO.Controllers
         }
 
         // GET api/apiuser/5
-        public User GetUser(Guid id)
+        public User GetUser(string id)
         {
             User user = new User();
             UserService userService = new UserService();
@@ -47,11 +47,11 @@ namespace YoupFO.Controllers
             UserS _user = ConvertFO.FromFO(user);
             UserService userService = new UserService();
 
-            userService.EditUser(id, _user);
+            userService.EditUser(_user);
         }
 
         // DELETE api/apiuser/5
-        public void Delete(Guid id)
+        public void Delete(string id)
         {
             UserService userService = new UserService();
             userService.DeleteUser(id);

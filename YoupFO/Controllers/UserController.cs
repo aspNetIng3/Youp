@@ -29,7 +29,7 @@ namespace YoupFO.Controllers
         //
         // GET: /User/Details/5
 
-        public ActionResult Details(Guid id)
+        public ActionResult Details(string id)
         {
             UserService service = new UserService();
             UserS userS = service.GetUser(id);
@@ -78,7 +78,7 @@ namespace YoupFO.Controllers
         //
         // GET: /User/Edit/5
 
-        public ActionResult Edit(Guid id)
+        public ActionResult Edit(string id)
         {
             UserService service = new UserService();
             UserS userS = service.GetUser(id);
@@ -105,7 +105,7 @@ namespace YoupFO.Controllers
                 };
                 UserService service = new UserService();
                 UserS userS = YoupFO.Models.ConvertFO.FromFO(user);
-                service.EditUser(id, userS);
+                service.EditUser(userS);
 
                 return RedirectToAction("Index");
             }
@@ -127,7 +127,7 @@ namespace YoupFO.Controllers
         // POST: /User/Delete/5
 
         [HttpPost]
-        public ActionResult Delete(Guid id, FormCollection collection)
+        public ActionResult Delete(string id, FormCollection collection)
         {
             try
             {
