@@ -17,9 +17,9 @@ namespace YoupFO.Models
 
         public Guid GuidFacebook { get; set; }
 
-        public short IsActive { get; set; }
+        public bool IsActive { get; set; }
 
-        public String Gender { get; set; }
+        public Char Gender { get; set; }
 
         public DateTime Birthday { get; set; }
 

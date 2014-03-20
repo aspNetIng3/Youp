@@ -41,6 +41,16 @@ namespace YoupFO.Controllers
             try
             {
                 // TODO: Add insert logic here
+                Models.User user = new Models.User()
+                {
+                    UserName = collection["UserName"],
+                    Password = collection["Password"],
+                    Email = collection["Email"],
+                    Address = collection["Address"],
+                    Birthday = DateTime.Parse(collection["Birthday"]),
+                    Gender = collection["Gender"].First()
+                };
+                UserService service;
 
                 return RedirectToAction("Index");
             }
