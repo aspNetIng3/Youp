@@ -8,7 +8,7 @@ using YoupService.Models;
 
 namespace YoupService
 {
-    class UserService
+    public class UserService
     {
         public UserS GetUser(Guid id)
         {
@@ -18,6 +18,16 @@ namespace YoupService
             user = ConvertService.ToService(dataContext.GetUser(id));
 
             return user;
+        }
+
+        public List<UserS> GetUsers()
+        {
+            List<UserS> users = new List<UserS>();
+            YoupData dataContext = new YoupData();
+
+            users = ConvertService.ToService(dataContext.GetUsers());
+
+            return users;
         }
     }
 }

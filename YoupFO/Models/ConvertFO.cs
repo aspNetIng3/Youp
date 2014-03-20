@@ -1,60 +1,59 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using YoupRepository;
+using System.Web;
+using System.Web.Mvc;
 using YoupService.Models;
 
-namespace YoupService
+namespace YoupFO.Models
 {
-    class ConvertService
+    public class ConvertFO
     {
-        internal static UserS ToService(User user)
+        internal static User ToFO(UserS user)
         {
-            UserS _user = new UserS
+            User _user = new User
             {
                 Id = user.Id,
                 UserName = user.UserName,
                 Email = user.Email,
                 Password = user.Password,
                 GuidFacebook = user.GuidFacebook,
-                IsActive = user.IsActive.GetValueOrDefault(),
+                IsActive = user.IsActive,
                 Gender = user.Gender,
-                Birthday = user.Birthday.GetValueOrDefault(),
+                Birthday = user.Birthday,
                 Address = user.Address,
                 RankId = user.RankId,
                 RoleId = user.RoleId,
                 CreatedAt = user.CreatedAt,
                 UpdatedAt = user.UpdatedAt,
-                DeletedAt = user.DeletedAt.GetValueOrDefault()
+                DeletedAt = user.DeletedAt
             };
 
             return _user;
         }
 
-        internal static List<UserS> ToService(List<User> users)
+        internal static List<User> ToFO(List<UserS> users)
         {
-            List<UserS> _users = new List<UserS>();
+            List<User> _users = new List<User>();
 
-            foreach (User u in users)
+            foreach (UserS u in users)
             {
-                _users.Add(new UserS()
+                _users.Add(new User()
                 {
                     Id = u.Id,
                     UserName = u.UserName,
                     Email = u.Email,
                     Password = u.Password,
                     GuidFacebook = u.GuidFacebook,
-                    IsActive = u.IsActive.GetValueOrDefault(),
+                    IsActive = u.IsActive,
                     Gender = u.Gender,
-                    Birthday = u.Birthday.GetValueOrDefault(),
+                    Birthday = u.Birthday,
                     Address = u.Address,
                     RankId = u.RankId,
                     RoleId = u.RoleId,
                     CreatedAt = u.CreatedAt,
                     UpdatedAt = u.UpdatedAt,
-                    DeletedAt = u.DeletedAt.GetValueOrDefault()
+                    DeletedAt = u.DeletedAt
                 });
             }
 
@@ -62,3 +61,4 @@ namespace YoupService
         }
     }
 }
+
