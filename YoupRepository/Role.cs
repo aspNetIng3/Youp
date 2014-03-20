@@ -14,17 +14,10 @@ namespace YoupRepository
     
     public partial class Role
     {
-        public Role()
-        {
-            this.Users = new HashSet<User>();
-        }
-    
         public int Id { get; set; }
         public string Label { get; set; }
         public System.DateTime CreatedAt { get; set; }
         public System.DateTime UpdatedAt { get; set; }
         public Nullable<System.DateTime> DeletedAt { get; set; }
-    
-        public virtual ICollection<User> Users { get; set; }
     }
 }

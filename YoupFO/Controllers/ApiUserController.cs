@@ -59,7 +59,6 @@ namespace YoupFO.Controllers
 
         public void Auth(String username, String password)
         {            
-            WebSecurity.Login(username, password);
         }
     }
 }

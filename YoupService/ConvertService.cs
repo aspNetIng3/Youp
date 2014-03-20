@@ -14,12 +14,12 @@ namespace YoupService
         {
             UserS _user = new UserS
             {
-                Id = user.Id,
+                Id = new Guid(user.Id),
                 UserName = user.UserName,
                 Email = user.Email,
                 Password = user.Password,
-                GuidFacebook = user.GuidFacebook,
-                IsActive = user.IsActive.GetValueOrDefault(),
+                GuidFacebook = new Guid(user.GuidFacebook),
+                IsActive = user.IsActive.GetValueOrDefault() != 0,
                 Gender = user.Gender,
                 Birthday = user.Birthday.GetValueOrDefault(),
                 Address = user.Address,
@@ -41,12 +41,12 @@ namespace YoupService
             {
                 _users.Add(new UserS()
                 {
-                    Id = u.Id,
+                    Id = new Guid(u.Id),
                     UserName = u.UserName,
                     Email = u.Email,
                     Password = u.Password,
-                    GuidFacebook = u.GuidFacebook,
-                    IsActive = u.IsActive.GetValueOrDefault(),
+                    GuidFacebook = new Guid(u.GuidFacebook),
+                    IsActive = u.IsActive.GetValueOrDefault() != 0,
                     Gender = u.Gender,
                     Birthday = u.Birthday.GetValueOrDefault(),
                     Address = u.Address,
@@ -65,12 +65,12 @@ namespace YoupService
         {
             User _user = new User
             {
-                Id = user.Id,
+                Id = user.Id.ToString(),
                 UserName = user.UserName,
                 Email = user.Email,
                 Password = user.Password,
-                GuidFacebook = user.GuidFacebook,
-                IsActive = user.IsActive,
+                GuidFacebook = user.GuidFacebook.ToString(),
+                IsActive = user.IsActive ? (short)1 : (short)0,
                 Gender = user.Gender,
                 Birthday = user.Birthday,
                 Address = user.Address,

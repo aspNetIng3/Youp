@@ -17,7 +17,7 @@ namespace YoupRepository
 
         public User GetUser(Guid id)
         {
-            return db.Users.SingleOrDefault(u => u.Id == id && u.IsActive == 1);
+            return db.Users.SingleOrDefault(u => u.Id == id.ToString() && u.IsActive.HasValue && u.IsActive.Value != 0);
         }
 
         public List<User> GetUsers()
@@ -33,7 +33,7 @@ namespace YoupRepository
 
         public void EditUser(Guid id, User user)
         {
-            User _user = db.Users.SingleOrDefault(u => u.Id == id);
+            User _user = db.Users.SingleOrDefault(u => u.Id == id.ToString());
             _user.UserName = user.UserName;
             _user.Email = user.Email;
             _user.Password = user.Password;
@@ -53,7 +53,7 @@ namespace YoupRepository
 
         public void DeleteUser(Guid id)
         {
-            User user = db.Users.SingleOrDefault(u => u.Id == id);
+            User user = db.Users.SingleOrDefault(u => u.Id == id.ToString());
             user.DeletedAt = DateTime.Now;
             user.IsActive = 0;
             db.SaveChanges();

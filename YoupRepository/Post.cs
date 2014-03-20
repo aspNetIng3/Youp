@@ -14,11 +14,6 @@ namespace YoupRepository
     
     public partial class Post
     {
-        public Post()
-        {
-            this.BlogComments = new HashSet<BlogComment>();
-        }
-    
         public int Id { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
@@ -28,9 +23,7 @@ namespace YoupRepository
         public System.DateTime CreatedAt { get; set; }
         public System.DateTime UpdatedAt { get; set; }
         public Nullable<System.DateTime> DeletedAt { get; set; }
-    
-        public virtual Blog Blog { get; set; }
-        public virtual ICollection<BlogComment> BlogComments { get; set; }
-        public virtual Theme Theme { get; set; }
+        public string ImageUrl { get; set; }
+        public int NombreLike { get; set; }
     }
 }
