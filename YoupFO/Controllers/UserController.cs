@@ -10,21 +10,9 @@ namespace YoupFO.Controllers
 {
     public class UserController : ApiController
     {
-        public User[] Get()
+        public User[] GetUser()
         {
-            return new User[]
-           {
-               new User
-               {
-                   Id = Guid.NewGuid(),
-                   UserName = "Test"
-               },
-               new User
-               {
-                   Id = Guid.NewGuid(),
-                   UserName = "Toto"
-               }
-           };
+            
         }
     }
 }
