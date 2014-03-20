@@ -4,21 +4,31 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using YoupService;
+using YoupFO.Models;
 
 namespace YoupFO.Controllers
 {
     public class ApiUserController : ApiController
     {
         // GET api/apiuser
-        public IEnumerable<string> Get()
+        public List<User> Get()
         {
-            return new string[] { "value1", "value2" };
+            List<User> user = new List<User>();
+            UserService userService = new UserService();
+            user = ConvertFO.ToFO(userService.GetUsers());
+
+            return user;
         }
 
         // GET api/apiuser/5
-        public string Get(int id)
+        public User GetUser(Guid id)
         {
-            return "value";
+            User user = new User();
+            UserService userService = new UserService();
+            user = ConvertFO.ToFO(userService.GetUser(id));
+            
+            return user;
         }
 
         // POST api/apiuser

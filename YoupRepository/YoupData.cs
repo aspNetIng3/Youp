@@ -8,16 +8,21 @@ namespace YoupRepository
 {
     public class YoupData
     {
-        private YoupEntities data;
+        private YoupEntities db;
 
         public YoupData()
         {
-            data = new YoupEntities();
+            db = new YoupEntities();
         }
 
         public User GetUser(Guid id)
         {
-            return data.Users.Where(u => u.Id == id).Single();
+            return db.Users.Where(u => u.Id == id).Single();
+        }
+
+        public List<User> GetUsers()
+        {
+            return db.Users.ToList();
         }
     }
 }
