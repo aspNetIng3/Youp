@@ -19,6 +19,16 @@ namespace YoupService
 
             return user;
         }
+
+        public List<UserS> GetUsers()
+        {
+            List<UserS> users = new List<UserS>();
+            YoupData dataContext = new YoupData();
+
+            users = ConvertService.ToService(dataContext.GetUsers());
+
+            return users;
+        }
     }
 }
 
