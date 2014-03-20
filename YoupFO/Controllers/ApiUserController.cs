@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using YoupService;
 using YoupFO.Models;
+using YoupService.Models;
 
 namespace YoupFO.Controllers
 {
@@ -32,18 +33,27 @@ namespace YoupFO.Controllers
         }
 
         // POST api/apiuser
-        public void Post([FromBody]string value)
+        public void Post(User user)
         {
+            UserS _user = ConvertFO.FromFO(user);
+            UserService userService = new UserService();
+            userService.CreateUser(_user);   
         }
 
         // PUT api/apiuser/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(Guid id, User user)
         {
+            UserS _user = ConvertFO.FromFO(user);
+            UserService userService = new UserService();
+
+            userService.EditUser(id, _user);
         }
 
         // DELETE api/apiuser/5
-        public void Delete(int id)
+        public void Delete(Guid id)
         {
+            UserService userService = new UserService();
+            userService.DeleteUser(id);
         }
     }
 }

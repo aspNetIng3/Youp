@@ -61,7 +61,7 @@ namespace YoupFO.Controllers
                     Email = collection["Email"],
                     Address = collection["Address"],
                     Birthday = DateTime.Parse(collection["Birthday"]),
-                    Gender = collection["Gender"].First()
+                    Gender = collection["Gender"]
                 };
                 UserService service = new UserService();
                 //UserS userS = YoupFO.Models.ConvertFO.FromFO(user);
@@ -101,7 +101,7 @@ namespace YoupFO.Controllers
                     Email = collection["Email"],
                     Address = collection["Address"],
                     Birthday = DateTime.Parse(collection["Birthday"]),
-                    Gender = collection["Gender"].First()
+                    Gender = collection["Gender"]
                 };
                 UserService service = new UserService();
                 //UserS userS = YoupFO.Models.ConvertFO.FromFO(user);

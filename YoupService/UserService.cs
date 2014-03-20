@@ -29,6 +29,28 @@ namespace YoupService
 
             return users;
         }
+
+        public void CreateUser(UserS user)
+        {
+            YoupData dataContext = new YoupData();
+            User _user = ConvertService.FromService(user);
+
+            dataContext.CreateUser(_user);
+        }
+
+        public void EditUser(Guid id, UserS user)
+        {
+            YoupData dataContext = new YoupData();
+            User _user = ConvertService.FromService(user);
+
+            dataContext.EditUser(id, _user);
+        }
+
+        public void DeleteUser(Guid id)
+        {
+            YoupData dataContext = new YoupData();
+            dataContext.DeleteUser(id);
+        }
     }
 }
 

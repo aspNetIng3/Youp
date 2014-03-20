@@ -60,5 +60,28 @@ namespace YoupService
 
             return _users;
         }
+
+        internal static User FromService(UserS user)
+        {
+            User _user = new User
+            {
+                Id = user.Id,
+                UserName = user.UserName,
+                Email = user.Email,
+                Password = user.Password,
+                GuidFacebook = user.GuidFacebook,
+                IsActive = user.IsActive,
+                Gender = user.Gender,
+                Birthday = user.Birthday,
+                Address = user.Address,
+                RankId = user.RankId,
+                RoleId = user.RoleId,
+                CreatedAt = user.CreatedAt,
+                UpdatedAt = user.UpdatedAt,
+                DeletedAt = user.DeletedAt
+            };
+
+            return _user;
+        }
     }
 }
