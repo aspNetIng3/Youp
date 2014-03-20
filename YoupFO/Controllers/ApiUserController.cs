@@ -7,6 +7,7 @@ using System.Web.Http;
 using YoupService;
 using YoupFO.Models;
 using YoupService.Models;
+using WebMatrix.WebData;
 
 namespace YoupFO.Controllers
 {
@@ -54,6 +55,11 @@ namespace YoupFO.Controllers
         {
             UserService userService = new UserService();
             userService.DeleteUser(id);
+        }
+
+        public void Auth(String username, String password)
+        {            
+            WebSecurity.Login(username, password);
         }
     }
 }
