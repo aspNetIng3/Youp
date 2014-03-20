@@ -1,0 +1,1249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="YoupModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'Youp.dbo.Blog' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="Blog">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="IsActive" Type="smallint" />
+          <Property Name="CreatedAt" Type="datetime2" Precision="0" />
+          <Property Name="UpdatedAt" Type="datetime2" Precision="0" />
+          <Property Name="DeletedAt" Type="datetime2" Precision="0" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'Youp.dbo.BlogComment' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="BlogComment">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Content" />
+            <PropertyRef Name="PostId" />
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="CreatedAt" />
+            <PropertyRef Name="UpdatedAt" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PostId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="DeletedAt" Type="datetime2" Precision="0" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'Youp.dbo.Card' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="Card">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Colour" />
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="EventId" />
+            <PropertyRef Name="CreatedAt" />
+            <PropertyRef Name="UpdatedAt" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Colour" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="EventId" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="DeletedAt" Type="datetime2" Precision="0" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'Youp.dbo.Connection' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="Connection">
+          <Key>
+            <PropertyRef Name="IdConnection" />
+            <PropertyRef Name="IdUser" />
+            <PropertyRef Name="DateConnection" />
+          </Key>
+          <Property Name="IdConnection" Type="int" Nullable="false" />
+          <Property Name="IdUser" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="DateConnection" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'Youp.dbo.Event' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Slots" />
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="ThemeId" />
+            <PropertyRef Name="Address" />
+            <PropertyRef Name="CreatedAt" />
+            <PropertyRef Name="UpdatedAt" />
+            <PropertyRef Name="City" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Slots" Type="int" Nullable="false" />
+          <Property Name="Cost" Type="float" />
+          <Property Name="Public" Type="smallint" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="ThemeId" Type="int" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Lattitude" Type="real" />
+          <Property Name="Longitude" Type="real" />
+          <Property Name="CreatedAt" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="DeletedAt" Type="datetime2" Precision="0" />
+          <Property Name="City" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'Youp.dbo.EventComment' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="EventComment">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Content" />
+            <PropertyRef Name="EventId" />
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="CreatedAt" />
+            <PropertyRef Name="UpdatedAt" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="EventId" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="DeletedAt" Type="datetime2" Precision="0" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'Youp.dbo.Favorite' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="Favorite">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="ThreadId" />
+            <PropertyRef Name="CreatedAt" />
+            <PropertyRef Name="UpdatedAt" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="ThreadId" Type="int" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="DeletedAt" Type="datetime2" Precision="0" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'Youp.dbo.HeatMap' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="HeatMap">
+          <Key>
+            <PropertyRef Name="IdHeatMap" />
+            <PropertyRef Name="HeatMapX" />
+            <PropertyRef Name="HeatMapY" />
+            <PropertyRef Name="DateHeatMap" />
+            <PropertyRef Name="IdPage" />
+            <PropertyRef Name="Width" />
+          </Key>
+          <Property Name="IdHeatMap" Type="int" Nullable="false" />
+          <Property Name="HeatMapX" Type="int" Nullable="false" />
+          <Property Name="HeatMapY" Type="int" Nullable="false" />
+          <Property Name="DateHeatMap" Type="datetime" Nullable="false" />
+          <Property Name="IdPage" Type="int" Nullable="false" />
+          <Property Name="Width" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'Youp.dbo.Message' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Content" />
+            <PropertyRef Name="ThreadId" />
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="CreatedAt" />
+            <PropertyRef Name="UpdatedAt" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="255" />
+          <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ThreadId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="DeletedAt" Type="datetime2" Precision="0" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'Youp.dbo.Page' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="Page">
+          <Key>
+            <PropertyRef Name="IdPage" />
+            <PropertyRef Name="IntitulePage" />
+          </Key>
+          <Property Name="IdPage" Type="int" Nullable="false" />
+          <Property Name="IntitulePage" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'Youp.dbo.Participate' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="Participate">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="EventId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="EventId" Type="nvarchar" MaxLength="36" Nullable="false" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'Youp.dbo.Photo' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="Photo">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="Url" />
+            <PropertyRef Name="CreatedAt" />
+            <PropertyRef Name="UpdatedAt" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="Url" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="DeletedAt" Type="datetime2" Precision="0" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'Youp.dbo.Post' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="Content" />
+            <PropertyRef Name="ThemeId" />
+            <PropertyRef Name="BlogId" />
+            <PropertyRef Name="CreatedAt" />
+            <PropertyRef Name="UpdatedAt" />
+            <PropertyRef Name="NombreLike" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Visibility" Type="int" />
+          <Property Name="ThemeId" Type="int" Nullable="false" />
+          <Property Name="BlogId" Type="int" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="DeletedAt" Type="datetime2" Precision="0" />
+          <Property Name="ImageUrl" Type="nvarchar" MaxLength="255" />
+          <Property Name="NombreLike" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'Youp.dbo.Rank' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="Rank">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="LevelRank" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="LevelRank" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'Youp.dbo.Rating' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="Rating">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Rating" />
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="EventId" />
+            <PropertyRef Name="CreatedAt" />
+            <PropertyRef Name="UpdatedAt" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Rating" Type="int" Nullable="false" />
+          <Property Name="Comment" Type="nvarchar(max)" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="EventId" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="DeletedAt" Type="datetime2" Precision="0" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'Youp.dbo.Role' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Label" />
+            <PropertyRef Name="CreatedAt" />
+            <PropertyRef Name="UpdatedAt" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Label" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="DeletedAt" Type="datetime2" Precision="0" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'Youp.dbo.Theme' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="Theme">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Description" />
+            <PropertyRef Name="CreatedAt" />
+            <PropertyRef Name="UpdatedAt" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ThemeId" Type="int" />
+          <Property Name="CreatedAt" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="DeletedAt" Type="datetime2" Precision="0" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'Youp.dbo.Thread' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="Thread">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="ThemeId" />
+            <PropertyRef Name="CreatedAt" />
+            <PropertyRef Name="UpdatedAt" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="255" />
+          <Property Name="IsSharable" Type="smallint" />
+          <Property Name="ThemeId" Type="int" Nullable="false" />
+          <Property Name="EventId" Type="nvarchar" MaxLength="36" />
+          <Property Name="CreatedAt" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="DeletedAt" Type="datetime2" Precision="0" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'Youp.dbo.User' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="RankId" />
+            <PropertyRef Name="RoleId" />
+            <PropertyRef Name="CreatedAt" />
+            <PropertyRef Name="UpdatedAt" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="255" />
+          <Property Name="GuidFacebook" Type="nvarchar" MaxLength="255" />
+          <Property Name="IsActive" Type="smallint" />
+          <Property Name="Gender" Type="nchar" MaxLength="1" />
+          <Property Name="Birthday" Type="date" />
+          <Property Name="Address" Type="nvarchar" MaxLength="255" />
+          <Property Name="RankId" Type="int" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="DeletedAt" Type="datetime2" Precision="0" />
+          <Property Name="ResetPasswordToken" Type="nvarchar" MaxLength="255" />
+          <Property Name="ResetTokenSentAt" Type="datetime" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'Youp.dbo.UserHistory' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="UserHistory">
+          <Key>
+            <PropertyRef Name="IdHistory" />
+            <PropertyRef Name="IdUser" />
+            <PropertyRef Name="DateHistory" />
+            <PropertyRef Name="UserAgent" />
+          </Key>
+          <Property Name="IdHistory" Type="int" Nullable="false" />
+          <Property Name="IdUser" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="Referer" Type="text" />
+          <Property Name="DateHistory" Type="datetime" Nullable="false" />
+          <Property Name="UserAgent" Type="text" Nullable="false" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'Youp.dbo.UserTheme' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="UserTheme">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="ThemeId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="ThemeId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="YoupModelStoreContainer">
+          <EntitySet Name="Blog" EntityType="Self.Blog" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Blog].[Id] AS [Id], 
+[Blog].[Name] AS [Name], 
+[Blog].[UserId] AS [UserId], 
+[Blog].[IsActive] AS [IsActive], 
+[Blog].[CreatedAt] AS [CreatedAt], 
+[Blog].[UpdatedAt] AS [UpdatedAt], 
+[Blog].[DeletedAt] AS [DeletedAt]
+FROM [dbo].[Blog] AS [Blog]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="BlogComment" EntityType="Self.BlogComment" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[BlogComment].[Id] AS [Id], 
+[BlogComment].[Content] AS [Content], 
+[BlogComment].[PostId] AS [PostId], 
+[BlogComment].[UserId] AS [UserId], 
+[BlogComment].[CreatedAt] AS [CreatedAt], 
+[BlogComment].[UpdatedAt] AS [UpdatedAt], 
+[BlogComment].[DeletedAt] AS [DeletedAt]
+FROM [dbo].[BlogComment] AS [BlogComment]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Card" EntityType="Self.Card" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Card].[Id] AS [Id], 
+[Card].[Colour] AS [Colour], 
+[Card].[UserId] AS [UserId], 
+[Card].[EventId] AS [EventId], 
+[Card].[CreatedAt] AS [CreatedAt], 
+[Card].[UpdatedAt] AS [UpdatedAt], 
+[Card].[DeletedAt] AS [DeletedAt]
+FROM [dbo].[Card] AS [Card]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Connection" EntityType="Self.Connection" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Connection].[IdConnection] AS [IdConnection], 
+[Connection].[IdUser] AS [IdUser], 
+[Connection].[DateConnection] AS [DateConnection]
+FROM [dbo].[Connection] AS [Connection]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Event" EntityType="Self.Event" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Event].[Id] AS [Id], 
+[Event].[Name] AS [Name], 
+[Event].[Slots] AS [Slots], 
+[Event].[Cost] AS [Cost], 
+[Event].[Public] AS [Public], 
+[Event].[Description] AS [Description], 
+[Event].[UserId] AS [UserId], 
+[Event].[ThemeId] AS [ThemeId], 
+[Event].[Address] AS [Address], 
+[Event].[Lattitude] AS [Lattitude], 
+[Event].[Longitude] AS [Longitude], 
+[Event].[CreatedAt] AS [CreatedAt], 
+[Event].[UpdatedAt] AS [UpdatedAt], 
+[Event].[DeletedAt] AS [DeletedAt], 
+[Event].[City] AS [City]
+FROM [dbo].[Event] AS [Event]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="EventComment" EntityType="Self.EventComment" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[EventComment].[Id] AS [Id], 
+[EventComment].[Content] AS [Content], 
+[EventComment].[EventId] AS [EventId], 
+[EventComment].[UserId] AS [UserId], 
+[EventComment].[CreatedAt] AS [CreatedAt], 
+[EventComment].[UpdatedAt] AS [UpdatedAt], 
+[EventComment].[DeletedAt] AS [DeletedAt]
+FROM [dbo].[EventComment] AS [EventComment]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Favorite" EntityType="Self.Favorite" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Favorite].[Id] AS [Id], 
+[Favorite].[UserId] AS [UserId], 
+[Favorite].[ThreadId] AS [ThreadId], 
+[Favorite].[CreatedAt] AS [CreatedAt], 
+[Favorite].[UpdatedAt] AS [UpdatedAt], 
+[Favorite].[DeletedAt] AS [DeletedAt]
+FROM [dbo].[Favorite] AS [Favorite]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="HeatMap" EntityType="Self.HeatMap" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[HeatMap].[IdHeatMap] AS [IdHeatMap], 
+[HeatMap].[HeatMapX] AS [HeatMapX], 
+[HeatMap].[HeatMapY] AS [HeatMapY], 
+[HeatMap].[DateHeatMap] AS [DateHeatMap], 
+[HeatMap].[IdPage] AS [IdPage], 
+[HeatMap].[Width] AS [Width]
+FROM [dbo].[HeatMap] AS [HeatMap]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Message" EntityType="Self.Message" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Message].[Id] AS [Id], 
+[Message].[Title] AS [Title], 
+[Message].[Content] AS [Content], 
+[Message].[ThreadId] AS [ThreadId], 
+[Message].[UserId] AS [UserId], 
+[Message].[CreatedAt] AS [CreatedAt], 
+[Message].[UpdatedAt] AS [UpdatedAt], 
+[Message].[DeletedAt] AS [DeletedAt]
+FROM [dbo].[Message] AS [Message]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Page" EntityType="Self.Page" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Page].[IdPage] AS [IdPage], 
+[Page].[IntitulePage] AS [IntitulePage]
+FROM [dbo].[Page] AS [Page]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Participate" EntityType="Self.Participate" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Participate].[UserId] AS [UserId], 
+[Participate].[EventId] AS [EventId]
+FROM [dbo].[Participate] AS [Participate]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Photo" EntityType="Self.Photo" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Photo].[Id] AS [Id], 
+[Photo].[UserId] AS [UserId], 
+[Photo].[Url] AS [Url], 
+[Photo].[CreatedAt] AS [CreatedAt], 
+[Photo].[UpdatedAt] AS [UpdatedAt], 
+[Photo].[DeletedAt] AS [DeletedAt]
+FROM [dbo].[Photo] AS [Photo]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Post" EntityType="Self.Post" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Post].[Id] AS [Id], 
+[Post].[Title] AS [Title], 
+[Post].[Content] AS [Content], 
+[Post].[Visibility] AS [Visibility], 
+[Post].[ThemeId] AS [ThemeId], 
+[Post].[BlogId] AS [BlogId], 
+[Post].[CreatedAt] AS [CreatedAt], 
+[Post].[UpdatedAt] AS [UpdatedAt], 
+[Post].[DeletedAt] AS [DeletedAt], 
+[Post].[ImageUrl] AS [ImageUrl], 
+[Post].[NombreLike] AS [NombreLike]
+FROM [dbo].[Post] AS [Post]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Rank" EntityType="Self.Rank" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Rank].[Id] AS [Id], 
+[Rank].[LevelRank] AS [LevelRank]
+FROM [dbo].[Rank] AS [Rank]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Rating" EntityType="Self.Rating" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Rating].[Id] AS [Id], 
+[Rating].[Rating] AS [Rating], 
+[Rating].[Comment] AS [Comment], 
+[Rating].[UserId] AS [UserId], 
+[Rating].[EventId] AS [EventId], 
+[Rating].[CreatedAt] AS [CreatedAt], 
+[Rating].[UpdatedAt] AS [UpdatedAt], 
+[Rating].[DeletedAt] AS [DeletedAt]
+FROM [dbo].[Rating] AS [Rating]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Role" EntityType="Self.Role" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Role].[Id] AS [Id], 
+[Role].[Label] AS [Label], 
+[Role].[CreatedAt] AS [CreatedAt], 
+[Role].[UpdatedAt] AS [UpdatedAt], 
+[Role].[DeletedAt] AS [DeletedAt]
+FROM [dbo].[Role] AS [Role]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Theme" EntityType="Self.Theme" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Theme].[Id] AS [Id], 
+[Theme].[Name] AS [Name], 
+[Theme].[Description] AS [Description], 
+[Theme].[ThemeId] AS [ThemeId], 
+[Theme].[CreatedAt] AS [CreatedAt], 
+[Theme].[UpdatedAt] AS [UpdatedAt], 
+[Theme].[DeletedAt] AS [DeletedAt]
+FROM [dbo].[Theme] AS [Theme]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Thread" EntityType="Self.Thread" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Thread].[Id] AS [Id], 
+[Thread].[Title] AS [Title], 
+[Thread].[IsSharable] AS [IsSharable], 
+[Thread].[ThemeId] AS [ThemeId], 
+[Thread].[EventId] AS [EventId], 
+[Thread].[CreatedAt] AS [CreatedAt], 
+[Thread].[UpdatedAt] AS [UpdatedAt], 
+[Thread].[DeletedAt] AS [DeletedAt]
+FROM [dbo].[Thread] AS [Thread]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="User" EntityType="Self.User" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[User].[Id] AS [Id], 
+[User].[UserName] AS [UserName], 
+[User].[Email] AS [Email], 
+[User].[Password] AS [Password], 
+[User].[GuidFacebook] AS [GuidFacebook], 
+[User].[IsActive] AS [IsActive], 
+[User].[Gender] AS [Gender], 
+[User].[Birthday] AS [Birthday], 
+[User].[Address] AS [Address], 
+[User].[RankId] AS [RankId], 
+[User].[RoleId] AS [RoleId], 
+[User].[CreatedAt] AS [CreatedAt], 
+[User].[UpdatedAt] AS [UpdatedAt], 
+[User].[DeletedAt] AS [DeletedAt], 
+[User].[ResetPasswordToken] AS [ResetPasswordToken], 
+[User].[ResetTokenSentAt] AS [ResetTokenSentAt]
+FROM [dbo].[User] AS [User]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="UserHistory" EntityType="Self.UserHistory" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[UserHistory].[IdHistory] AS [IdHistory], 
+[UserHistory].[IdUser] AS [IdUser], 
+[UserHistory].[Referer] AS [Referer], 
+[UserHistory].[DateHistory] AS [DateHistory], 
+[UserHistory].[UserAgent] AS [UserAgent]
+FROM [dbo].[UserHistory] AS [UserHistory]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="UserTheme" EntityType="Self.UserTheme" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[UserTheme].[UserId] AS [UserId], 
+[UserTheme].[ThemeId] AS [ThemeId]
+FROM [dbo].[UserTheme] AS [UserTheme]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="YoupModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Blog">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsActive" Type="Int16" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="0" />
+          <Property Name="DeletedAt" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="BlogComment">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Content" />
+            <PropertyRef Name="PostId" />
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="CreatedAt" />
+            <PropertyRef Name="UpdatedAt" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PostId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DeletedAt" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Card">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Colour" />
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="EventId" />
+            <PropertyRef Name="CreatedAt" />
+            <PropertyRef Name="UpdatedAt" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Colour" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EventId" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DeletedAt" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Connection">
+          <Key>
+            <PropertyRef Name="IdConnection" />
+            <PropertyRef Name="IdUser" />
+            <PropertyRef Name="DateConnection" />
+          </Key>
+          <Property Name="IdConnection" Type="Int32" Nullable="false" />
+          <Property Name="IdUser" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateConnection" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Slots" />
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="ThemeId" />
+            <PropertyRef Name="Address" />
+            <PropertyRef Name="CreatedAt" />
+            <PropertyRef Name="UpdatedAt" />
+            <PropertyRef Name="City" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Slots" Type="Int32" Nullable="false" />
+          <Property Name="Cost" Type="Double" />
+          <Property Name="Public" Type="Int16" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ThemeId" Type="Int32" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Lattitude" Type="Single" />
+          <Property Name="Longitude" Type="Single" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DeletedAt" Type="DateTime" Precision="0" />
+          <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EventComment">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Content" />
+            <PropertyRef Name="EventId" />
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="CreatedAt" />
+            <PropertyRef Name="UpdatedAt" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EventId" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DeletedAt" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Favorite">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="ThreadId" />
+            <PropertyRef Name="CreatedAt" />
+            <PropertyRef Name="UpdatedAt" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ThreadId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DeletedAt" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="HeatMap">
+          <Key>
+            <PropertyRef Name="IdHeatMap" />
+            <PropertyRef Name="HeatMapX" />
+            <PropertyRef Name="HeatMapY" />
+            <PropertyRef Name="DateHeatMap" />
+            <PropertyRef Name="IdPage" />
+            <PropertyRef Name="Width" />
+          </Key>
+          <Property Name="IdHeatMap" Type="Int32" Nullable="false" />
+          <Property Name="HeatMapX" Type="Int32" Nullable="false" />
+          <Property Name="HeatMapY" Type="Int32" Nullable="false" />
+          <Property Name="DateHeatMap" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdPage" Type="Int32" Nullable="false" />
+          <Property Name="Width" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Content" />
+            <PropertyRef Name="ThreadId" />
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="CreatedAt" />
+            <PropertyRef Name="UpdatedAt" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ThreadId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DeletedAt" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Page">
+          <Key>
+            <PropertyRef Name="IdPage" />
+            <PropertyRef Name="IntitulePage" />
+          </Key>
+          <Property Name="IdPage" Type="Int32" Nullable="false" />
+          <Property Name="IntitulePage" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Participate">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="EventId" />
+          </Key>
+          <Property Name="UserId" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EventId" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Photo">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="Url" />
+            <PropertyRef Name="CreatedAt" />
+            <PropertyRef Name="UpdatedAt" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Url" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DeletedAt" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="Content" />
+            <PropertyRef Name="ThemeId" />
+            <PropertyRef Name="BlogId" />
+            <PropertyRef Name="CreatedAt" />
+            <PropertyRef Name="UpdatedAt" />
+            <PropertyRef Name="NombreLike" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Visibility" Type="Int32" />
+          <Property Name="ThemeId" Type="Int32" Nullable="false" />
+          <Property Name="BlogId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DeletedAt" Type="DateTime" Precision="0" />
+          <Property Name="ImageUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NombreLike" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rank">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="LevelRank" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="LevelRank" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rating">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Rating1" />
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="EventId" />
+            <PropertyRef Name="CreatedAt" />
+            <PropertyRef Name="UpdatedAt" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Rating1" Type="Int32" Nullable="false" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EventId" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DeletedAt" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Label" />
+            <PropertyRef Name="CreatedAt" />
+            <PropertyRef Name="UpdatedAt" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Label" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DeletedAt" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Theme">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Description" />
+            <PropertyRef Name="CreatedAt" />
+            <PropertyRef Name="UpdatedAt" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ThemeId" Type="Int32" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DeletedAt" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Thread">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="ThemeId" />
+            <PropertyRef Name="CreatedAt" />
+            <PropertyRef Name="UpdatedAt" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IsSharable" Type="Int16" />
+          <Property Name="ThemeId" Type="Int32" Nullable="false" />
+          <Property Name="EventId" Type="String" MaxLength="36" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DeletedAt" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="RankId" />
+            <PropertyRef Name="RoleId" />
+            <PropertyRef Name="CreatedAt" />
+            <PropertyRef Name="UpdatedAt" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="GuidFacebook" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Int16" />
+          <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="Birthday" Type="DateTime" Precision="0" />
+          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="RankId" Type="Int32" Nullable="false" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DeletedAt" Type="DateTime" Precision="0" />
+          <Property Name="ResetPasswordToken" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ResetTokenSentAt" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="UserHistory">
+          <Key>
+            <PropertyRef Name="IdHistory" />
+            <PropertyRef Name="IdUser" />
+            <PropertyRef Name="DateHistory" />
+            <PropertyRef Name="UserAgent" />
+          </Key>
+          <Property Name="IdHistory" Type="Int32" Nullable="false" />
+          <Property Name="IdUser" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Referer" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DateHistory" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UserAgent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserTheme">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="ThemeId" />
+          </Key>
+          <Property Name="UserId" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ThemeId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="YoupEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Blogs" EntityType="Self.Blog" />
+          <EntitySet Name="BlogComments" EntityType="Self.BlogComment" />
+          <EntitySet Name="Cards" EntityType="Self.Card" />
+          <EntitySet Name="Connections" EntityType="Self.Connection" />
+          <EntitySet Name="Events" EntityType="Self.Event" />
+          <EntitySet Name="EventComments" EntityType="Self.EventComment" />
+          <EntitySet Name="Favorites" EntityType="Self.Favorite" />
+          <EntitySet Name="HeatMaps" EntityType="Self.HeatMap" />
+          <EntitySet Name="Messages" EntityType="Self.Message" />
+          <EntitySet Name="Pages" EntityType="Self.Page" />
+          <EntitySet Name="Participates" EntityType="Self.Participate" />
+          <EntitySet Name="Photos" EntityType="Self.Photo" />
+          <EntitySet Name="Posts" EntityType="Self.Post" />
+          <EntitySet Name="Ranks" EntityType="Self.Rank" />
+          <EntitySet Name="Ratings" EntityType="Self.Rating" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="Themes" EntityType="Self.Theme" />
+          <EntitySet Name="Threads" EntityType="Self.Thread" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="UserHistories" EntityType="Self.UserHistory" />
+          <EntitySet Name="UserThemes" EntityType="Self.UserTheme" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="YoupModelStoreContainer" CdmEntityContainer="YoupEntities">
+          <EntitySetMapping Name="Blogs">
+            <EntityTypeMapping TypeName="YoupModel.Blog">
+              <MappingFragment StoreEntitySet="Blog">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedAt" ColumnName="DeletedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BlogComments">
+            <EntityTypeMapping TypeName="YoupModel.BlogComment">
+              <MappingFragment StoreEntitySet="BlogComment">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="PostId" ColumnName="PostId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedAt" ColumnName="DeletedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cards">
+            <EntityTypeMapping TypeName="YoupModel.Card">
+              <MappingFragment StoreEntitySet="Card">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Colour" ColumnName="Colour" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="EventId" ColumnName="EventId" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedAt" ColumnName="DeletedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Connections">
+            <EntityTypeMapping TypeName="YoupModel.Connection">
+              <MappingFragment StoreEntitySet="Connection">
+                <ScalarProperty Name="IdConnection" ColumnName="IdConnection" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="DateConnection" ColumnName="DateConnection" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Events">
+            <EntityTypeMapping TypeName="YoupModel.Event">
+              <MappingFragment StoreEntitySet="Event">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Slots" ColumnName="Slots" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Public" ColumnName="Public" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ThemeId" ColumnName="ThemeId" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Lattitude" ColumnName="Lattitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedAt" ColumnName="DeletedAt" />
+                <ScalarProperty Name="City" ColumnName="City" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EventComments">
+            <EntityTypeMapping TypeName="YoupModel.EventComment">
+              <MappingFragment StoreEntitySet="EventComment">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="EventId" ColumnName="EventId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedAt" ColumnName="DeletedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Favorites">
+            <EntityTypeMapping TypeName="YoupModel.Favorite">
+              <MappingFragment StoreEntitySet="Favorite">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ThreadId" ColumnName="ThreadId" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedAt" ColumnName="DeletedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HeatMaps">
+            <EntityTypeMapping TypeName="YoupModel.HeatMap">
+              <MappingFragment StoreEntitySet="HeatMap">
+                <ScalarProperty Name="IdHeatMap" ColumnName="IdHeatMap" />
+                <ScalarProperty Name="HeatMapX" ColumnName="HeatMapX" />
+                <ScalarProperty Name="HeatMapY" ColumnName="HeatMapY" />
+                <ScalarProperty Name="DateHeatMap" ColumnName="DateHeatMap" />
+                <ScalarProperty Name="IdPage" ColumnName="IdPage" />
+                <ScalarProperty Name="Width" ColumnName="Width" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Messages">
+            <EntityTypeMapping TypeName="YoupModel.Message">
+              <MappingFragment StoreEntitySet="Message">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="ThreadId" ColumnName="ThreadId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedAt" ColumnName="DeletedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pages">
+            <EntityTypeMapping TypeName="YoupModel.Page">
+              <MappingFragment StoreEntitySet="Page">
+                <ScalarProperty Name="IdPage" ColumnName="IdPage" />
+                <ScalarProperty Name="IntitulePage" ColumnName="IntitulePage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Participates">
+            <EntityTypeMapping TypeName="YoupModel.Participate">
+              <MappingFragment StoreEntitySet="Participate">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="EventId" ColumnName="EventId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Photos">
+            <EntityTypeMapping TypeName="YoupModel.Photo">
+              <MappingFragment StoreEntitySet="Photo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedAt" ColumnName="DeletedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Posts">
+            <EntityTypeMapping TypeName="YoupModel.Post">
+              <MappingFragment StoreEntitySet="Post">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Visibility" ColumnName="Visibility" />
+                <ScalarProperty Name="ThemeId" ColumnName="ThemeId" />
+                <ScalarProperty Name="BlogId" ColumnName="BlogId" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedAt" ColumnName="DeletedAt" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="NombreLike" ColumnName="NombreLike" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ranks">
+            <EntityTypeMapping TypeName="YoupModel.Rank">
+              <MappingFragment StoreEntitySet="Rank">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="LevelRank" ColumnName="LevelRank" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ratings">
+            <EntityTypeMapping TypeName="YoupModel.Rating">
+              <MappingFragment StoreEntitySet="Rating">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Rating1" ColumnName="Rating" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="EventId" ColumnName="EventId" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedAt" ColumnName="DeletedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="YoupModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Label" ColumnName="Label" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedAt" ColumnName="DeletedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Themes">
+            <EntityTypeMapping TypeName="YoupModel.Theme">
+              <MappingFragment StoreEntitySet="Theme">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ThemeId" ColumnName="ThemeId" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedAt" ColumnName="DeletedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Threads">
+            <EntityTypeMapping TypeName="YoupModel.Thread">
+              <MappingFragment StoreEntitySet="Thread">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="IsSharable" ColumnName="IsSharable" />
+                <ScalarProperty Name="ThemeId" ColumnName="ThemeId" />
+                <ScalarProperty Name="EventId" ColumnName="EventId" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedAt" ColumnName="DeletedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="YoupModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="GuidFacebook" ColumnName="GuidFacebook" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="RankId" ColumnName="RankId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedAt" ColumnName="DeletedAt" />
+                <ScalarProperty Name="ResetPasswordToken" ColumnName="ResetPasswordToken" />
+                <ScalarProperty Name="ResetTokenSentAt" ColumnName="ResetTokenSentAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserHistories">
+            <EntityTypeMapping TypeName="YoupModel.UserHistory">
+              <MappingFragment StoreEntitySet="UserHistory">
+                <ScalarProperty Name="IdHistory" ColumnName="IdHistory" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="Referer" ColumnName="Referer" />
+                <ScalarProperty Name="DateHistory" ColumnName="DateHistory" />
+                <ScalarProperty Name="UserAgent" ColumnName="UserAgent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserThemes">
+            <EntityTypeMapping TypeName="YoupModel.UserTheme">
+              <MappingFragment StoreEntitySet="UserTheme">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ThemeId" ColumnName="ThemeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
