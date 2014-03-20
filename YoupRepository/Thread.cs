@@ -14,12 +14,6 @@ namespace YoupRepository
     
     public partial class Thread
     {
-        public Thread()
-        {
-            this.Favorites = new HashSet<Favorite>();
-            this.Messages = new HashSet<Message>();
-        }
-    
         public int Id { get; set; }
         public string Title { get; set; }
         public Nullable<short> IsSharable { get; set; }
@@ -28,10 +22,5 @@ namespace YoupRepository
         public System.DateTime CreatedAt { get; set; }
         public System.DateTime UpdatedAt { get; set; }
         public Nullable<System.DateTime> DeletedAt { get; set; }
-    
-        public virtual Event Event { get; set; }
-        public virtual ICollection<Favorite> Favorites { get; set; }
-        public virtual ICollection<Message> Messages { get; set; }
-        public virtual Theme Theme { get; set; }
     }
 }

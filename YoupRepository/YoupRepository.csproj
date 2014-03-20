@@ -4,13 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{13BC9A09-8812-47A3-9F8D-77B8E7B2C6C8}</ProjectGuid>
+    <ProjectGuid>{599878DD-D333-4E21-B764-409A5790BCF1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>YoupRepository</RootNamespace>
     <AssemblyName>YoupRepository</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -55,6 +59,41 @@
     <Compile Include="Card.cs">
       <DependentUpon>Youp.tt</DependentUpon>
     </Compile>
+    <Compile Include="Connection.cs">
+      <DependentUpon>Youp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\IDatabase\IBlogCommentDatabase.cs" />
+    <Compile Include="DAL\IDatabase\IBlogDatabase.cs" />
+    <Compile Include="DAL\IDatabase\ICardDatabase.cs" />
+    <Compile Include="DAL\IDatabase\IEventCommentDatabase.cs" />
+    <Compile Include="DAL\IDatabase\IFavoriteDatabase.cs" />
+    <Compile Include="DAL\IDatabase\IMessageDatabase.cs" />
+    <Compile Include="DAL\IDatabase\IParticipateDatabase.cs" />
+    <Compile Include="DAL\IDatabase\IPhotoDatabase.cs" />
+    <Compile Include="DAL\IDatabase\IPostDatabase.cs" />
+    <Compile Include="DAL\IDatabase\IRankDatabase.cs" />
+    <Compile Include="DAL\IDatabase\IRoleDatabase.cs" />
+    <Compile Include="DAL\IDatabase\IThemeDatabase.cs" />
+    <Compile Include="DAL\IDatabase\IUserDatabase.cs" />
+    <Compile Include="DAL\IDatabase\IUserThemeDatabase.cs" />
+    <Compile Include="DAL\Database\RoleDatabase.cs" />
+    <Compile Include="DAL\Database\RankDatabase.cs" />
+    <Compile Include="DAL\Database\PostDatabase.cs" />
+    <Compile Include="DAL\Database\PhotoDatabase.cs" />
+    <Compile Include="DAL\Database\ParticipateDatabase.cs" />
+    <Compile Include="DAL\Database\BlogDatabase.cs" />
+    <Compile Include="DAL\Database\BlogCommentDatabase.cs" />
+    <Compile Include="DAL\Database\CardDatabase.cs" />
+    <Compile Include="DAL\Database\EventCommentDatabase.cs" />
+    <Compile Include="DAL\Database\FavoriteDatabase.cs" />
+    <Compile Include="DAL\Database\MessageDatabase.cs" />
+    <Compile Include="DAL\Database\ThemeDatabase.cs" />
+    <Compile Include="DAL\Database\UserThemeDatabase.cs" />
+    <Compile Include="DAL\Database\UserDatabase.cs" />
+    <Compile Include="DAL\IDatabase\IEventDatabase.cs" />
+    <Compile Include="DAL\IDatabase\IThreadDatabase.cs" />
+    <Compile Include="DAL\Database\EventDatabase.cs" />
+    <Compile Include="DAL\Database\ThreadDatabase.cs" />
     <Compile Include="Event.cs">
       <DependentUpon>Youp.tt</DependentUpon>
     </Compile>
@@ -64,10 +103,52 @@
     <Compile Include="Favorite.cs">
       <DependentUpon>Youp.tt</DependentUpon>
     </Compile>
+    <Compile Include="HeatMap.cs">
+      <DependentUpon>Youp.tt</DependentUpon>
+    </Compile>
     <Compile Include="Message.cs">
       <DependentUpon>Youp.tt</DependentUpon>
     </Compile>
-    <Compile Include="YoupData.cs" />
+    <Compile Include="Model\DTO\BaseDTO\FavoriteBaseDTO.cs" />
+    <Compile Include="Model\DTO\BaseDTO\MessageBaseDTO.cs" />
+    <Compile Include="Model\DTO\BlogCommentDTO.cs" />
+    <Compile Include="Model\DTO\BlogDTO.cs" />
+    <Compile Include="Model\DTO\CardDTO.cs" />
+    <Compile Include="Model\DTO\EventCommentDTO.cs" />
+    <Compile Include="Model\DTO\EventDTO.cs" />
+    <Compile Include="Model\POCO\BlogPOCO.cs" />
+    <Compile Include="Model\POCO\CardPOCO.cs" />
+    <Compile Include="Model\POCO\EventCommentPOCO.cs" />
+    <Compile Include="Model\POCO\FavoritePOCO.cs" />
+    <Compile Include="Model\POCO\MessagePOCO.cs" />
+    <Compile Include="Model\POCO\PhotoPOCO.cs" />
+    <Compile Include="Model\POCO\PostPOCO.cs" />
+    <Compile Include="Model\POCO\RankPOCO.cs" />
+    <Compile Include="Model\POCO\RatingPOCO.cs" />
+    <Compile Include="Model\POCO\RolePOCO.cs" />
+    <Compile Include="Model\POCO\UserPOCO.cs" />
+    <Compile Include="Model\POCO\ThemePOCO.cs" />
+    <Compile Include="Model\POCO\BlogCommentPOCO.cs" />
+    <Compile Include="Model\DTO\FavoriteDTO.cs" />
+    <Compile Include="Model\DTO\MessageDTO.cs" />
+    <Compile Include="Model\DTO\PhotoDTO.cs" />
+    <Compile Include="Model\DTO\PostDTO.cs" />
+    <Compile Include="Model\DTO\RankDTO.cs" />
+    <Compile Include="Model\DTO\RatingDTO.cs" />
+    <Compile Include="Model\DTO\RoleDTO.cs" />
+    <Compile Include="Model\DTO\ThemeDTO.cs" />
+    <Compile Include="Model\DTO\BaseDTO\EventBaseDTO.cs" />
+    <Compile Include="Model\DTO\BaseDTO\ThreadBaseDTO.cs" />
+    <Compile Include="Model\DTO\ThreadDTO.cs" />
+    <Compile Include="Model\POCO\EventPOCO.cs" />
+    <Compile Include="Model\POCO\ThreadPOCO.cs" />
+    <Compile Include="Model\DTO\UserDTO.cs" />
+    <Compile Include="Page.cs">
+      <DependentUpon>Youp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Participate.cs">
+      <DependentUpon>Youp.tt</DependentUpon>
+    </Compile>
     <Compile Include="Photo.cs">
       <DependentUpon>Youp.tt</DependentUpon>
     </Compile>
@@ -93,6 +174,12 @@
     <Compile Include="User.cs">
       <DependentUpon>Youp.tt</DependentUpon>
     </Compile>
+    <Compile Include="UserHistory.cs">
+      <DependentUpon>Youp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserTheme.cs">
+      <DependentUpon>Youp.tt</DependentUpon>
+    </Compile>
     <Compile Include="Youp.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -110,14 +197,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
     <EntityDeploy Include="Youp.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Youp.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
-    <None Include="packages.config" />
     <None Include="Youp.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Youp.edmx</DependentUpon>
@@ -135,12 +220,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\DAL\Database\" />
-    <Folder Include="Models\DAL\IDatabase\" />
-    <Folder Include="Models\DTO\" />
-    <Folder Include="Models\POCO\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

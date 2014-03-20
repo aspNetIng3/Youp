@@ -14,21 +14,6 @@ namespace YoupRepository
     
     public partial class User
     {
-        public User()
-        {
-            this.Blogs = new HashSet<Blog>();
-            this.BlogComments = new HashSet<BlogComment>();
-            this.Cards = new HashSet<Card>();
-            this.Events = new HashSet<Event>();
-            this.EventComments = new HashSet<EventComment>();
-            this.Favorites = new HashSet<Favorite>();
-            this.Messages = new HashSet<Message>();
-            this.Photos = new HashSet<Photo>();
-            this.Ratings = new HashSet<Rating>();
-            this.Events1 = new HashSet<Event>();
-            this.Themes = new HashSet<Theme>();
-        }
-    
         public string Id { get; set; }
         public string UserName { get; set; }
         public string Email { get; set; }
@@ -43,19 +28,7 @@ namespace YoupRepository
         public System.DateTime CreatedAt { get; set; }
         public System.DateTime UpdatedAt { get; set; }
         public Nullable<System.DateTime> DeletedAt { get; set; }
-    
-        public virtual ICollection<Blog> Blogs { get; set; }
-        public virtual ICollection<BlogComment> BlogComments { get; set; }
-        public virtual ICollection<Card> Cards { get; set; }
-        public virtual ICollection<Event> Events { get; set; }
-        public virtual ICollection<EventComment> EventComments { get; set; }
-        public virtual ICollection<Favorite> Favorites { get; set; }
-        public virtual ICollection<Message> Messages { get; set; }
-        public virtual ICollection<Photo> Photos { get; set; }
-        public virtual Rank Rank { get; set; }
-        public virtual ICollection<Rating> Ratings { get; set; }
-        public virtual Role Role { get; set; }
-        public virtual ICollection<Event> Events1 { get; set; }
-        public virtual ICollection<Theme> Themes { get; set; }
+        public string ResetPasswordToken { get; set; }
+        public Nullable<System.DateTime> ResetTokenSentAt { get; set; }
     }
 }
