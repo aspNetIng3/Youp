@@ -25,7 +25,7 @@ namespace YoupFO.Models
 
         public Guid GuidFacebook { get; set; }
 
-        public short IsActive { get; set; }
+        public bool IsActive { get; set; }
 
         [Required(ErrorMessage = "Le sexe est requis")]
         public String Gender { get; set; }
