@@ -3,196 +3,156 @@
 }
 
 <div class="row">
-    <div class="col-md-3">
-        <div id="countUser" style="width:100%;height:200px;"></div>
-    </div>
-    <div class="col-md-3">
-        <div id="countUserDelete" style="width:100%;height:200px;"></div>
-    </div>
-    <div class="col-md-3">
-        <div id="countUserActive" style="width:100%;height:200px;"></div>
-    </div>
-    <div class="col-md-3">
-        <div id="countUserFacebook" style="width:100%;height:200px;"></div>
-    </div>
-</div>
-    
-<div class="row">
-    <div class="col-md-12">
-        <hr />
-    </div>
+    <fieldset class="col-md-6">
+        <legend>Global Activity</legend>
+        <div class="row">
+        </div>
+       
+         <div class="col-md-12" style="text-align:right">
+            <a href="~/"> + Informations about Global Activity </a>
+        </div> 
+    </fieldset>
+
+    <fieldset class="col-md-6">
+        <legend>Users</legend>
+            <div class="col-md-12">
+                <h5 style="text-align: center; margin-top: 5px; margin-bottom: 20px;"><span style="color:rgba(255,169,0,1); font-weight: bold;">Registration</span> / <span style="color:rgba(170,170,170,1); font-weight: bold; ">Unsubscribe</span></h5>
+            </div>
+
+            <div class="col-md-12">
+                <canvas id="chartUserRegisterYear" height="200"></canvas>
+            </div>
+
+            <div class="col-md-12" style="text-align:right">
+                <a href="~/User"> + Informations about Users</a>
+            </div>
+    </fieldset>
 </div>
 
-<div class="row">
-    <div class="col-md-3">
-        <div id="countEvent" style="width:100%;height:200px;"></div>
-    </div>
-    <div class="col-md-3">
-        <div id="countEventPending" style="width:100%;height:200px;"></div>
-    </div>
-    <div class="col-md-3">
-        <div id="countEventClose" style="width:100%;height:200px;"></div>
-    </div>
-    <div class="col-md-3">
-        <div id="countEventDelete" style="width:100%;height:200px;"></div>
-    </div>
+<div class="row" style="margin-top:3%; margin-bottom:3%;">
+    <fieldset class="col-md-4">
+        <legend>Forum</legend>
+        <div class="row">
+            <div class="col-md-12">
+                <h5 style="text-align: center; margin-top: 5px; margin-bottom: 20px;"><span style="color:rgba(255,0,49,1); font-weight: bold;">Thread</span> / <span style="color:rgba(170,170,170,1); font-weight: bold; ">Post</span></h5>
+            </div>
+        </div>
+
+        <div class="col-md-12" style="text-align:right">
+            <a href="~/Forum"> + Informations about Forum</a>
+        </div>
+    </fieldset>
+
+    <fieldset class="col-md-4">
+        <legend>Blog</legend>
+        <div class="row">
+            <div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div>
+
+            </div>
+        </div>
+
+        <div class="col-md-12" style="text-align:right">
+            <a href="~/Blog/"> + Informations about Blog</a>
+        </div>
+
+    </fieldset>
+
+    <fieldset class="col-md-4">
+        <legend>Event</legend>
+        <div class="row">
+            <div class="col-md-12">
+                <h5 style="text-align: center; margin-top: 5px; margin-bottom: 20px;"><span style="color:rgba(0,137,250,1); font-weight: bold;">Event create</span></h5>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <canvas id="chartEventCreateYear" height="200"></canvas>
+        </div>
+
+        <div class="col-md-12" style="text-align:right">
+            <a href="~/Event"> + Informations about Event</a>
+        </div>
+    </fieldset>
 </div>
 
-<div class="row">
-    <div class="col-md-12">
-        <hr />
-    </div>
-</div>
 
-<div class="row">
-    <div class="col-md-3">
-        <div id="countThread" style="width:100%;height:200px;"></div>
-    </div>
-    <div class="col-md-3">
-        <div id="countPost" style="width:100%;height:200px;"></div>
-    </div>
-    <div class="col-md-3">
-        <div id="countTheme" style="width:100%;height:200px;"></div>
-    </div>
-    <div class="col-md-3">
 
-    </div>
-</div>
 
 @section Scripts {
     <script>
+        var dataToDataChartEventCreateYear = [];
+        @foreach (KeyValuePair<int, int> pair in (Dictionary<int, int>)ViewData["eventCreateForMonths"])
+        {
+        <text>dataToDataChartEventCreateYear.push(@pair.Value);</text>
+        }
+
+        var dataToDataChartUserRegisterYear = [];
+        @foreach (KeyValuePair<int, int> pair in (Dictionary<int, int>)ViewData["userRegisterForMonths"])
+        {
+        <text>dataToDataChartUserRegisterYear.push(@pair.Value);</text>
+        }
+
+        var dataToDataChartUserDeletedYear = [];
+        @foreach (KeyValuePair<int, int> pair in (Dictionary<int, int>)ViewData["userDeletedForMonths"])
+        {
+        <text>dataToDataChartUserDeletedYear.push(@pair.Value);</text>
+        }
+
+        var dataChartUserRegisterYear = {
+            labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+            datasets: [
+                {
+                    fillColor: "rgba(255,169,0,0.5)",
+                    strokeColor: "rgba(255,169,0,1)",
+                    pointColor: "rgba(255,169,0,1)",
+                    pointStrokeColor: "#fff",
+                    data: dataToDataChartUserRegisterYear
+                },
+                {
+                    fillColor: "rgba(170,170,170,0.5)",
+                    strokeColor: "rgba(170,170,170,1)",
+                    pointColor: "rgba(170,170,170,1)",
+                    pointStrokeColor: "#fff",
+                    data: dataToDataChartUserDeletedYear
+                }
+            ]
+        }
+
+        var dataChartEventCreateYear = {
+            labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+            datasets: [
+                {
+                    fillColor: "rgba(0,137,250,0.5)",
+                    strokeColor: "rgba(0,137,250,1)",
+                    pointColor: "rgba(0,137,250,1)",
+                    pointStrokeColor: "#fff",
+                    data: dataToDataChartEventCreateYear
+                }
+            ]
+        }
+
+
         $(document).ready(function () {
-            var gCountUser = new JustGage({
-                id: "countUser",
-                value: parseInt('@ViewData["countUser"]'),
-                min: 0,
-                max: parseInt('@ViewData["countUser"]'),
-                title: "Users",
-                showMinMax: false,
-                levelColors: ['rgba(255,169,0,1)'],
-                gaugeColor: 'rgba(220,220,220,0.5)',
-                titleFontColor: '#444'
-            });
 
-            var gCountUserDelete = new JustGage({
-                id: "countUserDelete",
-                value: parseInt('@ViewData["countUserDelete"]'),
-                min: 0,
-                max: parseInt('@ViewData["countUser"]'),
-                title: "Users deleted",
-                showMinMax: false,
-                levelColors: ['rgba(255,169,0,1)'],
-                gaugeColor: 'rgba(220,220,220,0.5)',
-                titleFontColor: '#444'
-            });
+            var options = {
+                scaleFontColor: '#444'
+            };
 
-            var gCountUserActive = new JustGage({
-                id: "countUserActive",
-                value: parseInt('@ViewData["countUserActive"]'),
-                min: 0,
-                max: parseInt('@ViewData["countUser"]'),
-                title: "Users active",
-                showMinMax: false,
-                levelColors: ['rgba(255,169,0,1)'],
-                gaugeColor: 'rgba(220,220,220,0.5)',
-                titleFontColor: '#444'
-            });
+            var ctxChartUserRegisterYear = $("#chartUserRegisterYear").get(0).getContext("2d");
+            ctxChartUserRegisterYear.canvas.width = $("#chartUserRegisterYear").parent().width();
+            var chartUserRegisterYear = new Chart(ctxChartUserRegisterYear).Line(dataChartUserRegisterYear, options);
 
-            var gCountUserFacebook = new JustGage({
-                id: "countUserFacebook",
-                value: parseInt('@ViewData["countUserFacebook"]'),
-                min: 0,
-                max: parseInt('@ViewData["countUser"]'),
-                title: "Users use Facebook",
-                showMinMax: false,
-                levelColors: ['rgba(255,169,0,1)'],
-                gaugeColor: 'rgba(220,220,220,0.5)',
-                titleFontColor: '#444'
-            });
-
-            var gCountEvent = new JustGage({
-                id: "countEvent",
-                value: parseInt('@ViewData["countEvent"]'),
-                min: 0,
-                max: parseInt('@ViewData["countEvent"]'),
-                title: "Events",
-                showMinMax: false,
-                levelColors: ['rgba(0,137,250,1)'],
-                gaugeColor: 'rgba(220,220,220,0.5)',
-                titleFontColor: '#444'
-            });
-
-            var gCountEventClose = new JustGage({
-                id: "countEventPending",
-                value: parseInt('@ViewData["countEventPending"]'),
-                min: 0,
-                max: parseInt('@ViewData["countEvent"]'),
-                title: "Events pending",
-                showMinMax: false,
-                levelColors: ['rgba(0,137,250,1)'],
-                gaugeColor: 'rgba(220,220,220,0.5)',
-                titleFontColor: '#444'
-            });
-
-            var gCountEventClose = new JustGage({
-                id: "countEventClose",
-                value: parseInt('@ViewData["countEventClose"]'),
-                min: 0,
-                max: parseInt('@ViewData["countEvent"]'),
-                title: "Events close",
-                showMinMax: false,
-                levelColors: ['rgba(0,137,250,1)'],
-                gaugeColor: 'rgba(220,220,220,0.5)',
-                titleFontColor: '#444'
-            });
-
-            var gCountEventDelete = new JustGage({
-                id: "countEventDelete",
-                value: parseInt('@ViewData["countEventDelete"]'),
-                min: 0,
-                max: parseInt('@ViewData["countEvent"]'),
-                title: "Events deleted",
-                showMinMax: false,
-                levelColors: ['rgba(0,137,250,1)'],
-                gaugeColor: 'rgba(220,220,220,0.5)',
-                titleFontColor: '#444'
-            });
-
-            var gCountThread = new JustGage({
-                id: "countThread",
-                value: parseInt('@ViewData["countThread"]'),
-                min: 0,
-                max: parseInt('@ViewData["countThread"]'),
-                title: "Threads",
-                showMinMax: false,
-                levelColors: ['rgba(255,0,49,1)'],
-                gaugeColor: 'rgba(220,220,220,0.5)',
-                titleFontColor: '#444'
-            });
-
-            var gCountPost = new JustGage({
-                id: "countPost",
-                value: parseInt('@ViewData["countPost"]'),
-                min: 0,
-                max: parseInt('@ViewData["countPost"]'),
-                title: "Posts",
-                showMinMax: false,
-                levelColors: ['rgba(255,0,49,1)'],
-                gaugeColor: 'rgba(220,220,220,0.5)',
-                titleFontColor: '#444'
-            });
-
-            var gCountTheme = new JustGage({
-                id: "countTheme",
-                value: parseInt('@ViewData["countTheme"]'),
-                min: 0,
-                max: parseInt('@ViewData["countTheme"]'),
-                title: "Themes",
-                showMinMax: false,
-                levelColors: ['rgba(255,0,49,1)'],
-                gaugeColor: 'rgba(220,220,220,0.5)',
-                titleFontColor: '#444'
-            });
+            var ctxChartEventCreateYear = $("#chartEventCreateYear").get(0).getContext("2d");
+            ctxChartEventCreateYear.canvas.width = $("#chartEventCreateYear").parent().width();
+            var chartEventCreateYear = new Chart(ctxChartEventCreateYear).Line(dataChartEventCreateYear, options);
         });
+
+
     </script>
 }

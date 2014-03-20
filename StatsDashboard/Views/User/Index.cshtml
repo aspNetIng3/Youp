@@ -58,6 +58,24 @@
     </div>
 </div>
 
+<div class="row">
+    <div class="col-md-12">
+        <hr />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <h4>Rank (Users)</h4>
+        <ul>
+        @foreach (KeyValuePair<String, int> pair in (Dictionary<String, int>)ViewData["rankUser"])
+        {
+            <li>@pair.Key (@pair.Value)</li>    
+        }
+        </ul>
+    </div>
+</div>
+
 
 @section Scripts {
     <script>

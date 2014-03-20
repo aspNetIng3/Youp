@@ -22,7 +22,7 @@ namespace StatsDashboard.Controllers
                 DateTime start = new DateTime(currentDateTime.Year, i, 1, 0, 0, 0);
                 DateTime end = new DateTime(currentDateTime.Year, i, DateTime.DaysInMonth(currentDateTime.Year, i), 23, 59, 59);
 
-                int count = db.Events.Where(u => u.CreatedAt > start && u.CreatedAt < end).Count();
+                int count = db.Events.Where(u => u.CreatedAt >= start && u.CreatedAt <= end).Count();
                 eventCreateFormonths.Add(i, count);
             }
 
@@ -35,7 +35,7 @@ namespace StatsDashboard.Controllers
                 DateTime start = new DateTime(currentDateTime.Year, currentDateTime.Month, i, 0, 0, 0);
                 DateTime end = new DateTime(currentDateTime.Year, currentDateTime.Month, i, 23, 59, 59);
 
-                int count = db.Events.Where(u => u.CreatedAt > start && u.CreatedAt < end).Count();
+                int count = db.Events.Where(u => u.CreatedAt >= start && u.CreatedAt <= end).Count();
                 eventCreateFormonth.Add(i, count);
             }
 

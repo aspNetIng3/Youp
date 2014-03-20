@@ -16,33 +16,6 @@ namespace StatsDashboard.Controllers
             DateTime currentDateTime = DateTime.Now;
 
             Dictionary<int, int> userRegisterFormonths = new Dictionary<int, int>();
-
-            for (int i = 1; i <= 12; i++)
-            {
-                DateTime start = new DateTime(currentDateTime.Year, i, 1, 0, 0, 0);
-                DateTime end = new DateTime(currentDateTime.Year, i, DateTime.DaysInMonth(currentDateTime.Year, i), 23, 59, 59);
-
-                int count = db.Users.Where(u => u.CreatedAt > start && u.CreatedAt < end).Count();
-                userRegisterFormonths.Add(i, count);
-            }
-
-            ViewData["userRegisterForMonths"] = userRegisterFormonths;
-
-            Dictionary<int, int> userRegisterFormonth = new Dictionary<int, int>();
-
-            for (int i = 1; i <= DateTime.DaysInMonth(currentDateTime.Year, currentDateTime.Month); i++)
-            {
-                DateTime start = new DateTime(currentDateTime.Year, currentDateTime.Month, i, 0, 0, 0);
-                DateTime end = new DateTime(currentDateTime.Year, currentDateTime.Month, i, 23, 59, 59);
-
-                int count = db.Users.Where(u => u.CreatedAt > start && u.CreatedAt < end).Count();
-                userRegisterFormonth.Add(i, count);
-            }
-
-            ViewData["userRegisterForMonth"] = userRegisterFormonth;
-
-            //
-
             Dictionary<int, int> userDeletedFormonths = new Dictionary<int, int>();
 
             for (int i = 1; i <= 12; i++)
@@ -50,12 +23,17 @@ namespace StatsDashboard.Controllers
                 DateTime start = new DateTime(currentDateTime.Year, i, 1, 0, 0, 0);
                 DateTime end = new DateTime(currentDateTime.Year, i, DateTime.DaysInMonth(currentDateTime.Year, i), 23, 59, 59);
 
-                int count = db.Users.Where(u => !u.DeletedAt.Equals(null) && u.DeletedAt > start && u.DeletedAt < end).Count();
+                int count = db.Users.Where(u => u.CreatedAt >= start && u.CreatedAt <= end).Count();
+                userRegisterFormonths.Add(i, count);
+
+                count = db.Users.Where(u => !u.DeletedAt.Equals(null) && u.DeletedAt >= start && u.DeletedAt <= end).Count();
                 userDeletedFormonths.Add(i, count);
             }
 
+            ViewData["userRegisterForMonths"] = userRegisterFormonths;
             ViewData["userDeletedFormonths"] = userDeletedFormonths;
 
+            Dictionary<int, int> userRegisterFormonth = new Dictionary<int, int>();
             Dictionary<int, int> userDeletedFormonth = new Dictionary<int, int>();
 
             for (int i = 1; i <= DateTime.DaysInMonth(currentDateTime.Year, currentDateTime.Month); i++)
@@ -63,10 +41,14 @@ namespace StatsDashboard.Controllers
                 DateTime start = new DateTime(currentDateTime.Year, currentDateTime.Month, i, 0, 0, 0);
                 DateTime end = new DateTime(currentDateTime.Year, currentDateTime.Month, i, 23, 59, 59);
 
-                int count = db.Users.Where(u => !u.DeletedAt.Equals(null) && u.DeletedAt > start && u.DeletedAt < end).Count();
+                int count = db.Users.Where(u => u.CreatedAt >= start && u.CreatedAt <= end).Count();
+                userRegisterFormonth.Add(i, count);
+
+                count = db.Users.Where(u => !u.DeletedAt.Equals(null) && u.DeletedAt >= start && u.DeletedAt <= end).Count();
                 userDeletedFormonth.Add(i, count);
             }
 
+            ViewData["userRegisterForMonth"] = userRegisterFormonth;
             ViewData["userDeletedFormonth"] = userDeletedFormonth;
 
             //
@@ -87,6 +69,17 @@ namespace StatsDashboard.Controllers
             ViewData["citiesStats"] = citiesStats;
 
             ViewData["topTenCities"] = citiesStats.OrderByDescending(x => x.Value).Take(10).ToDictionary(x => x.Key, x => x.Value);
+
+            List<Rank> ranks = db.Ranks.ToList();
+            Dictionary<String, int> rankUser = new Dictionary<String, int>();
+
+            foreach (var rank in ranks)
+            {
+                int count = db.Users.Where(u => u.RankId == rank.Id).Count();
+                rankUser.Add(rank.LevelRank, count);
+            }
+
+            ViewData["rankUser"] = rankUser;
 
             return View();
         }
