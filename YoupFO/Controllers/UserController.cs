@@ -64,8 +64,8 @@ namespace YoupFO.Controllers
                     Gender = collection["Gender"]
                 };
                 UserService service = new UserService();
-                //UserS userS = YoupFO.Models.ConvertFO.FromFO(user);
-                //service.CreateUser(userS);
+                UserS userS = YoupFO.Models.ConvertFO.FromFO(user);
+                service.CreateUser(userS);
 
                 return RedirectToAction("Index");
             }
@@ -104,8 +104,8 @@ namespace YoupFO.Controllers
                     Gender = collection["Gender"]
                 };
                 UserService service = new UserService();
-                //UserS userS = YoupFO.Models.ConvertFO.FromFO(user);
-                //service.EditUser(id, userS);
+                UserS userS = YoupFO.Models.ConvertFO.FromFO(user);
+                service.EditUser(id, userS);
 
                 return RedirectToAction("Index");
             }
@@ -132,7 +132,7 @@ namespace YoupFO.Controllers
             try
             {
                 UserService service = new UserService();
-                //service.DeleteUser(id);
+                service.DeleteUser(id);
                 return RedirectToAction("Index");
             }
             catch
