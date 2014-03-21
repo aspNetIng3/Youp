@@ -13,9 +13,9 @@ namespace YoupService
         public UserS GetUser(string id)
         {
             UserS user = new UserS();
-            //YoupData dataContext = new YoupData();
+            YoupData dataContext = new YoupData();
 
-            //user = ConvertService.ToService(dataContext.GetUser(id));
+            user = ConvertService.ToService(dataContext.GetUser(id));
 
             return user;
         }
@@ -34,7 +34,14 @@ namespace YoupService
         {
             YoupData dataContext = new YoupData();
             User _user = ConvertService.FromService(user);
-
+            _user.Id = Guid.NewGuid().ToString();
+            _user.GuidFacebook = _user.Id;
+            _user.CreatedAt = DateTime.Now;
+            _user.UpdatedAt = DateTime.Now;
+            _user.RankId = 1;
+            _user.RoleId = 1;
+            _user.IsActive = 1;
+            _user.DeletedAt = null;
             dataContext.CreateUser(_user);
         }
 

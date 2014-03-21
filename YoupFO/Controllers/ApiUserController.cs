@@ -23,7 +23,7 @@ namespace YoupFO.Controllers
             return user;
         }
 
-        // GET api/apiuser/5
+        // GET api/apiuser/{id}
         public User GetUser(string id)
         {
             User user = new User();
