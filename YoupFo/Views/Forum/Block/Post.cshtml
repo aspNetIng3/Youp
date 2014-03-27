@@ -1,0 +1,21 @@
+﻿<h2 class="most-recent">Dernières discussions</h2>
+<ul>
+    @foreach (YoupRepository.Model.ThreadPOCO key in (ViewBag.MostRecent as IEnumerable<YoupRepository.Model.ThreadPOCO>))
+    {
+        <li class="thread-item">@Html.ActionLink(key.Data.Title, "Index/" + key.Data.Id, "Message")</li>
+    }
+</ul>
+<h2 class="most-recent">Discussions les plus commentées</h2>
+<ul>
+    @foreach (YoupRepository.Model.ThreadPOCO key in (ViewBag.MostCommented as IEnumerable<YoupRepository.Model.ThreadPOCO>))
+    {
+        <li class="thread-item">@Html.ActionLink(key.Data.Title, "Index/" + key.Data.Id, "Message")</li>
+    }
+</ul>
+<h2 class="most-recent">Discussions favorites</h2>
+<ul>
+    @foreach (YoupRepository.Model.ThreadPOCO key in (ViewBag.Favorites as IEnumerable<YoupRepository.Model.ThreadPOCO>))
+    {
+        <li class="thread-item">@Html.ActionLink(key.Data.Title, "Index/" + key.Data.Id, "Message")</li>
+    }
+</ul>
