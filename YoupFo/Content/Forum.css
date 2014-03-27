@@ -1,0 +1,28 @@
+﻿.menuElement {
+    width : 20%;
+}
+
+/* Nav Forum */
+
+#nav-forum li {
+    margin: 0 auto;
+    width: 19%;
+    text-align: center;
+    margin : 0 5px;
+    font-weight: bold;
+}
+
+#nav-forum a {
+    color: white;
+}
+
+.nav-subforum li {
+    text-align: center;
+    min-width: 13%;
+    margin : 5px 5px;
+    font-weight: bold;
+}
+
+.nav-subforum a {
+    color: white;
+}

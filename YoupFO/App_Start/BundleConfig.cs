@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace YoupFO
+namespace YoupFo
 {
     public class BundleConfig
     {
@@ -18,12 +18,27 @@ namespace YoupFO
                         "~/Scripts/jquery.unobtrusive*",
                         "~/Scripts/jquery.validate*"));
 
+            var jqueryBundle = new ScriptBundle("~/Scripts/jquery");
+            jqueryBundle.Include(new string[] { 
+                "~/Scripts/jquery-1.8.2.js",
+                "~/Scripts/jquery.validate.js",
+                "~/Scripts/jquery.validate-additional-methods.js"
+            });
+
+            //var forumBundle = new ScriptBundle("~/Scripts/Forum");
+            //forumBundle.Include(new string[] { 
+            //    "~/Scripts/Forum/nav.js"
+            //});
+
             // Utilisez la version de développement de Modernizr pour développer et apprendre. Puis, lorsque vous êtes
             // prêt pour la production, utilisez l'outil de génération sur http://modernizr.com pour sélectionner uniquement les tests dont vous avez besoin.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
+            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css",
+                        "~/Content/_Layout.css",
+                        "~/Content/Forum.css",
+                        "~/Content/Color.css"));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery.ui.core.css",
