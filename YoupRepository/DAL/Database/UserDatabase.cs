@@ -18,8 +18,10 @@ namespace YoupRepository.DAL
         public User Create(User tpc)
         {
             YoupEntities ye = new YoupEntities();
-
+            //ye.Set<User>().Attach(tpc);
             ye.Users.Add(tpc);
+            //ye.Entry(tpc).State = System.Data.EntityState.Added;
+            
 
             if (ye.SaveChanges() != 0)
                 return tpc;

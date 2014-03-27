@@ -26,19 +26,5 @@ namespace YoupRepository.Model
         public System.DateTime CreatedAt { get; set; }
         public System.DateTime UpdatedAt { get; set; }
         public Nullable<System.DateTime> DeletedAt { get; set; }
-
-        public virtual ICollection<BlogDTO> Blogs { get; set; }
-        public virtual ICollection<BlogCommentDTO> BlogsComments { get; set; }
-        public virtual ICollection<CardDTO> Cards { get; set; }
-        public virtual ICollection<EventDTO> Events { get; set; }
-        public virtual ICollection<EventCommentDTO> EventComments { get; set; }
-        public virtual ICollection<FavoriteDTO> Favorites { get; set; }
-        public virtual ICollection<MessageDTO> Messages { get; set; }
-        public virtual ICollection<PhotoDTO> Photos { get; set; }
-        public virtual RankDTO Rank { get; set; }
-        public virtual ICollection<RatingDTO> Ratings { get; set; }
-        public virtual RoleDTO Role { get; set; }
-        public virtual ICollection<EventDTO> Events1 { get; set; }
-        public virtual ICollection<ThemeDTO> Themes { get; set; }
     }
 }
