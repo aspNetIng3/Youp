@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using YoupFO.Models;
 using YoupService;
 using YoupService.Models;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace YoupFO.Controllers
 {
@@ -52,12 +54,12 @@ namespace YoupFO.Controllers
         public ActionResult Create(FormCollection collection)
         {
             try
-            {
+            {                
                 // TODO: Add insert logic here
                 User user = new User()
                 {
                     UserName = collection["UserName"],
-                    Password = collection["Password"],
+                    Password = HashPassword(collection["Password"]),
                     Email = collection["Email"],
                     Address = collection["Address"],
                     Birthday = DateTime.Parse(collection["Birthday"]),
@@ -97,7 +99,7 @@ namespace YoupFO.Controllers
                 User user = new User()
                 {
                     UserName = collection["UserName"],
-                    Password = collection["Password"],
+                    Password = HashPassword(collection["Password"]),
                     Email = collection["Email"],
                     Address = collection["Address"],
                     Birthday = DateTime.Parse(collection["Birthday"]),
@@ -138,6 +140,24 @@ namespace YoupFO.Controllers
             catch
             {
                 return View();
+            }
+        }
+
+        public string HashPassword(string password)
+        {
+            string hash;
+            using (MD5 md5 = MD5.Create())
+            {
+                byte[] buffer = System.Text.Encoding.Default.GetBytes(password);
+                byte[] hashbuffer = md5.ComputeHash(buffer, 0, buffer.Length);
+                StringBuilder sb = new StringBuilder();
+                foreach (byte b in hashbuffer)
+                {
+                    sb.Append(b.ToString("X2"));
+                }
+                hash = sb.ToString();
+
+                return hash;
             }
         }
     }
