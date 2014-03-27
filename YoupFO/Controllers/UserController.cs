@@ -51,30 +51,40 @@ namespace YoupFO.Controllers
         // POST: /User/Create
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(User user)
         {
-            try
-            {                
-                // TODO: Add insert logic here
-                User user = new User()
-                {
-                    UserName = collection["UserName"],
-                    Password = HashPassword(collection["Password"]),
-                    Email = collection["Email"],
-                    Address = collection["Address"],
-                    Birthday = DateTime.Parse(collection["Birthday"]),
-                    Gender = collection["Gender"]
-                };
-                UserService service = new UserService();
-                UserS userS = YoupFO.Models.ConvertFO.FromFO(user);
-                service.CreateUser(userS);
-
-                return RedirectToAction("Index");
-            }
-            catch
+            if (ModelState.IsValid)
             {
-                return View();
+                try
+                {
+                    // TODO: Add insert logic here
+
+                    //User user = new User()
+                    //{
+                    //    UserName = collection["UserName"],
+                    //    Password = HashPassword(collection["Password"]),
+                    //    Email = collection["Email"],
+                    //    Address = collection["Address"],
+                    //    Birthday = DateTime.Parse(collection["Birthday"]),
+                    //    Gender = collection["Gender"]
+                    //};
+
+                    //hash du password
+                    user.Password = HashPassword(user.Password);
+                    UserService service = new UserService();
+                    UserS userS = YoupFO.Models.ConvertFO.FromFO(user);
+                    service.CreateUser(userS);
+
+                    return RedirectToAction("Index");
+
+                }
+                catch(Exception e)
+                {
+                    ModelState.AddModelError("try again", e);
+                }
             }
+
+            return View(user);
         }
 
         //

@@ -10,29 +10,42 @@ namespace YoupFO.Models
     {
         public Guid Id { get; set; }
 
+        [Display(Name = "Nom d'utilisateur")]
         [Required(ErrorMessage = "Le nom est requis")]
         public String UserName { get; set; }
 
         [Required(ErrorMessage = "Le mail est requis")]
 //        [RegularExpression(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))
 	//            ([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$", ErrorMessage = "Le format de l'email est incorrect")]
-
+        [Display(Name = "Email")]
         [RegularExpression("[a-zA-Z0-9\\.\\-_]+@[a-zA-Z0-9\\.\\-_]+\\.[a-zA-Z]+", ErrorMessage = "Le format de l'email est incorrect")]
         public String Email { get; set; }
 
+        [Display(Name = "Vérification de l'email")]
+        [Compare("Email", ErrorMessage = "Les deux mots de mails doivent être les mêmes.")]
+        public String EmailVerif { get; set; }
+
+        [Display(Name = "Mot de passe")]
         [Required(ErrorMessage = "Le mot de passe est requis")]
         public String Password { get; set; }
+
+        [Display(Name = "vérification mot de passe")]
+        [Compare("Password", ErrorMessage = "Les deux mots de passe doivent être les mêmes.")]
+        public String PasswordVerif { get; set; }
 
         public Guid GuidFacebook { get; set; }
 
         public bool IsActive { get; set; }
 
+        [Display(Name = "Sexe")]
         [Required(ErrorMessage = "Le sexe est requis")]
         public String Gender { get; set; }
 
+        [Display(Name = "Date de naissance")]
         [Required(ErrorMessage = "La date de naissance est requis")]
         public DateTime Birthday { get; set; }
 
+        [Display(Name = "Adresse")]
         public String Address { get; set; }
 
         public int RankId { get; set; }

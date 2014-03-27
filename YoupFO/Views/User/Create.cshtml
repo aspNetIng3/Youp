@@ -30,11 +30,11 @@
             @Html.ValidationMessageFor(model => model.Email)
         </div>
         <div class="editor-label">
-            <label for="EmailVerif">Email Verification</label>
+            @Html.LabelFor(model => model.EmailVerif)
         </div>
         <div class="editor-field">
-            <input type="text" name="EmailVerif" />
-            @Html.ValidationMessageFor(model => model.Email)
+            @Html.EditorFor(model => model.EmailVerif)
+            @Html.ValidationMessageFor(model => model.EmailVerif)
         </div>
  
         <div class="editor-label">
@@ -45,11 +45,11 @@
             @Html.ValidationMessageFor(model => model.Password)
         </div>
         <div class="editor-label">
-            <label for="PasswordVerif">Password Verification</label>
+             @Html.LabelFor(model => model.PasswordVerif)
         </div>
         <div class="editor-password">
-            <input type="password" name="PasswordVerif" />
-            @Html.ValidationMessageFor(model => model.Password)
+            @Html.PasswordFor(model => model.PasswordVerif)
+            @Html.ValidationMessageFor(model => model.PasswordVerif)
         </div>
  
         <div class="editor-label">
