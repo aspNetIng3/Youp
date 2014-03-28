@@ -32,28 +32,16 @@
             @Html.ValidationMessageFor(model => model.Email)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Password)
-        </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Password)
-            @Html.ValidationMessageFor(model => model.Password)
+            @Html.HiddenFor(model => model.Password)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.GuidFacebook)
-        </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.GuidFacebook)
-            @Html.ValidationMessageFor(model => model.GuidFacebook)
+            @Html.HiddenFor(model => model.GuidFacebook)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.IsActive)
-        </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.IsActive)
-            @Html.ValidationMessageFor(model => model.IsActive)
+            @Html.HiddenFor(model => model.IsActive)
         </div>
 
         <div class="editor-label">
@@ -80,44 +68,20 @@
             @Html.ValidationMessageFor(model => model.Address)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.RankId)
-        </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.RankId)
-            @Html.ValidationMessageFor(model => model.RankId)
+            @Html.HiddenFor(model => model.RankId)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.RoleId)
-        </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.RoleId)
-            @Html.ValidationMessageFor(model => model.RoleId)
+            @Html.HiddenFor(model => model.RoleId)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.CreatedAt)
-        </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.CreatedAt)
-            @Html.ValidationMessageFor(model => model.CreatedAt)
+            @Html.HiddenFor(model => model.CreatedAt)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.UpdatedAt)
-        </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.UpdatedAt)
-            @Html.ValidationMessageFor(model => model.UpdatedAt)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.DeletedAt)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.DeletedAt)
-            @Html.ValidationMessageFor(model => model.DeletedAt)
+            @Html.HiddenFor(model => model.UpdatedAt)
         </div>
 
         <p>

@@ -104,26 +104,35 @@ namespace YoupFO.Controllers
         [HttpPost]
         public ActionResult Edit(Guid id, FormCollection collection)
         {
+            User user = new User()
+            {
+                UserName = collection["UserName"],
+                Password = HashPassword(collection["Password"]),
+                Email = collection["Email"],
+                Address = collection["Address"],
+                Birthday = DateTime.Parse(collection["Birthday"]),
+                Gender = collection["Gender"],
+                Id = id,
+                UpdatedAt = DateTime.Now,
+                CreatedAt = DateTime.Parse(collection["CreatedAt"]),
+                RoleId = Convert.ToInt32(collection["RoleId"]),
+                RankId = Convert.ToInt32(collection["RankId"]),
+                IsActive = true,
+                GuidFacebook = id
+
+            };
+            UserService service = new UserService();
+            UserS userS = YoupFO.Models.ConvertFO.FromFO(user);
             try
             {
-                User user = new User()
-                {
-                    UserName = collection["UserName"],
-                    Password = HashPassword(collection["Password"]),
-                    Email = collection["Email"],
-                    Address = collection["Address"],
-                    Birthday = DateTime.Parse(collection["Birthday"]),
-                    Gender = collection["Gender"]
-                };
-                UserService service = new UserService();
-                UserS userS = YoupFO.Models.ConvertFO.FromFO(user);
+                
                 service.EditUser(userS);
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch(Exception e)
             {
-                return View();
+                return View(user);
             }
         }
 
