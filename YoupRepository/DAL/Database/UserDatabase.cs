@@ -68,7 +68,7 @@ namespace YoupRepository.DAL
         {
             YoupEntities ye = new YoupEntities();
 
-            User result =  ye.Users.SingleOrDefault(u => u.Email == login.Email && u.Password == login.Password);
+            User result = ye.Users.SingleOrDefault(u => u.Email == login.Email && u.Password == login.Password && u.IsActive == 1);
             return result;
         }
 
