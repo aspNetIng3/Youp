@@ -16,3 +16,4 @@
 * Read too : [Git Best Practices](http://sethrobertson.github.io/GitBestPractices/)
 
 #### Don't hesitate to improve this document
+test
