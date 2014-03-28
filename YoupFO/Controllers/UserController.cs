@@ -139,9 +139,17 @@ namespace YoupFO.Controllers
         //
         // GET: /User/Delete/5
 
-        public ActionResult Delete(Guid id)
+        public ActionResult Delete(string id)
         {
-            return View();
+            try
+            {
+                UserService service = new UserService();
+                service.DeleteUser(id);
+            }
+            catch(Exception e)
+            {
+            }
+            return RedirectToAction("Index");
         }
 
         //
