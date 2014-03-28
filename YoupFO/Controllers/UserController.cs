@@ -92,15 +92,7 @@ namespace YoupFO.Controllers
         {
             try
             {
-               /* User user = new User()
-                {
-                    UserName = collection["UserName"],
-                    Password = HashPassword(collection["Password"]),
-                    Email = collection["Email"],
-                    Address = collection["Address"],
-                    Birthday = DateTime.Parse(collection["Birthday"]),
-                    Gender = collection["Gender"]
-                };*/
+                user.UpdatedAt = DateTime.Now;
                 UserService service = new UserService();
                 UserS userS = YoupFO.Models.ConvertFO.FromFO(user);
                 service.EditUser(userS);
@@ -113,9 +105,17 @@ namespace YoupFO.Controllers
             }
         }
 
-        public ActionResult Delete(Guid id)
+        public ActionResult Delete(String id)
         {
-            return View();
+            try
+            {
+                UserService service = new UserService();
+                service.DeleteUser(id);
+            }
+            catch (Exception e)
+            {
+            }
+            return RedirectToAction("Index");
         }
 
         // POST

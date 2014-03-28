@@ -38,6 +38,7 @@ namespace YoupRepository.DAL
             if (notDisplay != null)
             {
                 notDisplay.DeletedAt = DateTime.Now;
+                notDisplay.IsActive = 0;
                 return Update(notDisplay);
             }
 

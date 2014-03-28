@@ -1,21 +1,21 @@
 ﻿@model YoupFO.Models.User
-
+ 
 @{
     ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+ 
 <h2>Edit</h2>
-
+ 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
-
+ 
     <fieldset>
         <legend>User</legend>
-
+ 
         @Html.HiddenFor(model => model.Id)
-
+ 
         <div class="editor-label">
             @Html.LabelFor(model => model.UserName)
         </div>
@@ -23,7 +23,7 @@
             @Html.EditorFor(model => model.UserName)
             @Html.ValidationMessageFor(model => model.UserName)
         </div>
-
+ 
         <div class="editor-label">
             @Html.LabelFor(model => model.Email)
         </div>
@@ -31,15 +31,19 @@
             @Html.EditorFor(model => model.Email)
             @Html.ValidationMessageFor(model => model.Email)
         </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Password)
-        </div>
+ 
         <div class="editor-field">
-            @Html.EditorFor(model => model.Password)
-            @Html.ValidationMessageFor(model => model.Password)
+            @Html.HiddenFor(model => model.Password)
         </div>
-
+ 
+        <div class="editor-field">
+            @Html.HiddenFor(model => model.GuidFacebook)
+        </div>
+ 
+        <div class="editor-field">
+            @Html.HiddenFor(model => model.IsActive)
+        </div>
+ 
         <div class="editor-label">
             @Html.LabelFor(model => model.Gender)
         </div>
@@ -47,7 +51,7 @@
             @Html.EditorFor(model => model.Gender)
             @Html.ValidationMessageFor(model => model.Gender)
         </div>
-
+ 
         <div class="editor-label">
             @Html.LabelFor(model => model.Birthday)
         </div>
@@ -55,7 +59,7 @@
             @Html.EditorFor(model => model.Birthday)
             @Html.ValidationMessageFor(model => model.Birthday)
         </div>
-
+ 
         <div class="editor-label">
             @Html.LabelFor(model => model.Address)
         </div>
@@ -63,16 +67,33 @@
             @Html.EditorFor(model => model.Address)
             @Html.ValidationMessageFor(model => model.Address)
         </div>
+ 
+        <div class="editor-field">
+            @Html.HiddenFor(model => model.RankId)
+        </div>
+ 
+        <div class="editor-field">
+            @Html.HiddenFor(model => model.RoleId)
+        </div>
+ 
+        <div class="editor-field">
+            @Html.HiddenFor(model => model.CreatedAt)
+        </div>
+ 
+        <div class="editor-field">
+            @Html.HiddenFor(model => model.UpdatedAt)
+        </div>
+ 
         <p>
             <input type="submit" value="Save" />
         </p>
     </fieldset>
 }
-
+ 
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
-
+ 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
