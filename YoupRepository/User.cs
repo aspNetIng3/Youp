@@ -31,4 +31,10 @@ namespace YoupRepository
         public string ResetPasswordToken { get; set; }
         public Nullable<System.DateTime> ResetTokenSentAt { get; set; }
     }
+
+    public partial class Login
+    {
+        public string Email { get; set; }
+        public string Password { get; set; }
+    }
 }

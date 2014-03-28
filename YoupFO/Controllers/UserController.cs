@@ -8,6 +8,7 @@ using YoupService;
 using YoupService.Models;
 using System.Security.Cryptography;
 using System.Text;
+using System.Web.SessionState;
 
 namespace YoupFO.Controllers
 {
@@ -19,6 +20,9 @@ namespace YoupFO.Controllers
         public ActionResult Index()
         {
             UserService service = new UserService();
+            
+            if (!service.isAuthenticate(Session["User"]))
+                return Redirect("/");
             IEnumerable<UserS> userSs = service.GetUsers();
             List<User> users = new List<User>();
             foreach (UserS userS in userSs)
@@ -57,18 +61,6 @@ namespace YoupFO.Controllers
             {
                 try
                 {
-                    // TODO: Add insert logic here
-
-                    //User user = new User()
-                    //{
-                    //    UserName = collection["UserName"],
-                    //    Password = HashPassword(collection["Password"]),
-                    //    Email = collection["Email"],
-                    //    Address = collection["Address"],
-                    //    Birthday = DateTime.Parse(collection["Birthday"]),
-                    //    Gender = collection["Gender"]
-                    //};
-
                     //hash du password
                     user.Password = HashPassword(user.Password);
                     UserService service = new UserService();
@@ -87,9 +79,6 @@ namespace YoupFO.Controllers
             return View(user);
         }
 
-        //
-        // GET: /User/Edit/5
-
         public ActionResult Edit(string id)
         {
             UserService service = new UserService();
@@ -98,15 +87,12 @@ namespace YoupFO.Controllers
             return View(user);
         }
 
-        //
-        // POST: /User/Edit/5
-
         [HttpPost]
-        public ActionResult Edit(Guid id, FormCollection collection)
+        public ActionResult Edit(User user)
         {
             try
             {
-                User user = new User()
+               /* User user = new User()
                 {
                     UserName = collection["UserName"],
                     Password = HashPassword(collection["Password"]),
@@ -114,7 +100,7 @@ namespace YoupFO.Controllers
                     Address = collection["Address"],
                     Birthday = DateTime.Parse(collection["Birthday"]),
                     Gender = collection["Gender"]
-                };
+                };*/
                 UserService service = new UserService();
                 UserS userS = YoupFO.Models.ConvertFO.FromFO(user);
                 service.EditUser(userS);
@@ -127,17 +113,12 @@ namespace YoupFO.Controllers
             }
         }
 
-        //
-        // GET: /User/Delete/5
-
         public ActionResult Delete(Guid id)
         {
             return View();
         }
 
-        //
-        // POST: /User/Delete/5
-
+        // POST
         [HttpPost]
         public ActionResult Delete(string id, FormCollection collection)
         {
@@ -151,6 +132,41 @@ namespace YoupFO.Controllers
             {
                 return View();
             }
+        }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        // POST Auth
+        [HttpPost]
+        public ActionResult Login(Login login)
+        {
+            try
+            {
+                UserService service = new UserService();
+                login.Password = HashPassword(login.Password);
+                LoginS loginS = YoupFO.Models.ConvertFO.FromFO(login);
+                UserS result = service.Auth(loginS);
+                if (result != null)
+                {
+                    Session["User"] = ConvertFO.ToFO(result);
+                    return RedirectToAction("/");
+                }
+                else
+                    return View();
+            }
+            catch (Exception e)
+            {
+                return View();
+            }
+        }
+
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            return RedirectToAction("/login");
         }
 
         public string HashPassword(string password)

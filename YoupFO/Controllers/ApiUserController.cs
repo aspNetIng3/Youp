@@ -14,6 +14,10 @@ namespace YoupFO.Controllers
     public class ApiUserController : ApiController
     {
         // GET api/apiuser
+        /// <summary>
+        /// Get all users
+        /// </summary>
+        /// <returns></returns>
         public List<User> Get()
         {
             List<User> user = new List<User>();
@@ -24,6 +28,11 @@ namespace YoupFO.Controllers
         }
 
         // GET api/apiuser/{id}
+        /// <summary>
+        /// Get one user
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public User GetUser(string id)
         {
             User user = new User();
@@ -34,6 +43,10 @@ namespace YoupFO.Controllers
         }
 
         // POST api/apiuser
+        /// <summary>
+        /// Create a user
+        /// </summary>
+        /// <param name="user"></param>
         public void Post(User user)
         {
             UserS _user = ConvertFO.FromFO(user);
@@ -42,6 +55,11 @@ namespace YoupFO.Controllers
         }
 
         // PUT api/apiuser/5
+        /// <summary>
+        /// Update a user
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="user"></param>
         public void Put(Guid id, User user)
         {
             UserS _user = ConvertFO.FromFO(user);
@@ -51,6 +69,10 @@ namespace YoupFO.Controllers
         }
 
         // DELETE api/apiuser/5
+        /// <summary>
+        /// Delte a User
+        /// </summary>
+        /// <param name="id"></param>
         public void Delete(string id)
         {
             UserService userService = new UserService();

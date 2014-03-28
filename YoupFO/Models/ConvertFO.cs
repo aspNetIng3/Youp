@@ -88,6 +88,17 @@ namespace YoupFO.Models
 
             return _user;
         }
+
+        internal static LoginS FromFO(Login login)
+        {
+            LoginS _login = new LoginS
+            {
+                Email = login.Email,
+                Password = login.Password
+            };
+
+            return _login;
+        }
     }
 }
 

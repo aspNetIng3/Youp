@@ -83,5 +83,16 @@ namespace YoupService
 
             return _user;
         }
+
+        internal static Login FromService(LoginS login)
+        {
+            Login _login = new Login
+            {
+                Email = login.Email,
+                Password = login.Password
+            };
+
+            return _login;
+        }
     }
 }

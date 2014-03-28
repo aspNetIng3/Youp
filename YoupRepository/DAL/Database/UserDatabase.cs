@@ -63,5 +63,13 @@ namespace YoupRepository.DAL
             return ye.Users.Where(c => c.Id == id).SingleOrDefault();
         }
 
+        public User AuthUser(Login login)
+        {
+            YoupEntities ye = new YoupEntities();
+
+            User result =  ye.Users.SingleOrDefault(u => u.Email == login.Email && u.Password == login.Password);
+            return result;
+        }
+
     }
 }

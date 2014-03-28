@@ -39,4 +39,11 @@ namespace YoupService.Models
         public String ResetPasswordToken { get; set; }
         public DateTime ResetTokenSentAt { get; set; }
     }
+
+    public class LoginS
+    {
+        public String Email { get; set; }
+
+        public String Password { get; set; }
+    }
 }

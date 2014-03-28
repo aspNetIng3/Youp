@@ -28,7 +28,15 @@ namespace YoupRepository
 
         public void CreateUser(User user)
         {
-            db.Create(user);
+            try
+            {
+                db.Create(user);
+            
+            }
+            catch(Exception e)
+            {
+
+            }
         }
 
         public void EditUser(User user)
@@ -39,6 +47,12 @@ namespace YoupRepository
         public void DeleteUser(string id)
         {
             db.Delete(id);
+        }
+
+        public User AuthUser(Login login)
+        {
+            User result = db.AuthUser(login);
+            return result;
         }
     }
 }

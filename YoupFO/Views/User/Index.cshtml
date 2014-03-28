@@ -13,16 +13,13 @@
 <table>
     <tr>
         <th>
+             @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.UserName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Password)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GuidFacebook)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.IsActive)
@@ -55,18 +52,16 @@
     </tr>
 
 @foreach (var item in Model) {
+    if(item.IsActive) {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.UserName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Password)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GuidFacebook)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.IsActive)
@@ -101,6 +96,7 @@
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
         </td>
     </tr>
+    }
 }
 
 </table>

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using YoupRepository;
 using YoupService.Models;
+using System.Web;
 
 namespace YoupService
 {
@@ -39,7 +40,7 @@ namespace YoupService
             _user.CreatedAt = DateTime.Now;
             _user.UpdatedAt = DateTime.Now;
             _user.RankId = 1;
-            _user.RoleId = 1;
+            _user.RoleId = 2;
             _user.IsActive = 1;
             _user.DeletedAt = null;
             dataContext.CreateUser(_user);
@@ -57,6 +58,22 @@ namespace YoupService
         {
             YoupData dataContext = new YoupData();
             dataContext.DeleteUser(id);
+        }
+
+        public UserS Auth(LoginS login)
+        {
+            YoupData dataContext = new YoupData();
+            Login _login = ConvertService.FromService(login);
+            User result = dataContext.AuthUser(_login);
+            return ConvertService.ToService(result);
+        }
+
+        public bool isAuthenticate(Object session)
+        {
+            if (session != null)
+                return true;
+            else
+                return false;
         }
     }
 }
