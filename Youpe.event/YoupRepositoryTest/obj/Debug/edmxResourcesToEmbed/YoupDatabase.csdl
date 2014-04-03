@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="YoupEntities" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="YoupTestEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Card" EntityType="YoupEntities.Card" />
+    <EntitySet Name="Event" EntityType="YoupEntities.Event" />
+    <EntitySet Name="EventComment" EntityType="YoupEntities.EventComment" />
+    <EntitySet Name="Role" EntityType="YoupEntities.Role" />
+    <EntitySet Name="User" EntityType="YoupEntities.User" />
+    <AssociationSet Name="FK_Card_To_Event" Association="YoupEntities.FK_Card_To_Event">
+      <End Role="Event" EntitySet="Event" />
+      <End Role="Card" EntitySet="Card" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Card_To_User" Association="YoupEntities.FK_Card_To_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Card" EntitySet="Card" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Event_To_User" Association="YoupEntities.FK_Event_To_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Event" EntitySet="Event" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventComment_To_Event" Association="YoupEntities.FK_EventComment_To_Event">
+      <End Role="Event" EntitySet="Event" />
+      <End Role="EventComment" EntitySet="EventComment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventComment_To_User" Association="YoupEntities.FK_EventComment_To_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="EventComment" EntitySet="EventComment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_To_Role" Association="YoupEntities.FK_User_To_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="Subscription" Association="YoupEntities.Subscription">
+      <End Role="Event" EntitySet="Event" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Card">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Colour" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DeletedAt" Type="DateTime" Precision="0" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
+    <Property Name="EventId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Event" Relationship="YoupEntities.FK_Card_To_Event" FromRole="Card" ToRole="Event" />
+    <NavigationProperty Name="User" Relationship="YoupEntities.FK_Card_To_User" FromRole="Card" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Event">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Slots" Type="Int32" Nullable="false" />
+    <Property Name="Cost" Type="Double" />
+    <Property Name="Public" Type="Int16" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Adress" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Latitude" Type="Single" />
+    <Property Name="Longitude" Type="Single" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DeleteAt" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UserId" Type="String" MaxLength="36" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Card" Relationship="YoupEntities.FK_Card_To_Event" FromRole="Event" ToRole="Card" />
+    <NavigationProperty Name="User" Relationship="YoupEntities.FK_Event_To_User" FromRole="Event" ToRole="User" />
+    <NavigationProperty Name="EventComment" Relationship="YoupEntities.FK_EventComment_To_Event" FromRole="Event" ToRole="EventComment" />
+    <NavigationProperty Name="User1" Relationship="YoupEntities.Subscription" FromRole="Event" ToRole="User" />
+  </EntityType>
+  <EntityType Name="EventComment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="createdAt" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="updatedAt" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="deletedAt" Type="DateTime" Precision="0" />
+    <Property Name="EventId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Event" Relationship="YoupEntities.FK_EventComment_To_Event" FromRole="EventComment" ToRole="Event" />
+    <NavigationProperty Name="User" Relationship="YoupEntities.FK_EventComment_To_User" FromRole="EventComment" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Label" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="0" />
+    <Property Name="DeletedAt" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="User" Relationship="YoupEntities.FK_User_To_Role" FromRole="Role" ToRole="User" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GuidFacebook" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Int16" />
+    <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="Birthday" Type="DateTime" Precision="0" />
+    <Property Name="Adress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DeletedAt" Type="DateTime" Precision="0" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Card" Relationship="YoupEntities.FK_Card_To_User" FromRole="User" ToRole="Card" />
+    <NavigationProperty Name="Event" Relationship="YoupEntities.FK_Event_To_User" FromRole="User" ToRole="Event" />
+    <NavigationProperty Name="EventComment" Relationship="YoupEntities.FK_EventComment_To_User" FromRole="User" ToRole="EventComment" />
+    <NavigationProperty Name="Role" Relationship="YoupEntities.FK_User_To_Role" FromRole="User" ToRole="Role" />
+    <NavigationProperty Name="Event1" Relationship="YoupEntities.Subscription" FromRole="User" ToRole="Event" />
+  </EntityType>
+  <Association Name="FK_Card_To_Event">
+    <End Type="YoupEntities.Event" Role="Event" Multiplicity="1" />
+    <End Type="YoupEntities.Card" Role="Card" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Card">
+        <PropertyRef Name="EventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Card_To_User">
+    <End Type="YoupEntities.User" Role="User" Multiplicity="1" />
+    <End Type="YoupEntities.Card" Role="Card" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Card">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Event_To_User">
+    <End Type="YoupEntities.User" Role="User" Multiplicity="0..1" />
+    <End Type="YoupEntities.Event" Role="Event" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Event">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventComment_To_Event">
+    <End Type="YoupEntities.Event" Role="Event" Multiplicity="1" />
+    <End Type="YoupEntities.EventComment" Role="EventComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventComment">
+        <PropertyRef Name="EventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventComment_To_User">
+    <End Type="YoupEntities.User" Role="User" Multiplicity="1" />
+    <End Type="YoupEntities.EventComment" Role="EventComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventComment">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_To_Role">
+    <End Type="YoupEntities.Role" Role="Role" Multiplicity="1" />
+    <End Type="YoupEntities.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Subscription">
+    <End Type="YoupEntities.Event" Role="Event" Multiplicity="*" />
+    <End Type="YoupEntities.User" Role="User" Multiplicity="*" />
+  </Association>
+</Schema>

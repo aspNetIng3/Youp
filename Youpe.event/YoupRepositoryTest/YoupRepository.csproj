@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{05E53704-2D1E-4205-B4F7-F301565E64BD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YoupRepository</RootNamespace>
+    <AssemblyName>YoupRepository</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Card.cs">
+      <DependentUpon>YoupEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Database\CardDatabase.cs" />
+    <Compile Include="DAL\Database\EventCommentDatabase.cs" />
+    <Compile Include="DAL\Database\EventDatabase.cs" />
+    <Compile Include="DAL\Database\ThemeDatabase.cs" />
+    <Compile Include="DAL\IDatabase\ICardDatabase.cs" />
+    <Compile Include="DAL\IDatabase\IEventCommentDatabase.cs" />
+    <Compile Include="DAL\IDatabase\IEventDatabase.cs" />
+    <Compile Include="DAL\IDatabase\IRoleDatabase.cs" />
+    <Compile Include="DAL\IDatabase\IThemeDatabase.cs" />
+    <Compile Include="DAL\IDatabase\IUserDatabase.cs" />
+    <Compile Include="Event.cs">
+      <DependentUpon>YoupEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EventComment.cs">
+      <DependentUpon>YoupEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DTO\BaseDTO\CardBaseDTO.cs" />
+    <Compile Include="Model\DTO\BaseDTO\EventBaseDTO.cs" />
+    <Compile Include="Model\DTO\BaseDTO\EventCommentBaseDTO.cs" />
+    <Compile Include="Model\DTO\BaseDTO\RoleBaseDTO.cs" />
+    <Compile Include="Model\DTO\BaseDTO\ThemeBaseDTO.cs" />
+    <Compile Include="Model\DTO\BaseDTO\UserBaseDTO.cs" />
+    <Compile Include="Model\DTO\CardDTO.cs" />
+    <Compile Include="Model\DTO\EventCommentDTO.cs" />
+    <Compile Include="Model\DTO\EventDTO.cs" />
+    <Compile Include="Model\DTO\RoleDTO.cs" />
+    <Compile Include="Model\DTO\ThemeDTO.cs" />
+    <Compile Include="Model\DTO\UserDTO.cs" />
+    <Compile Include="Model\POCO\CardPOCO.cs" />
+    <Compile Include="Model\POCO\EventCommentPOCO.cs" />
+    <Compile Include="Model\POCO\EventPOCO.cs" />
+    <Compile Include="Model\POCO\RolePOCO.cs" />
+    <Compile Include="Model\POCO\ThemePOCO.cs" />
+    <Compile Include="Model\POCO\UserPOCO.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DAL\Database\RoleDatabase.cs" />
+    <Compile Include="DAL\Database\UserDatabase.cs" />
+    <Compile Include="Role.cs">
+      <DependentUpon>YoupEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Theme.cs">
+      <DependentUpon>YoupEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>YoupEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="YoupEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>YoupEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="YoupEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>YoupEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="YoupEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>YoupEntities.edmx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <EntityDeploy Include="YoupEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>YoupEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="YoupEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>YoupEntities.edmx</DependentUpon>
+      <LastGenOutput>YoupEntities.Context.cs</LastGenOutput>
+    </None>
+    <None Include="YoupEntities.edmx.diagram">
+      <DependentUpon>YoupEntities.edmx</DependentUpon>
+    </None>
+    <None Include="YoupEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>YoupEntities.edmx</DependentUpon>
+      <LastGenOutput>YoupEntities.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

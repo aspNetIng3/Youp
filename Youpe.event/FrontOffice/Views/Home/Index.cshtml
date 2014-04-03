@@ -1,0 +1,132 @@
+﻿@using YoupRepository.Model.DTO;
+@using YoupRepository.Model.POCO;
+<style>
+    .table th, .table tr {
+        font-size: 1em;
+        padding: 2px !important;
+        text-align: center;
+        color: #444444;
+    }
+    .table td {
+        width:33%;
+    }
+    .thumbnail h3 {
+        min-height: 0px !important;
+        margin-bottom: 0 !important;
+        margin-top: 0 !important;
+    }
+    .red {
+        -moz-box-shadow: 0px 0px 5px 5px #fd6864;
+        -webkit-box-shadow: 0px 0px 5px 5px #fd6864;
+        -o-box-shadow: 0px 0px 5px 5px #fd6864;
+        box-shadow: 0px 0px 5px 5px #fd6864;
+        filter: progid:DXImageTransform.Microsoft.Shadow(color=#fd6864, Direction=NaN, Strength=5);
+    }
+
+    .yellow {
+        -moz-box-shadow: 0px 0px 5px 5px #ffffc7;
+        -webkit-box-shadow: 0px 0px 5px 5px #ffffc7;
+        -o-box-shadow: 0px 0px 5px 5px #ffffc7;
+        box-shadow: 0px 0px 5px 5px #ffffc7;
+        filter: progid:DXImageTransform.Microsoft.Shadow(color=#ffffc7, Direction=NaN, Strength=5);
+    }
+
+    .blue {
+        -moz-box-shadow: 0px 0px 5px 5px #34cdf9;
+        -webkit-box-shadow: 0px 0px 5px 5px #34cdf9;
+        -o-box-shadow: 0px 0px 5px 5px #34cdf9;
+        box-shadow: 0px 0px 5px 5px #34cdf9;
+        filter: progid:DXImageTransform.Microsoft.Shadow(color=#34cdf9, Direction=NaN, Strength=5);
+    }
+
+    .green {
+        -moz-box-shadow: 0px 0px 5px 5px #32cb00;
+        -webkit-box-shadow: 0px 0px 5px 5px #32cb00;
+        -o-box-shadow: 0px 0px 5px 5px #32cb00;
+        box-shadow: 0px 0px 5px 5px #32cb00;
+        filter: progid:DXImageTransform.Microsoft.Shadow(color=#32cb00, Direction=NaN, Strength=5);
+    }
+</style>
+@{
+    System.Collections.Generic.IEnumerable<EventPOCO> allEvents = (ViewBag.allEvents as System.Collections.Generic.IEnumerable<EventPOCO>);
+    System.Collections.Generic.IEnumerable<ThemePOCO> allThemes = (ViewBag.allThemes as System.Collections.Generic.IEnumerable<ThemePOCO>);
+}
+<div class="row">
+    <section class="main-section">
+        <div class="breadcrumbs">
+            <a href="index.html">Accueil</a>/<a>Evenements</a>
+        </div>
+
+        <div class="tagline">
+            <div class="container">
+                <div class="row">
+                    <div class="span9">
+                        <img src="~/Images/home/Icon_Calendar.png" alt="some image" class="left freelance_img" />
+                        <h3 class="regular-size">Bienvenue sur Youp !</h3>
+                        <h6 class="subheader">Retrouvez nous sur l'integralité des evenement, actualité et forum.</h6>
+                    </div>
+                    <div class="span3">
+                        <a href="#" class="button big primary">Inscription</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <!-- BEGIN Portfolio ROW-->
+                
+            <div class="portfolioarea top20">
+          
+                <div class="span12 fix_margin clearfix">
+             
+                        <ul class="nav nav-pills" style="margin-left:4% !important;">
+                            @foreach (ThemePOCO theme in allThemes)
+                            {
+                            <li style="float: left; min-width: 50px">
+
+                               
+                          
+                                <a href="@Url.Action("Index", "Theme", new {id = theme.data.Id })">@theme.data.Name</a>
+                            
+                            </li>
+                            }
+                        </ul>
+                </div>
+            
+
+                    <div id="container" class="portfolioitems_container">
+                        @foreach (EventPOCO anEvent in allEvents)
+                        {
+                            <div class="filteritem big_item psd site">
+                                <div class="portfolio_thumb">
+                                    <a href="#modal1" data-toggle="modal" class="hover_fade_in"><img src="~/Images/home/game.JPG" alt="modal portfolio" /></a>
+                                </div>
+                                <h4 class="portfolio_title">
+                                    @anEvent.data.Name
+                                    <small class="categories">
+                                        @anEvent.data.Description
+                            <br />
+                            <br />
+                            <table class="table table-bordered" style="width:100%">
+                                <tr>
+                                    <th>Libre</th>
+                                    <th>Part</th>
+                                    <th>Inscrip</th>
+                                </tr>
+                                <tr>
+                                    <td><center>@anEvent.data.Slots</center></td>
+                                    <td><center>@anEvent.data.Users.Count</center></td>
+                                    <td><center><span class="glyphicon glyphicon-share"></span></center></td>
+                                </tr>
+                            </table>
+                        </small>
+                    </h4>
+                </div>
+                        }
+                    </div>
+                </div><!-- END CONTENT -->
+        </div>
+    </section>
+</div>

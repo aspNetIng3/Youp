@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace YoupRepository.DAL
+{
+    public interface IEventCommentDatabase
+    {
+        List<EventComment> GetEventComment(Event evt);
+        EventComment Create(EventComment evtComment);
+        Boolean Delete(int evtCommentID);
+        Boolean Update(EventComment evtCommentUpc);
+    }
+}
