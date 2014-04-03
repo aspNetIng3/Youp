@@ -1,0 +1,106 @@
+﻿  <!-- BEGIN HEADER -->
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="span6">
+                <div class="logoarea">
+                    <!-- BEGIN LOGOAREA -->
+                    <a href="/">
+                        <img src="~/Images/layout/logo.png" alt="Youp" style="height: 80px !important;"><!-- LOGO IMAGE -->
+                    </a>
+                </div>
+            </div>
+            <div class="span6 right">
+                <div class="contactarea">
+                    
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <nav>
+                <!-- MAIN NAVIGATION -->
+                <div id="top-menu">
+                    <!-- MAIN NAVIGATION BACKGROUND EFFECTS -->
+                    <ul class="nav">
+                        <li class="menu-item">
+                            <a href="/">Accueil</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="/forum">Forum</a>
+                        </li>
+                        <li class="menu-item">
+                            @*<a href="/blog">Blog</a>*@
+                            @Html.ActionLink("Blog", "CreationBlog", "Blog")
+                        </li>
+
+                        <li class="menu-item">
+                            <a href="blog.html">Se connecter</a>
+                        </li>
+                        <li class="menu-item" style="float: right;margin-left: 264px;margin-top: 2px;">
+                            <form class="navbar-form navbar-left" role="search" novalidate="novalidate">
+                                <div class="form-group" style="width: 100%;">
+                                    <input type="text" class="form-control" placeholder="Recherche" style=" width: 300px; float: left;">
+                                </div>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </nav> <!-- end #top-menu -->
+            <div class="topnav">
+                <a class="show_nav span1">Main Menu <i class=" icon-white icon-plus"></i></a>
+                <ul class="collapsed_accordion">
+                    <li><a href="index.html" class="span1">Home</a></li>
+                    <li>
+                        <a href="index.html" class="span1">Home Templates</a>
+                        <ul>
+                            <li><a href="index1.html" class="span1">Template 1</a></li>
+                            <li><a href="index2.html" class="span1">Template 2</a></li>
+                            <li><a href="index3.html" class="span1">Template 3</a></li>
+                            <li><a href="index4.html" class="span1">Template 4</a></li>
+                            <li><a href="index5.html" class="span1">Template 5</a></li>
+                            <li><a href="index6.html" class="span1">Template 6</a></li>
+                            <li><a href="index7.html" class="span1">Template 7</a></li>
+                            <li><a href="index8.html" class="span1">Template 8</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="page.html" class="span1">About Us</a>
+                        <ul>
+                            <li><a href="page.html" class="span1">FullWidth Page</a></li>
+                            <li><a href="page1.html" class="span1">Sidebar Page</a></li>
+                            <li><a href="team.html" class="span1">Team Page</a></li>
+                            <li><a href="archive.html" class="span1">Archive</a></li>
+                            <li><a href="pricing.html" class="span1">Pricing</a></li>
+                            <li><a href="comingsoon.html" class="span1">Coming Soon</a></li>
+                            <li><a href="404.html" class="span1">404 Template</a></li>
+                            <li><a href="features.html" class="span1">Features</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="portfolio.html" class="span1">Portfolio</a>
+                        <ul>
+                            <li><a href="portfolio.html" class="span1">Template1</a></li>
+                            <li><a href="portfolio1.html" class="span1">Template2</a></li>
+                            <li><a href="portfolio2.html" class="span1">Template3</a></li>
+                            <li><a href="portfolio3.html" class="span1">Template4</a></li>
+                            <li><a href="portfolio4.html" class="span1">Template5</a></li>
+                            <li><a href="single1.html" class="span1">Single1</a></li>
+                            <li><a href="single2.html" class="span1">single2</a></li>
+                            <li><a href="single3.html" class="span1">single3</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="blog.html" class="span1">Blog</a>
+                        <ul>
+                            <li><a href="blog.html" class="span1">Template 1</a></li>
+                            <li><a href="blog1.html" class="span1">Template 2</a></li>
+                            <li><a href="single.html" class="span1">Single Template</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html" class="span1">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </div><!-- end header container -->
+</header>
+<!-- END HEADER --> 

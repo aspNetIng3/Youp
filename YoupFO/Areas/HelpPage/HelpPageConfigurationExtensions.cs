@@ -7,9 +7,9 @@ using System.Linq;
 using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Description;
-using YoupFo.Areas.HelpPage.Models;
+using YoupFO.Areas.HelpPage.Models;
 
-namespace YoupFo.Areas.HelpPage
+namespace YoupFO.Areas.HelpPage
 {
     public static class HelpPageConfigurationExtensions
     {

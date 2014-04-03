@@ -4,28 +4,47 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="06c55baed02f43dfb49a248bf408c027" Name="Diagram1">
-        <EntityTypeShape EntityType="YoupModel.Blog" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="YoupModel.BlogComment" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="YoupModel.Card" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="YoupModel.Connection" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="YoupModel.Event" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="YoupModel.EventComment" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="YoupModel.Favorite" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="YoupModel.HeatMap" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="YoupModel.Message" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="YoupModel.Page" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="YoupModel.Participate" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="YoupModel.Photo" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="YoupModel.Post" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="YoupModel.Rank" Width="1.5" PointX="2.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="YoupModel.Rating" Width="1.5" PointX="8.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="YoupModel.Role" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="YoupModel.Theme" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="YoupModel.Thread" Width="1.5" PointX="4.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="YoupModel.User" Width="1.5" PointX="10.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="YoupModel.UserHistory" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="YoupModel.UserTheme" Width="1.5" PointX="12.75" PointY="3.75" IsExpanded="true" />
+      <Diagram DiagramId="a42722669c8c487c9376f5b939b1a2e6" Name="Diagram1">
+        <EntityTypeShape EntityType="Youp.Blog" Width="1.5" PointX="5.25" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Youp.BlogComment" Width="1.5" PointX="9.75" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Youp.Card" Width="1.5" PointX="5.25" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Youp.Event" Width="1.5" PointX="8.25" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Youp.EventComment" Width="1.5" PointX="10.5" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Youp.Favorite" Width="1.5" PointX="12.75" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Youp.Message" Width="1.5" PointX="15.75" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Youp.Photo" Width="1.5" PointX="5.25" PointY="24" IsExpanded="true" />
+        <EntityTypeShape EntityType="Youp.Post" Width="1.5" PointX="7.5" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Youp.Rank" Width="1.5" PointX="0.75" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Youp.Rating" Width="1.5" PointX="12.5" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Youp.Role" Width="1.5" PointX="0.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Youp.Theme" Width="1.5" PointX="6" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Youp.Thread" Width="1.5" PointX="10.5" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Youp.User" Width="1.5" PointX="3" PointY="11" IsExpanded="true" />
+        <AssociationConnector Association="Youp.Blog_fkBlogUser1" ManuallyRouted="false" />
+        <AssociationConnector Association="Youp.Post_fkPostBlog1" ManuallyRouted="false" />
+        <AssociationConnector Association="Youp.BlogComment_fkBlogCommentPost1" ManuallyRouted="false" />
+        <AssociationConnector Association="Youp.BlogComment_fkBlogCommentUser1" ManuallyRouted="false" />
+        <AssociationConnector Association="Youp.Card_fkCardEvent1" ManuallyRouted="false" />
+        <AssociationConnector Association="Youp.Card_fkCardUser1" ManuallyRouted="false" />
+        <AssociationConnector Association="Youp.Event_fkEventTheme1" ManuallyRouted="false" />
+        <AssociationConnector Association="Youp.Event_fkEventUser1" ManuallyRouted="false" />
+        <AssociationConnector Association="Youp.EventComment_fkCommentEvent1" ManuallyRouted="false" />
+        <AssociationConnector Association="Youp.Rating_fkRatingEvent1" ManuallyRouted="false" />
+        <AssociationConnector Association="Youp.Thread_fkThreadEvent1" ManuallyRouted="false" />
+        <AssociationConnector Association="Youp.EventComment_fkCommentUser1" ManuallyRouted="false" />
+        <AssociationConnector Association="Youp.Favorite_fkFavoriteThread1" ManuallyRouted="false" />
+        <AssociationConnector Association="Youp.Favorite_fkFavoriteUser1" ManuallyRouted="false" />
+        <AssociationConnector Association="Youp.Message_fkMessageThread1" ManuallyRouted="false" />
+        <AssociationConnector Association="Youp.Message_fkMessageUser1" ManuallyRouted="false" />
+        <AssociationConnector Association="Youp.Photo_fkPhotoUser1" ManuallyRouted="false" />
+        <AssociationConnector Association="Youp.Post_fkPostTheme1" ManuallyRouted="false" />
+        <AssociationConnector Association="Youp.User_fkUserRank1" ManuallyRouted="false" />
+        <AssociationConnector Association="Youp.Rating_fkRatingUser1" ManuallyRouted="false" />
+        <AssociationConnector Association="Youp.User_fkUserRole1" ManuallyRouted="false" />
+        <AssociationConnector Association="Youp.Theme_fkThemeTheme1" ManuallyRouted="false" />
+        <AssociationConnector Association="Youp.Thread_fkThreadTheme1" ManuallyRouted="false" />
+        <AssociationConnector Association="Youp.Participate" ManuallyRouted="false" />
+        <AssociationConnector Association="Youp.UserTheme" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

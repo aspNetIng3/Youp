@@ -1,0 +1,31 @@
+﻿@model YoupFO.Models.Blog
+
+@{
+    ViewBag.Title = "CreationBlog";
+}
+
+<h2>Crée ton propre blog !</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Blog</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.name)
+            @Html.ValidationMessageFor(model => model.name)
+        </div>
+
+        <p>
+            <input type="submit" value="Créer" />
+        </p>
+    </fieldset>
+}
+
+

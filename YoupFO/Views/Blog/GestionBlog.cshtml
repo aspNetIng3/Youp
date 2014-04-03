@@ -1,0 +1,59 @@
+﻿@model YoupFO.Models.Blog
+
+@{
+    ViewBag .Title= "GestionBlog";
+}
+
+<h2>Bienvenue sur @ViewData["nomBlog"] </h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        @if (YoupFO.Controllers.BlogController.myBlog.Data.IsActive == 1) { 
+          
+                      using (Html.BeginForm("GestionBlog", "Blog", new { id = 1 }))
+{
+    <input type="submit" value="Desactiver" />
+}
+          }else{
+              
+                      using (Html.BeginForm("GestionBlog", "Blog", new { id = 1 }))
+{
+    <input type="submit" value="Reactiver" />
+}
+        }
+          
+        @*@using (Html.BeginForm("GestionBlog", "Blog", new { id = 1 }))
+{
+    <input type="submit" value="Desactiver" />
+}*@
+     
+        @using (Html.BeginForm("GestionBlog", "Blog", new { id = 2 }))
+{
+    <input type="submit" value="Supprimer" />
+}
+
+        @if (YoupFO.Controllers.BlogController.myBlog.Data.IsActive == 1)
+        {
+
+           using (Html.BeginForm("CreatePost", "Post"))
+        {
+            <input type="submit" value="Ajouter un article" />
+        }
+        }
+
+       
+
+    </fieldset>
+    
+    <p>
+    
+    <div>
+        @Html.Partial("~/Views/Post/ListPosts.cshtml")
+
+    </div>
+</p>
+}

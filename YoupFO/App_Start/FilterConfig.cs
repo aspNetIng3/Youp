@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace YoupFo
+namespace YoupFO
 {
     public class FilterConfig
     {

@@ -3,7 +3,7 @@ using System.Text;
 using System.Web;
 using System.Web.Http.Description;
 
-namespace YoupFo.Areas.HelpPage
+namespace YoupFO.Areas.HelpPage
 {
     public static class ApiDescriptionExtensions
     {

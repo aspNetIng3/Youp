@@ -22,5 +22,8 @@ namespace YoupRepository
         public System.DateTime CreatedAt { get; set; }
         public System.DateTime UpdatedAt { get; set; }
         public Nullable<System.DateTime> DeletedAt { get; set; }
+    
+        public virtual Event Event { get; set; }
+        public virtual User User { get; set; }
     }
 }

@@ -1,0 +1,31 @@
+﻿@model YoupFO.Models.ListPosts
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+</head>
+<body>
+    <div>
+      <h2>Mes articles</h2>
+        @if (YoupFO.Controllers.PostController.listPosts != null && YoupFO.Controllers.PostController.listPosts.Count != 0)
+        {
+            foreach (var item in YoupFO.Controllers.PostController.listPosts)
+            {
+                using (Html.BeginForm("GestionPost", "Post", new { id = item.Data.Id }))
+                 {
+                     <li>@item.Data.Title  <input type="submit" value="Modifier" name="submitButton" />  <input type="submit" value="Supprimer" name="submitButton" /></li>
+                 }
+               
+            }
+            
+           
+        }
+        else
+        {
+            <div>Aucun article</div>
+        }
+    </div>
+</body>
+</html>

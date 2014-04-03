@@ -28,14 +28,10 @@ namespace YoupRepository
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<BlogComment> BlogComments { get; set; }
         public DbSet<Card> Cards { get; set; }
-        public DbSet<Connection> Connections { get; set; }
         public DbSet<Event> Events { get; set; }
         public DbSet<EventComment> EventComments { get; set; }
         public DbSet<Favorite> Favorites { get; set; }
-        public DbSet<HeatMap> HeatMaps { get; set; }
         public DbSet<Message> Messages { get; set; }
-        public DbSet<Page> Pages { get; set; }
-        public DbSet<Participate> Participates { get; set; }
         public DbSet<Photo> Photos { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Rank> Ranks { get; set; }
@@ -44,7 +40,5 @@ namespace YoupRepository
         public DbSet<Theme> Themes { get; set; }
         public DbSet<Thread> Threads { get; set; }
         public DbSet<User> Users { get; set; }
-        public DbSet<UserHistory> UserHistories { get; set; }
-        public DbSet<UserTheme> UserThemes { get; set; }
     }
 }

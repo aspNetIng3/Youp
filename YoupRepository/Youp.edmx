@@ -4,16 +4,12 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="YoupModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'Youp.dbo.Blog' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+      <Schema Namespace="Youp.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Blog">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Name" />
-            <PropertyRef Name="UserId" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="UserId" Type="nvarchar" MaxLength="36" Nullable="false" />
           <Property Name="IsActive" Type="smallint" />
@@ -21,18 +17,11 @@ avertissement 6002: La table/vue 'Youp.dbo.Blog' n'a pas de clé primaire défin
           <Property Name="UpdatedAt" Type="datetime2" Precision="0" />
           <Property Name="DeletedAt" Type="datetime2" Precision="0" />
         </EntityType>
-        <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'Youp.dbo.BlogComment' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="BlogComment">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Content" />
-            <PropertyRef Name="PostId" />
-            <PropertyRef Name="UserId" />
-            <PropertyRef Name="CreatedAt" />
-            <PropertyRef Name="UpdatedAt" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
           <Property Name="PostId" Type="int" Nullable="false" />
           <Property Name="UserId" Type="nvarchar" MaxLength="36" Nullable="false" />
@@ -40,18 +29,11 @@ avertissement 6002: La table/vue 'Youp.dbo.BlogComment' n'a pas de clé primaire
           <Property Name="UpdatedAt" Type="datetime2" Precision="0" Nullable="false" />
           <Property Name="DeletedAt" Type="datetime2" Precision="0" />
         </EntityType>
-        <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'Youp.dbo.Card' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="Card">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Colour" />
-            <PropertyRef Name="UserId" />
-            <PropertyRef Name="EventId" />
-            <PropertyRef Name="CreatedAt" />
-            <PropertyRef Name="UpdatedAt" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Colour" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="UserId" Type="nvarchar" MaxLength="36" Nullable="false" />
           <Property Name="EventId" Type="nvarchar" MaxLength="36" Nullable="false" />
@@ -59,31 +41,9 @@ avertissement 6002: La table/vue 'Youp.dbo.Card' n'a pas de clé primaire défin
           <Property Name="UpdatedAt" Type="datetime2" Precision="0" Nullable="false" />
           <Property Name="DeletedAt" Type="datetime2" Precision="0" />
         </EntityType>
-        <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'Youp.dbo.Connection' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
-        <EntityType Name="Connection">
-          <Key>
-            <PropertyRef Name="IdConnection" />
-            <PropertyRef Name="IdUser" />
-            <PropertyRef Name="DateConnection" />
-          </Key>
-          <Property Name="IdConnection" Type="int" Nullable="false" />
-          <Property Name="IdUser" Type="nvarchar" MaxLength="36" Nullable="false" />
-          <Property Name="DateConnection" Type="datetime" Nullable="false" />
-        </EntityType>
-        <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'Youp.dbo.Event' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="Event">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Name" />
-            <PropertyRef Name="Slots" />
-            <PropertyRef Name="UserId" />
-            <PropertyRef Name="ThemeId" />
-            <PropertyRef Name="Address" />
-            <PropertyRef Name="CreatedAt" />
-            <PropertyRef Name="UpdatedAt" />
-            <PropertyRef Name="City" />
           </Key>
           <Property Name="Id" Type="nvarchar" MaxLength="36" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
@@ -99,20 +59,12 @@ avertissement 6002: La table/vue 'Youp.dbo.Event' n'a pas de clé primaire défi
           <Property Name="CreatedAt" Type="datetime2" Precision="0" Nullable="false" />
           <Property Name="UpdatedAt" Type="datetime2" Precision="0" Nullable="false" />
           <Property Name="DeletedAt" Type="datetime2" Precision="0" />
-          <Property Name="City" Type="nvarchar" MaxLength="255" Nullable="false" />
         </EntityType>
-        <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'Youp.dbo.EventComment' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="EventComment">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Content" />
-            <PropertyRef Name="EventId" />
-            <PropertyRef Name="UserId" />
-            <PropertyRef Name="CreatedAt" />
-            <PropertyRef Name="UpdatedAt" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
           <Property Name="EventId" Type="nvarchar" MaxLength="36" Nullable="false" />
           <Property Name="UserId" Type="nvarchar" MaxLength="36" Nullable="false" />
@@ -120,53 +72,22 @@ avertissement 6002: La table/vue 'Youp.dbo.EventComment' n'a pas de clé primair
           <Property Name="UpdatedAt" Type="datetime2" Precision="0" Nullable="false" />
           <Property Name="DeletedAt" Type="datetime2" Precision="0" />
         </EntityType>
-        <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'Youp.dbo.Favorite' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="Favorite">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="UserId" />
-            <PropertyRef Name="ThreadId" />
-            <PropertyRef Name="CreatedAt" />
-            <PropertyRef Name="UpdatedAt" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserId" Type="nvarchar" MaxLength="36" Nullable="false" />
           <Property Name="ThreadId" Type="int" Nullable="false" />
           <Property Name="CreatedAt" Type="datetime2" Precision="0" Nullable="false" />
           <Property Name="UpdatedAt" Type="datetime2" Precision="0" Nullable="false" />
           <Property Name="DeletedAt" Type="datetime2" Precision="0" />
         </EntityType>
-        <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'Youp.dbo.HeatMap' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
-        <EntityType Name="HeatMap">
-          <Key>
-            <PropertyRef Name="IdHeatMap" />
-            <PropertyRef Name="HeatMapX" />
-            <PropertyRef Name="HeatMapY" />
-            <PropertyRef Name="DateHeatMap" />
-            <PropertyRef Name="IdPage" />
-            <PropertyRef Name="Width" />
-          </Key>
-          <Property Name="IdHeatMap" Type="int" Nullable="false" />
-          <Property Name="HeatMapX" Type="int" Nullable="false" />
-          <Property Name="HeatMapY" Type="int" Nullable="false" />
-          <Property Name="DateHeatMap" Type="datetime" Nullable="false" />
-          <Property Name="IdPage" Type="int" Nullable="false" />
-          <Property Name="Width" Type="int" Nullable="false" />
-        </EntityType>
-        <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'Youp.dbo.Message' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="Message">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Content" />
-            <PropertyRef Name="ThreadId" />
-            <PropertyRef Name="UserId" />
-            <PropertyRef Name="CreatedAt" />
-            <PropertyRef Name="UpdatedAt" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="255" />
           <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
           <Property Name="ThreadId" Type="int" Nullable="false" />
@@ -174,16 +95,6 @@ avertissement 6002: La table/vue 'Youp.dbo.Message' n'a pas de clé primaire dé
           <Property Name="CreatedAt" Type="datetime2" Precision="0" Nullable="false" />
           <Property Name="UpdatedAt" Type="datetime2" Precision="0" Nullable="false" />
           <Property Name="DeletedAt" Type="datetime2" Precision="0" />
-        </EntityType>
-        <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'Youp.dbo.Page' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
-        <EntityType Name="Page">
-          <Key>
-            <PropertyRef Name="IdPage" />
-            <PropertyRef Name="IntitulePage" />
-          </Key>
-          <Property Name="IdPage" Type="int" Nullable="false" />
-          <Property Name="IntitulePage" Type="nvarchar" MaxLength="255" Nullable="false" />
         </EntityType>
         <!--Erreurs détectées durant la génération :
 avertissement 6002: La table/vue 'Youp.dbo.Participate' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
@@ -195,37 +106,22 @@ avertissement 6002: La table/vue 'Youp.dbo.Participate' n'a pas de clé primaire
           <Property Name="UserId" Type="nvarchar" MaxLength="36" Nullable="false" />
           <Property Name="EventId" Type="nvarchar" MaxLength="36" Nullable="false" />
         </EntityType>
-        <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'Youp.dbo.Photo' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="Photo">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="UserId" />
-            <PropertyRef Name="Url" />
-            <PropertyRef Name="CreatedAt" />
-            <PropertyRef Name="UpdatedAt" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserId" Type="nvarchar" MaxLength="36" Nullable="false" />
           <Property Name="Url" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="CreatedAt" Type="datetime2" Precision="0" Nullable="false" />
           <Property Name="UpdatedAt" Type="datetime2" Precision="0" Nullable="false" />
           <Property Name="DeletedAt" Type="datetime2" Precision="0" />
         </EntityType>
-        <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'Youp.dbo.Post' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="Post">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Title" />
-            <PropertyRef Name="Content" />
-            <PropertyRef Name="ThemeId" />
-            <PropertyRef Name="BlogId" />
-            <PropertyRef Name="CreatedAt" />
-            <PropertyRef Name="UpdatedAt" />
-            <PropertyRef Name="NombreLike" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Visibility" Type="int" />
@@ -234,31 +130,19 @@ avertissement 6002: La table/vue 'Youp.dbo.Post' n'a pas de clé primaire défin
           <Property Name="CreatedAt" Type="datetime2" Precision="0" Nullable="false" />
           <Property Name="UpdatedAt" Type="datetime2" Precision="0" Nullable="false" />
           <Property Name="DeletedAt" Type="datetime2" Precision="0" />
-          <Property Name="ImageUrl" Type="nvarchar" MaxLength="255" />
-          <Property Name="NombreLike" Type="int" Nullable="false" />
         </EntityType>
-        <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'Youp.dbo.Rank' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="Rank">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="LevelRank" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="LevelRank" Type="nvarchar" MaxLength="255" Nullable="false" />
         </EntityType>
-        <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'Youp.dbo.Rating' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="Rating">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Rating" />
-            <PropertyRef Name="UserId" />
-            <PropertyRef Name="EventId" />
-            <PropertyRef Name="CreatedAt" />
-            <PropertyRef Name="UpdatedAt" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Rating" Type="int" Nullable="false" />
           <Property Name="Comment" Type="nvarchar(max)" />
           <Property Name="UserId" Type="nvarchar" MaxLength="36" Nullable="false" />
@@ -267,49 +151,33 @@ avertissement 6002: La table/vue 'Youp.dbo.Rating' n'a pas de clé primaire déf
           <Property Name="UpdatedAt" Type="datetime2" Precision="0" Nullable="false" />
           <Property Name="DeletedAt" Type="datetime2" Precision="0" />
         </EntityType>
-        <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'Youp.dbo.Role' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="Role">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Label" />
-            <PropertyRef Name="CreatedAt" />
-            <PropertyRef Name="UpdatedAt" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Label" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="CreatedAt" Type="datetime2" Precision="0" Nullable="false" />
           <Property Name="UpdatedAt" Type="datetime2" Precision="0" Nullable="false" />
           <Property Name="DeletedAt" Type="datetime2" Precision="0" />
         </EntityType>
-        <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'Youp.dbo.Theme' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="Theme">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Name" />
-            <PropertyRef Name="Description" />
-            <PropertyRef Name="CreatedAt" />
-            <PropertyRef Name="UpdatedAt" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="ThemeId" Type="int" />
+          <Property Name="ThemeId" Type="int" Nullable="false" />
           <Property Name="CreatedAt" Type="datetime2" Precision="0" Nullable="false" />
           <Property Name="UpdatedAt" Type="datetime2" Precision="0" Nullable="false" />
           <Property Name="DeletedAt" Type="datetime2" Precision="0" />
         </EntityType>
-        <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'Youp.dbo.Thread' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="Thread">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="ThemeId" />
-            <PropertyRef Name="CreatedAt" />
-            <PropertyRef Name="UpdatedAt" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="255" />
           <Property Name="IsSharable" Type="smallint" />
           <Property Name="ThemeId" Type="int" Nullable="false" />
@@ -318,17 +186,9 @@ avertissement 6002: La table/vue 'Youp.dbo.Thread' n'a pas de clé primaire déf
           <Property Name="UpdatedAt" Type="datetime2" Precision="0" Nullable="false" />
           <Property Name="DeletedAt" Type="datetime2" Precision="0" />
         </EntityType>
-        <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'Youp.dbo.User' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="UserName" />
-            <PropertyRef Name="Email" />
-            <PropertyRef Name="RankId" />
-            <PropertyRef Name="RoleId" />
-            <PropertyRef Name="CreatedAt" />
-            <PropertyRef Name="UpdatedAt" />
           </Key>
           <Property Name="Id" Type="nvarchar" MaxLength="36" Nullable="false" />
           <Property Name="UserName" Type="nvarchar" MaxLength="255" Nullable="false" />
@@ -344,23 +204,6 @@ avertissement 6002: La table/vue 'Youp.dbo.User' n'a pas de clé primaire défin
           <Property Name="CreatedAt" Type="datetime2" Precision="0" Nullable="false" />
           <Property Name="UpdatedAt" Type="datetime2" Precision="0" Nullable="false" />
           <Property Name="DeletedAt" Type="datetime2" Precision="0" />
-          <Property Name="ResetPasswordToken" Type="nvarchar" MaxLength="255" />
-          <Property Name="ResetTokenSentAt" Type="datetime" />
-        </EntityType>
-        <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'Youp.dbo.UserHistory' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
-        <EntityType Name="UserHistory">
-          <Key>
-            <PropertyRef Name="IdHistory" />
-            <PropertyRef Name="IdUser" />
-            <PropertyRef Name="DateHistory" />
-            <PropertyRef Name="UserAgent" />
-          </Key>
-          <Property Name="IdHistory" Type="int" Nullable="false" />
-          <Property Name="IdUser" Type="nvarchar" MaxLength="36" Nullable="false" />
-          <Property Name="Referer" Type="text" />
-          <Property Name="DateHistory" Type="datetime" Nullable="false" />
-          <Property Name="UserAgent" Type="text" Nullable="false" />
         </EntityType>
         <!--Erreurs détectées durant la génération :
 avertissement 6002: La table/vue 'Youp.dbo.UserTheme' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
@@ -372,224 +215,351 @@ avertissement 6002: La table/vue 'Youp.dbo.UserTheme' n'a pas de clé primaire d
           <Property Name="UserId" Type="nvarchar" MaxLength="36" Nullable="false" />
           <Property Name="ThemeId" Type="int" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="YoupModelStoreContainer">
-          <EntitySet Name="Blog" EntityType="Self.Blog" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[Blog].[Id] AS [Id], 
-[Blog].[Name] AS [Name], 
-[Blog].[UserId] AS [UserId], 
-[Blog].[IsActive] AS [IsActive], 
-[Blog].[CreatedAt] AS [CreatedAt], 
-[Blog].[UpdatedAt] AS [UpdatedAt], 
-[Blog].[DeletedAt] AS [DeletedAt]
-FROM [dbo].[Blog] AS [Blog]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="BlogComment" EntityType="Self.BlogComment" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[BlogComment].[Id] AS [Id], 
-[BlogComment].[Content] AS [Content], 
-[BlogComment].[PostId] AS [PostId], 
-[BlogComment].[UserId] AS [UserId], 
-[BlogComment].[CreatedAt] AS [CreatedAt], 
-[BlogComment].[UpdatedAt] AS [UpdatedAt], 
-[BlogComment].[DeletedAt] AS [DeletedAt]
-FROM [dbo].[BlogComment] AS [BlogComment]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Card" EntityType="Self.Card" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[Card].[Id] AS [Id], 
-[Card].[Colour] AS [Colour], 
-[Card].[UserId] AS [UserId], 
-[Card].[EventId] AS [EventId], 
-[Card].[CreatedAt] AS [CreatedAt], 
-[Card].[UpdatedAt] AS [UpdatedAt], 
-[Card].[DeletedAt] AS [DeletedAt]
-FROM [dbo].[Card] AS [Card]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Connection" EntityType="Self.Connection" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[Connection].[IdConnection] AS [IdConnection], 
-[Connection].[IdUser] AS [IdUser], 
-[Connection].[DateConnection] AS [DateConnection]
-FROM [dbo].[Connection] AS [Connection]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Event" EntityType="Self.Event" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[Event].[Id] AS [Id], 
-[Event].[Name] AS [Name], 
-[Event].[Slots] AS [Slots], 
-[Event].[Cost] AS [Cost], 
-[Event].[Public] AS [Public], 
-[Event].[Description] AS [Description], 
-[Event].[UserId] AS [UserId], 
-[Event].[ThemeId] AS [ThemeId], 
-[Event].[Address] AS [Address], 
-[Event].[Lattitude] AS [Lattitude], 
-[Event].[Longitude] AS [Longitude], 
-[Event].[CreatedAt] AS [CreatedAt], 
-[Event].[UpdatedAt] AS [UpdatedAt], 
-[Event].[DeletedAt] AS [DeletedAt], 
-[Event].[City] AS [City]
-FROM [dbo].[Event] AS [Event]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="EventComment" EntityType="Self.EventComment" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[EventComment].[Id] AS [Id], 
-[EventComment].[Content] AS [Content], 
-[EventComment].[EventId] AS [EventId], 
-[EventComment].[UserId] AS [UserId], 
-[EventComment].[CreatedAt] AS [CreatedAt], 
-[EventComment].[UpdatedAt] AS [UpdatedAt], 
-[EventComment].[DeletedAt] AS [DeletedAt]
-FROM [dbo].[EventComment] AS [EventComment]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Favorite" EntityType="Self.Favorite" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[Favorite].[Id] AS [Id], 
-[Favorite].[UserId] AS [UserId], 
-[Favorite].[ThreadId] AS [ThreadId], 
-[Favorite].[CreatedAt] AS [CreatedAt], 
-[Favorite].[UpdatedAt] AS [UpdatedAt], 
-[Favorite].[DeletedAt] AS [DeletedAt]
-FROM [dbo].[Favorite] AS [Favorite]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="HeatMap" EntityType="Self.HeatMap" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[HeatMap].[IdHeatMap] AS [IdHeatMap], 
-[HeatMap].[HeatMapX] AS [HeatMapX], 
-[HeatMap].[HeatMapY] AS [HeatMapY], 
-[HeatMap].[DateHeatMap] AS [DateHeatMap], 
-[HeatMap].[IdPage] AS [IdPage], 
-[HeatMap].[Width] AS [Width]
-FROM [dbo].[HeatMap] AS [HeatMap]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Message" EntityType="Self.Message" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[Message].[Id] AS [Id], 
-[Message].[Title] AS [Title], 
-[Message].[Content] AS [Content], 
-[Message].[ThreadId] AS [ThreadId], 
-[Message].[UserId] AS [UserId], 
-[Message].[CreatedAt] AS [CreatedAt], 
-[Message].[UpdatedAt] AS [UpdatedAt], 
-[Message].[DeletedAt] AS [DeletedAt]
-FROM [dbo].[Message] AS [Message]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Page" EntityType="Self.Page" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[Page].[IdPage] AS [IdPage], 
-[Page].[IntitulePage] AS [IntitulePage]
-FROM [dbo].[Page] AS [Page]</DefiningQuery>
-          </EntitySet>
+        <Association Name="Blog$fkBlogUser1">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Blog" Type="Self.Blog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Blog">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BlogComment$fkBlogCommentPost1">
+          <End Role="Post" Type="Self.Post" Multiplicity="1" />
+          <End Role="BlogComment" Type="Self.BlogComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BlogComment">
+              <PropertyRef Name="PostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BlogComment$fkBlogCommentUser1">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="BlogComment" Type="Self.BlogComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BlogComment">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Card$fkCardEvent1">
+          <End Role="Event" Type="Self.Event" Multiplicity="1" />
+          <End Role="Card" Type="Self.Card" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Card">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Card$fkCardUser1">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Card" Type="Self.Card" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Card">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Event$fkEventTheme1">
+          <End Role="Theme" Type="Self.Theme" Multiplicity="1" />
+          <End Role="Event" Type="Self.Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Theme">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="ThemeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Event$fkEventUser1">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Event" Type="Self.Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EventComment$fkCommentEvent1">
+          <End Role="Event" Type="Self.Event" Multiplicity="1" />
+          <End Role="EventComment" Type="Self.EventComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EventComment">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EventComment$fkCommentUser1">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="EventComment" Type="Self.EventComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EventComment">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Favorite$fkFavoriteThread1">
+          <End Role="Thread" Type="Self.Thread" Multiplicity="1" />
+          <End Role="Favorite" Type="Self.Favorite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Thread">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Favorite">
+              <PropertyRef Name="ThreadId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Favorite$fkFavoriteUser1">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Favorite" Type="Self.Favorite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Favorite">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Message$fkMessageThread1">
+          <End Role="Thread" Type="Self.Thread" Multiplicity="1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Thread">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="ThreadId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Message$fkMessageUser1">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Participate$fkParticipateEvent1">
+          <End Role="Event" Type="Self.Event" Multiplicity="1" />
+          <End Role="Participate" Type="Self.Participate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Participate">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Participate$fkParticipateUser1">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Participate" Type="Self.Participate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Participate">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Photo$fkPhotoUser1">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Photo" Type="Self.Photo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Photo">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Post$fkPostBlog1">
+          <End Role="Blog" Type="Self.Blog" Multiplicity="1" />
+          <End Role="Post" Type="Self.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blog">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="BlogId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Post$fkPostTheme1">
+          <End Role="Theme" Type="Self.Theme" Multiplicity="1" />
+          <End Role="Post" Type="Self.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Theme">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="ThemeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Rating$fkRatingEvent1">
+          <End Role="Event" Type="Self.Event" Multiplicity="1" />
+          <End Role="Rating" Type="Self.Rating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Rating">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Rating$fkRatingUser1">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Rating" Type="Self.Rating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Rating">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Theme$fkThemeTheme1">
+          <End Role="Theme" Type="Self.Theme" Multiplicity="1" />
+          <End Role="Theme1" Type="Self.Theme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Theme">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Theme1">
+              <PropertyRef Name="ThemeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Thread$fkThreadEvent1">
+          <End Role="Event" Type="Self.Event" Multiplicity="0..1" />
+          <End Role="Thread" Type="Self.Thread" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Thread">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Thread$fkThreadTheme1">
+          <End Role="Theme" Type="Self.Theme" Multiplicity="1" />
+          <End Role="Thread" Type="Self.Thread" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Theme">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Thread">
+              <PropertyRef Name="ThemeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="User$fkUserRank1">
+          <End Role="Rank" Type="Self.Rank" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rank">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="RankId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="User$fkUserRole1">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserTheme$fkUserThemeTheme1">
+          <End Role="Theme" Type="Self.Theme" Multiplicity="1" />
+          <End Role="UserTheme" Type="Self.UserTheme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Theme">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserTheme">
+              <PropertyRef Name="ThemeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserTheme$fkUserThemeUser1">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="UserTheme" Type="Self.UserTheme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserTheme">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="YoupStoreContainer">
+          <EntitySet Name="Blog" EntityType="Self.Blog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BlogComment" EntityType="Self.BlogComment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Card" EntityType="Self.Card" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Event" EntityType="Self.Event" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EventComment" EntityType="Self.EventComment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Favorite" EntityType="Self.Favorite" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Message" EntityType="Self.Message" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Photo" EntityType="Self.Photo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rank" EntityType="Self.Rank" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rating" EntityType="Self.Rating" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Theme" EntityType="Self.Theme" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Thread" EntityType="Self.Thread" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Participate" EntityType="Self.Participate" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
 [Participate].[UserId] AS [UserId], 
 [Participate].[EventId] AS [EventId]
 FROM [dbo].[Participate] AS [Participate]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Photo" EntityType="Self.Photo" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[Photo].[Id] AS [Id], 
-[Photo].[UserId] AS [UserId], 
-[Photo].[Url] AS [Url], 
-[Photo].[CreatedAt] AS [CreatedAt], 
-[Photo].[UpdatedAt] AS [UpdatedAt], 
-[Photo].[DeletedAt] AS [DeletedAt]
-FROM [dbo].[Photo] AS [Photo]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Post" EntityType="Self.Post" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[Post].[Id] AS [Id], 
-[Post].[Title] AS [Title], 
-[Post].[Content] AS [Content], 
-[Post].[Visibility] AS [Visibility], 
-[Post].[ThemeId] AS [ThemeId], 
-[Post].[BlogId] AS [BlogId], 
-[Post].[CreatedAt] AS [CreatedAt], 
-[Post].[UpdatedAt] AS [UpdatedAt], 
-[Post].[DeletedAt] AS [DeletedAt], 
-[Post].[ImageUrl] AS [ImageUrl], 
-[Post].[NombreLike] AS [NombreLike]
-FROM [dbo].[Post] AS [Post]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Rank" EntityType="Self.Rank" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[Rank].[Id] AS [Id], 
-[Rank].[LevelRank] AS [LevelRank]
-FROM [dbo].[Rank] AS [Rank]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Rating" EntityType="Self.Rating" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[Rating].[Id] AS [Id], 
-[Rating].[Rating] AS [Rating], 
-[Rating].[Comment] AS [Comment], 
-[Rating].[UserId] AS [UserId], 
-[Rating].[EventId] AS [EventId], 
-[Rating].[CreatedAt] AS [CreatedAt], 
-[Rating].[UpdatedAt] AS [UpdatedAt], 
-[Rating].[DeletedAt] AS [DeletedAt]
-FROM [dbo].[Rating] AS [Rating]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Role" EntityType="Self.Role" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[Role].[Id] AS [Id], 
-[Role].[Label] AS [Label], 
-[Role].[CreatedAt] AS [CreatedAt], 
-[Role].[UpdatedAt] AS [UpdatedAt], 
-[Role].[DeletedAt] AS [DeletedAt]
-FROM [dbo].[Role] AS [Role]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Theme" EntityType="Self.Theme" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[Theme].[Id] AS [Id], 
-[Theme].[Name] AS [Name], 
-[Theme].[Description] AS [Description], 
-[Theme].[ThemeId] AS [ThemeId], 
-[Theme].[CreatedAt] AS [CreatedAt], 
-[Theme].[UpdatedAt] AS [UpdatedAt], 
-[Theme].[DeletedAt] AS [DeletedAt]
-FROM [dbo].[Theme] AS [Theme]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Thread" EntityType="Self.Thread" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[Thread].[Id] AS [Id], 
-[Thread].[Title] AS [Title], 
-[Thread].[IsSharable] AS [IsSharable], 
-[Thread].[ThemeId] AS [ThemeId], 
-[Thread].[EventId] AS [EventId], 
-[Thread].[CreatedAt] AS [CreatedAt], 
-[Thread].[UpdatedAt] AS [UpdatedAt], 
-[Thread].[DeletedAt] AS [DeletedAt]
-FROM [dbo].[Thread] AS [Thread]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="User" EntityType="Self.User" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[User].[Id] AS [Id], 
-[User].[UserName] AS [UserName], 
-[User].[Email] AS [Email], 
-[User].[Password] AS [Password], 
-[User].[GuidFacebook] AS [GuidFacebook], 
-[User].[IsActive] AS [IsActive], 
-[User].[Gender] AS [Gender], 
-[User].[Birthday] AS [Birthday], 
-[User].[Address] AS [Address], 
-[User].[RankId] AS [RankId], 
-[User].[RoleId] AS [RoleId], 
-[User].[CreatedAt] AS [CreatedAt], 
-[User].[UpdatedAt] AS [UpdatedAt], 
-[User].[DeletedAt] AS [DeletedAt], 
-[User].[ResetPasswordToken] AS [ResetPasswordToken], 
-[User].[ResetTokenSentAt] AS [ResetTokenSentAt]
-FROM [dbo].[User] AS [User]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="UserHistory" EntityType="Self.UserHistory" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[UserHistory].[IdHistory] AS [IdHistory], 
-[UserHistory].[IdUser] AS [IdUser], 
-[UserHistory].[Referer] AS [Referer], 
-[UserHistory].[DateHistory] AS [DateHistory], 
-[UserHistory].[UserAgent] AS [UserAgent]
-FROM [dbo].[UserHistory] AS [UserHistory]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="UserTheme" EntityType="Self.UserTheme" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -597,81 +567,165 @@ FROM [dbo].[UserHistory] AS [UserHistory]</DefiningQuery>
 [UserTheme].[ThemeId] AS [ThemeId]
 FROM [dbo].[UserTheme] AS [UserTheme]</DefiningQuery>
           </EntitySet>
+          <AssociationSet Name="Blog$fkBlogUser1" Association="Self.Blog$fkBlogUser1">
+            <End Role="User" EntitySet="User" />
+            <End Role="Blog" EntitySet="Blog" />
+          </AssociationSet>
+          <AssociationSet Name="BlogComment$fkBlogCommentPost1" Association="Self.BlogComment$fkBlogCommentPost1">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="BlogComment" EntitySet="BlogComment" />
+          </AssociationSet>
+          <AssociationSet Name="BlogComment$fkBlogCommentUser1" Association="Self.BlogComment$fkBlogCommentUser1">
+            <End Role="User" EntitySet="User" />
+            <End Role="BlogComment" EntitySet="BlogComment" />
+          </AssociationSet>
+          <AssociationSet Name="Card$fkCardEvent1" Association="Self.Card$fkCardEvent1">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="Card" EntitySet="Card" />
+          </AssociationSet>
+          <AssociationSet Name="Card$fkCardUser1" Association="Self.Card$fkCardUser1">
+            <End Role="User" EntitySet="User" />
+            <End Role="Card" EntitySet="Card" />
+          </AssociationSet>
+          <AssociationSet Name="Event$fkEventTheme1" Association="Self.Event$fkEventTheme1">
+            <End Role="Theme" EntitySet="Theme" />
+            <End Role="Event" EntitySet="Event" />
+          </AssociationSet>
+          <AssociationSet Name="Event$fkEventUser1" Association="Self.Event$fkEventUser1">
+            <End Role="User" EntitySet="User" />
+            <End Role="Event" EntitySet="Event" />
+          </AssociationSet>
+          <AssociationSet Name="EventComment$fkCommentEvent1" Association="Self.EventComment$fkCommentEvent1">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="EventComment" EntitySet="EventComment" />
+          </AssociationSet>
+          <AssociationSet Name="EventComment$fkCommentUser1" Association="Self.EventComment$fkCommentUser1">
+            <End Role="User" EntitySet="User" />
+            <End Role="EventComment" EntitySet="EventComment" />
+          </AssociationSet>
+          <AssociationSet Name="Favorite$fkFavoriteThread1" Association="Self.Favorite$fkFavoriteThread1">
+            <End Role="Thread" EntitySet="Thread" />
+            <End Role="Favorite" EntitySet="Favorite" />
+          </AssociationSet>
+          <AssociationSet Name="Favorite$fkFavoriteUser1" Association="Self.Favorite$fkFavoriteUser1">
+            <End Role="User" EntitySet="User" />
+            <End Role="Favorite" EntitySet="Favorite" />
+          </AssociationSet>
+          <AssociationSet Name="Message$fkMessageThread1" Association="Self.Message$fkMessageThread1">
+            <End Role="Thread" EntitySet="Thread" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="Message$fkMessageUser1" Association="Self.Message$fkMessageUser1">
+            <End Role="User" EntitySet="User" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="Participate$fkParticipateEvent1" Association="Self.Participate$fkParticipateEvent1">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="Participate" EntitySet="Participate" />
+          </AssociationSet>
+          <AssociationSet Name="Participate$fkParticipateUser1" Association="Self.Participate$fkParticipateUser1">
+            <End Role="User" EntitySet="User" />
+            <End Role="Participate" EntitySet="Participate" />
+          </AssociationSet>
+          <AssociationSet Name="Photo$fkPhotoUser1" Association="Self.Photo$fkPhotoUser1">
+            <End Role="User" EntitySet="User" />
+            <End Role="Photo" EntitySet="Photo" />
+          </AssociationSet>
+          <AssociationSet Name="Post$fkPostBlog1" Association="Self.Post$fkPostBlog1">
+            <End Role="Blog" EntitySet="Blog" />
+            <End Role="Post" EntitySet="Post" />
+          </AssociationSet>
+          <AssociationSet Name="Post$fkPostTheme1" Association="Self.Post$fkPostTheme1">
+            <End Role="Theme" EntitySet="Theme" />
+            <End Role="Post" EntitySet="Post" />
+          </AssociationSet>
+          <AssociationSet Name="Rating$fkRatingEvent1" Association="Self.Rating$fkRatingEvent1">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="Rating" EntitySet="Rating" />
+          </AssociationSet>
+          <AssociationSet Name="Rating$fkRatingUser1" Association="Self.Rating$fkRatingUser1">
+            <End Role="User" EntitySet="User" />
+            <End Role="Rating" EntitySet="Rating" />
+          </AssociationSet>
+          <AssociationSet Name="Theme$fkThemeTheme1" Association="Self.Theme$fkThemeTheme1">
+            <End Role="Theme" EntitySet="Theme" />
+            <End Role="Theme1" EntitySet="Theme" />
+          </AssociationSet>
+          <AssociationSet Name="Thread$fkThreadEvent1" Association="Self.Thread$fkThreadEvent1">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="Thread" EntitySet="Thread" />
+          </AssociationSet>
+          <AssociationSet Name="Thread$fkThreadTheme1" Association="Self.Thread$fkThreadTheme1">
+            <End Role="Theme" EntitySet="Theme" />
+            <End Role="Thread" EntitySet="Thread" />
+          </AssociationSet>
+          <AssociationSet Name="User$fkUserRank1" Association="Self.User$fkUserRank1">
+            <End Role="Rank" EntitySet="Rank" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="User$fkUserRole1" Association="Self.User$fkUserRole1">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="UserTheme$fkUserThemeTheme1" Association="Self.UserTheme$fkUserThemeTheme1">
+            <End Role="Theme" EntitySet="Theme" />
+            <End Role="UserTheme" EntitySet="UserTheme" />
+          </AssociationSet>
+          <AssociationSet Name="UserTheme$fkUserThemeUser1" Association="Self.UserTheme$fkUserThemeUser1">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserTheme" EntitySet="UserTheme" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="YoupModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="Youp" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Blog">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Name" />
-            <PropertyRef Name="UserId" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="UserId" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IsActive" Type="Int16" />
           <Property Name="CreatedAt" Type="DateTime" Precision="0" />
           <Property Name="UpdatedAt" Type="DateTime" Precision="0" />
           <Property Name="DeletedAt" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="User" Relationship="Self.Blog_fkBlogUser1" FromRole="Blog" ToRole="User" />
+          <NavigationProperty Name="Posts" Relationship="Self.Post_fkPostBlog1" FromRole="Blog" ToRole="Post" />
         </EntityType>
         <EntityType Name="BlogComment">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Content" />
-            <PropertyRef Name="PostId" />
-            <PropertyRef Name="UserId" />
-            <PropertyRef Name="CreatedAt" />
-            <PropertyRef Name="UpdatedAt" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="PostId" Type="Int32" Nullable="false" />
           <Property Name="UserId" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="DeletedAt" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Post" Relationship="Self.BlogComment_fkBlogCommentPost1" FromRole="BlogComment" ToRole="Post" />
+          <NavigationProperty Name="User" Relationship="Self.BlogComment_fkBlogCommentUser1" FromRole="BlogComment" ToRole="User" />
         </EntityType>
         <EntityType Name="Card">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Colour" />
-            <PropertyRef Name="UserId" />
-            <PropertyRef Name="EventId" />
-            <PropertyRef Name="CreatedAt" />
-            <PropertyRef Name="UpdatedAt" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Colour" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="UserId" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="EventId" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="DeletedAt" Type="DateTime" Precision="0" />
-        </EntityType>
-        <EntityType Name="Connection">
-          <Key>
-            <PropertyRef Name="IdConnection" />
-            <PropertyRef Name="IdUser" />
-            <PropertyRef Name="DateConnection" />
-          </Key>
-          <Property Name="IdConnection" Type="Int32" Nullable="false" />
-          <Property Name="IdUser" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="DateConnection" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Event" Relationship="Self.Card_fkCardEvent1" FromRole="Card" ToRole="Event" />
+          <NavigationProperty Name="User" Relationship="Self.Card_fkCardUser1" FromRole="Card" ToRole="User" />
         </EntityType>
         <EntityType Name="Event">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Name" />
-            <PropertyRef Name="Slots" />
-            <PropertyRef Name="UserId" />
-            <PropertyRef Name="ThemeId" />
-            <PropertyRef Name="Address" />
-            <PropertyRef Name="CreatedAt" />
-            <PropertyRef Name="UpdatedAt" />
-            <PropertyRef Name="City" />
           </Key>
           <Property Name="Id" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
@@ -687,66 +741,46 @@ FROM [dbo].[UserTheme] AS [UserTheme]</DefiningQuery>
           <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="DeletedAt" Type="DateTime" Precision="0" />
-          <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Cards" Relationship="Self.Card_fkCardEvent1" FromRole="Event" ToRole="Card" />
+          <NavigationProperty Name="Theme" Relationship="Self.Event_fkEventTheme1" FromRole="Event" ToRole="Theme" />
+          <NavigationProperty Name="User" Relationship="Self.Event_fkEventUser1" FromRole="Event" ToRole="User" />
+          <NavigationProperty Name="EventComments" Relationship="Self.EventComment_fkCommentEvent1" FromRole="Event" ToRole="EventComment" />
+          <NavigationProperty Name="Ratings" Relationship="Self.Rating_fkRatingEvent1" FromRole="Event" ToRole="Rating" />
+          <NavigationProperty Name="Threads" Relationship="Self.Thread_fkThreadEvent1" FromRole="Event" ToRole="Thread" />
+          <NavigationProperty Name="Users" Relationship="Self.Participate" FromRole="Event" ToRole="User" />
         </EntityType>
         <EntityType Name="EventComment">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Content" />
-            <PropertyRef Name="EventId" />
-            <PropertyRef Name="UserId" />
-            <PropertyRef Name="CreatedAt" />
-            <PropertyRef Name="UpdatedAt" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="EventId" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="UserId" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="DeletedAt" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Event" Relationship="Self.EventComment_fkCommentEvent1" FromRole="EventComment" ToRole="Event" />
+          <NavigationProperty Name="User" Relationship="Self.EventComment_fkCommentUser1" FromRole="EventComment" ToRole="User" />
         </EntityType>
         <EntityType Name="Favorite">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="UserId" />
-            <PropertyRef Name="ThreadId" />
-            <PropertyRef Name="CreatedAt" />
-            <PropertyRef Name="UpdatedAt" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserId" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ThreadId" Type="Int32" Nullable="false" />
           <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="DeletedAt" Type="DateTime" Precision="0" />
-        </EntityType>
-        <EntityType Name="HeatMap">
-          <Key>
-            <PropertyRef Name="IdHeatMap" />
-            <PropertyRef Name="HeatMapX" />
-            <PropertyRef Name="HeatMapY" />
-            <PropertyRef Name="DateHeatMap" />
-            <PropertyRef Name="IdPage" />
-            <PropertyRef Name="Width" />
-          </Key>
-          <Property Name="IdHeatMap" Type="Int32" Nullable="false" />
-          <Property Name="HeatMapX" Type="Int32" Nullable="false" />
-          <Property Name="HeatMapY" Type="Int32" Nullable="false" />
-          <Property Name="DateHeatMap" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="IdPage" Type="Int32" Nullable="false" />
-          <Property Name="Width" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Thread" Relationship="Self.Favorite_fkFavoriteThread1" FromRole="Favorite" ToRole="Thread" />
+          <NavigationProperty Name="User" Relationship="Self.Favorite_fkFavoriteUser1" FromRole="Favorite" ToRole="User" />
         </EntityType>
         <EntityType Name="Message">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Content" />
-            <PropertyRef Name="ThreadId" />
-            <PropertyRef Name="UserId" />
-            <PropertyRef Name="CreatedAt" />
-            <PropertyRef Name="UpdatedAt" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ThreadId" Type="Int32" Nullable="false" />
@@ -754,50 +788,26 @@ FROM [dbo].[UserTheme] AS [UserTheme]</DefiningQuery>
           <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="DeletedAt" Type="DateTime" Precision="0" />
-        </EntityType>
-        <EntityType Name="Page">
-          <Key>
-            <PropertyRef Name="IdPage" />
-            <PropertyRef Name="IntitulePage" />
-          </Key>
-          <Property Name="IdPage" Type="Int32" Nullable="false" />
-          <Property Name="IntitulePage" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Participate">
-          <Key>
-            <PropertyRef Name="UserId" />
-            <PropertyRef Name="EventId" />
-          </Key>
-          <Property Name="UserId" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="EventId" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Thread" Relationship="Self.Message_fkMessageThread1" FromRole="Message" ToRole="Thread" />
+          <NavigationProperty Name="User" Relationship="Self.Message_fkMessageUser1" FromRole="Message" ToRole="User" />
         </EntityType>
         <EntityType Name="Photo">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="UserId" />
-            <PropertyRef Name="Url" />
-            <PropertyRef Name="CreatedAt" />
-            <PropertyRef Name="UpdatedAt" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserId" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Url" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="DeletedAt" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="User" Relationship="Self.Photo_fkPhotoUser1" FromRole="Photo" ToRole="User" />
         </EntityType>
         <EntityType Name="Post">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Title" />
-            <PropertyRef Name="Content" />
-            <PropertyRef Name="ThemeId" />
-            <PropertyRef Name="BlogId" />
-            <PropertyRef Name="CreatedAt" />
-            <PropertyRef Name="UpdatedAt" />
-            <PropertyRef Name="NombreLike" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Visibility" Type="Int32" />
@@ -806,27 +816,23 @@ FROM [dbo].[UserTheme] AS [UserTheme]</DefiningQuery>
           <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="DeletedAt" Type="DateTime" Precision="0" />
-          <Property Name="ImageUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="NombreLike" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Blog" Relationship="Self.Post_fkPostBlog1" FromRole="Post" ToRole="Blog" />
+          <NavigationProperty Name="BlogComments" Relationship="Self.BlogComment_fkBlogCommentPost1" FromRole="Post" ToRole="BlogComment" />
+          <NavigationProperty Name="Theme" Relationship="Self.Post_fkPostTheme1" FromRole="Post" ToRole="Theme" />
         </EntityType>
         <EntityType Name="Rank">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="LevelRank" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="LevelRank" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="Self.User_fkUserRank1" FromRole="Rank" ToRole="User" />
         </EntityType>
         <EntityType Name="Rating">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Rating1" />
-            <PropertyRef Name="UserId" />
-            <PropertyRef Name="EventId" />
-            <PropertyRef Name="CreatedAt" />
-            <PropertyRef Name="UpdatedAt" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Rating1" Type="Int32" Nullable="false" />
           <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="UserId" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
@@ -834,44 +840,43 @@ FROM [dbo].[UserTheme] AS [UserTheme]</DefiningQuery>
           <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="DeletedAt" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Event" Relationship="Self.Rating_fkRatingEvent1" FromRole="Rating" ToRole="Event" />
+          <NavigationProperty Name="User" Relationship="Self.Rating_fkRatingUser1" FromRole="Rating" ToRole="User" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Label" />
-            <PropertyRef Name="CreatedAt" />
-            <PropertyRef Name="UpdatedAt" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Label" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="DeletedAt" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Users" Relationship="Self.User_fkUserRole1" FromRole="Role" ToRole="User" />
         </EntityType>
         <EntityType Name="Theme">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Name" />
-            <PropertyRef Name="Description" />
-            <PropertyRef Name="CreatedAt" />
-            <PropertyRef Name="UpdatedAt" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ThemeId" Type="Int32" />
+          <Property Name="ThemeId" Type="Int32" Nullable="false" />
           <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="DeletedAt" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Events" Relationship="Self.Event_fkEventTheme1" FromRole="Theme" ToRole="Event" />
+          <NavigationProperty Name="Posts" Relationship="Self.Post_fkPostTheme1" FromRole="Theme" ToRole="Post" />
+          <NavigationProperty Name="Theme1" Relationship="Self.Theme_fkThemeTheme1" FromRole="Theme" ToRole="Theme1" />
+          <NavigationProperty Name="Theme2" Relationship="Self.Theme_fkThemeTheme1" FromRole="Theme1" ToRole="Theme" />
+          <NavigationProperty Name="Threads" Relationship="Self.Thread_fkThreadTheme1" FromRole="Theme" ToRole="Thread" />
+          <NavigationProperty Name="Users" Relationship="Self.UserTheme" FromRole="Theme" ToRole="User" />
         </EntityType>
         <EntityType Name="Thread">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="ThemeId" />
-            <PropertyRef Name="CreatedAt" />
-            <PropertyRef Name="UpdatedAt" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="IsSharable" Type="Int16" />
           <Property Name="ThemeId" Type="Int32" Nullable="false" />
@@ -879,16 +884,14 @@ FROM [dbo].[UserTheme] AS [UserTheme]</DefiningQuery>
           <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="DeletedAt" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Event" Relationship="Self.Thread_fkThreadEvent1" FromRole="Thread" ToRole="Event" />
+          <NavigationProperty Name="Favorites" Relationship="Self.Favorite_fkFavoriteThread1" FromRole="Thread" ToRole="Favorite" />
+          <NavigationProperty Name="Messages" Relationship="Self.Message_fkMessageThread1" FromRole="Thread" ToRole="Message" />
+          <NavigationProperty Name="Theme" Relationship="Self.Thread_fkThreadTheme1" FromRole="Thread" ToRole="Theme" />
         </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="UserName" />
-            <PropertyRef Name="Email" />
-            <PropertyRef Name="RankId" />
-            <PropertyRef Name="RoleId" />
-            <PropertyRef Name="CreatedAt" />
-            <PropertyRef Name="UpdatedAt" />
           </Key>
           <Property Name="Id" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="UserName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
@@ -904,42 +907,312 @@ FROM [dbo].[UserTheme] AS [UserTheme]</DefiningQuery>
           <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="DeletedAt" Type="DateTime" Precision="0" />
-          <Property Name="ResetPasswordToken" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="ResetTokenSentAt" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Blogs" Relationship="Self.Blog_fkBlogUser1" FromRole="User" ToRole="Blog" />
+          <NavigationProperty Name="BlogComments" Relationship="Self.BlogComment_fkBlogCommentUser1" FromRole="User" ToRole="BlogComment" />
+          <NavigationProperty Name="Cards" Relationship="Self.Card_fkCardUser1" FromRole="User" ToRole="Card" />
+          <NavigationProperty Name="Events" Relationship="Self.Event_fkEventUser1" FromRole="User" ToRole="Event" />
+          <NavigationProperty Name="EventComments" Relationship="Self.EventComment_fkCommentUser1" FromRole="User" ToRole="EventComment" />
+          <NavigationProperty Name="Favorites" Relationship="Self.Favorite_fkFavoriteUser1" FromRole="User" ToRole="Favorite" />
+          <NavigationProperty Name="Messages" Relationship="Self.Message_fkMessageUser1" FromRole="User" ToRole="Message" />
+          <NavigationProperty Name="Photos" Relationship="Self.Photo_fkPhotoUser1" FromRole="User" ToRole="Photo" />
+          <NavigationProperty Name="Rank" Relationship="Self.User_fkUserRank1" FromRole="User" ToRole="Rank" />
+          <NavigationProperty Name="Ratings" Relationship="Self.Rating_fkRatingUser1" FromRole="User" ToRole="Rating" />
+          <NavigationProperty Name="Role" Relationship="Self.User_fkUserRole1" FromRole="User" ToRole="Role" />
+          <NavigationProperty Name="Events1" Relationship="Self.Participate" FromRole="User" ToRole="Event" />
+          <NavigationProperty Name="Themes" Relationship="Self.UserTheme" FromRole="User" ToRole="Theme" />
         </EntityType>
-        <EntityType Name="UserHistory">
-          <Key>
-            <PropertyRef Name="IdHistory" />
-            <PropertyRef Name="IdUser" />
-            <PropertyRef Name="DateHistory" />
-            <PropertyRef Name="UserAgent" />
-          </Key>
-          <Property Name="IdHistory" Type="Int32" Nullable="false" />
-          <Property Name="IdUser" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Referer" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="DateHistory" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="UserAgent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-        </EntityType>
-        <EntityType Name="UserTheme">
-          <Key>
-            <PropertyRef Name="UserId" />
-            <PropertyRef Name="ThemeId" />
-          </Key>
-          <Property Name="UserId" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ThemeId" Type="Int32" Nullable="false" />
-        </EntityType>
+        <Association Name="Blog_fkBlogUser1">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Blog" Type="Self.Blog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Blog">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Post_fkPostBlog1">
+          <End Role="Blog" Type="Self.Blog" Multiplicity="1" />
+          <End Role="Post" Type="Self.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blog">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="BlogId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BlogComment_fkBlogCommentPost1">
+          <End Role="Post" Type="Self.Post" Multiplicity="1" />
+          <End Role="BlogComment" Type="Self.BlogComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BlogComment">
+              <PropertyRef Name="PostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BlogComment_fkBlogCommentUser1">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="BlogComment" Type="Self.BlogComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BlogComment">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Card_fkCardEvent1">
+          <End Role="Event" Type="Self.Event" Multiplicity="1" />
+          <End Role="Card" Type="Self.Card" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Card">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Card_fkCardUser1">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Card" Type="Self.Card" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Card">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Event_fkEventTheme1">
+          <End Role="Theme" Type="Self.Theme" Multiplicity="1" />
+          <End Role="Event" Type="Self.Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Theme">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="ThemeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Event_fkEventUser1">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Event" Type="Self.Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EventComment_fkCommentEvent1">
+          <End Role="Event" Type="Self.Event" Multiplicity="1" />
+          <End Role="EventComment" Type="Self.EventComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EventComment">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Rating_fkRatingEvent1">
+          <End Role="Event" Type="Self.Event" Multiplicity="1" />
+          <End Role="Rating" Type="Self.Rating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Rating">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Thread_fkThreadEvent1">
+          <End Role="Event" Type="Self.Event" Multiplicity="0..1" />
+          <End Role="Thread" Type="Self.Thread" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Thread">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EventComment_fkCommentUser1">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="EventComment" Type="Self.EventComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EventComment">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Favorite_fkFavoriteThread1">
+          <End Role="Thread" Type="Self.Thread" Multiplicity="1" />
+          <End Role="Favorite" Type="Self.Favorite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Thread">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Favorite">
+              <PropertyRef Name="ThreadId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Favorite_fkFavoriteUser1">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Favorite" Type="Self.Favorite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Favorite">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Message_fkMessageThread1">
+          <End Role="Thread" Type="Self.Thread" Multiplicity="1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Thread">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="ThreadId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Message_fkMessageUser1">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Photo_fkPhotoUser1">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Photo" Type="Self.Photo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Photo">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Post_fkPostTheme1">
+          <End Role="Theme" Type="Self.Theme" Multiplicity="1" />
+          <End Role="Post" Type="Self.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Theme">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="ThemeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="User_fkUserRank1">
+          <End Role="Rank" Type="Self.Rank" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rank">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="RankId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Rating_fkRatingUser1">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Rating" Type="Self.Rating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Rating">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="User_fkUserRole1">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Theme_fkThemeTheme1">
+          <End Role="Theme" Type="Self.Theme" Multiplicity="1" />
+          <End Role="Theme1" Type="Self.Theme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Theme">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Theme1">
+              <PropertyRef Name="ThemeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Thread_fkThreadTheme1">
+          <End Role="Theme" Type="Self.Theme" Multiplicity="1" />
+          <End Role="Thread" Type="Self.Thread" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Theme">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Thread">
+              <PropertyRef Name="ThemeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Participate">
+          <End Role="Event" Type="Self.Event" Multiplicity="*" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+        </Association>
+        <Association Name="UserTheme">
+          <End Role="Theme" Type="Self.Theme" Multiplicity="*" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+        </Association>
         <EntityContainer Name="YoupEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Blogs" EntityType="Self.Blog" />
           <EntitySet Name="BlogComments" EntityType="Self.BlogComment" />
           <EntitySet Name="Cards" EntityType="Self.Card" />
-          <EntitySet Name="Connections" EntityType="Self.Connection" />
           <EntitySet Name="Events" EntityType="Self.Event" />
           <EntitySet Name="EventComments" EntityType="Self.EventComment" />
           <EntitySet Name="Favorites" EntityType="Self.Favorite" />
-          <EntitySet Name="HeatMaps" EntityType="Self.HeatMap" />
           <EntitySet Name="Messages" EntityType="Self.Message" />
-          <EntitySet Name="Pages" EntityType="Self.Page" />
-          <EntitySet Name="Participates" EntityType="Self.Participate" />
           <EntitySet Name="Photos" EntityType="Self.Photo" />
           <EntitySet Name="Posts" EntityType="Self.Post" />
           <EntitySet Name="Ranks" EntityType="Self.Rank" />
@@ -948,17 +1221,115 @@ FROM [dbo].[UserTheme] AS [UserTheme]</DefiningQuery>
           <EntitySet Name="Themes" EntityType="Self.Theme" />
           <EntitySet Name="Threads" EntityType="Self.Thread" />
           <EntitySet Name="Users" EntityType="Self.User" />
-          <EntitySet Name="UserHistories" EntityType="Self.UserHistory" />
-          <EntitySet Name="UserThemes" EntityType="Self.UserTheme" />
+          <AssociationSet Name="Blog_fkBlogUser1" Association="Self.Blog_fkBlogUser1">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Blog" EntitySet="Blogs" />
+          </AssociationSet>
+          <AssociationSet Name="Post_fkPostBlog1" Association="Self.Post_fkPostBlog1">
+            <End Role="Blog" EntitySet="Blogs" />
+            <End Role="Post" EntitySet="Posts" />
+          </AssociationSet>
+          <AssociationSet Name="BlogComment_fkBlogCommentPost1" Association="Self.BlogComment_fkBlogCommentPost1">
+            <End Role="Post" EntitySet="Posts" />
+            <End Role="BlogComment" EntitySet="BlogComments" />
+          </AssociationSet>
+          <AssociationSet Name="BlogComment_fkBlogCommentUser1" Association="Self.BlogComment_fkBlogCommentUser1">
+            <End Role="User" EntitySet="Users" />
+            <End Role="BlogComment" EntitySet="BlogComments" />
+          </AssociationSet>
+          <AssociationSet Name="Card_fkCardEvent1" Association="Self.Card_fkCardEvent1">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="Card" EntitySet="Cards" />
+          </AssociationSet>
+          <AssociationSet Name="Card_fkCardUser1" Association="Self.Card_fkCardUser1">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Card" EntitySet="Cards" />
+          </AssociationSet>
+          <AssociationSet Name="Event_fkEventTheme1" Association="Self.Event_fkEventTheme1">
+            <End Role="Theme" EntitySet="Themes" />
+            <End Role="Event" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="Event_fkEventUser1" Association="Self.Event_fkEventUser1">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Event" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="EventComment_fkCommentEvent1" Association="Self.EventComment_fkCommentEvent1">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="EventComment" EntitySet="EventComments" />
+          </AssociationSet>
+          <AssociationSet Name="Rating_fkRatingEvent1" Association="Self.Rating_fkRatingEvent1">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="Rating" EntitySet="Ratings" />
+          </AssociationSet>
+          <AssociationSet Name="Thread_fkThreadEvent1" Association="Self.Thread_fkThreadEvent1">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="Thread" EntitySet="Threads" />
+          </AssociationSet>
+          <AssociationSet Name="EventComment_fkCommentUser1" Association="Self.EventComment_fkCommentUser1">
+            <End Role="User" EntitySet="Users" />
+            <End Role="EventComment" EntitySet="EventComments" />
+          </AssociationSet>
+          <AssociationSet Name="Favorite_fkFavoriteThread1" Association="Self.Favorite_fkFavoriteThread1">
+            <End Role="Thread" EntitySet="Threads" />
+            <End Role="Favorite" EntitySet="Favorites" />
+          </AssociationSet>
+          <AssociationSet Name="Favorite_fkFavoriteUser1" Association="Self.Favorite_fkFavoriteUser1">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Favorite" EntitySet="Favorites" />
+          </AssociationSet>
+          <AssociationSet Name="Message_fkMessageThread1" Association="Self.Message_fkMessageThread1">
+            <End Role="Thread" EntitySet="Threads" />
+            <End Role="Message" EntitySet="Messages" />
+          </AssociationSet>
+          <AssociationSet Name="Message_fkMessageUser1" Association="Self.Message_fkMessageUser1">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Message" EntitySet="Messages" />
+          </AssociationSet>
+          <AssociationSet Name="Photo_fkPhotoUser1" Association="Self.Photo_fkPhotoUser1">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Photo" EntitySet="Photos" />
+          </AssociationSet>
+          <AssociationSet Name="Post_fkPostTheme1" Association="Self.Post_fkPostTheme1">
+            <End Role="Theme" EntitySet="Themes" />
+            <End Role="Post" EntitySet="Posts" />
+          </AssociationSet>
+          <AssociationSet Name="User_fkUserRank1" Association="Self.User_fkUserRank1">
+            <End Role="Rank" EntitySet="Ranks" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="Rating_fkRatingUser1" Association="Self.Rating_fkRatingUser1">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Rating" EntitySet="Ratings" />
+          </AssociationSet>
+          <AssociationSet Name="User_fkUserRole1" Association="Self.User_fkUserRole1">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="Theme_fkThemeTheme1" Association="Self.Theme_fkThemeTheme1">
+            <End Role="Theme" EntitySet="Themes" />
+            <End Role="Theme1" EntitySet="Themes" />
+          </AssociationSet>
+          <AssociationSet Name="Thread_fkThreadTheme1" Association="Self.Thread_fkThreadTheme1">
+            <End Role="Theme" EntitySet="Themes" />
+            <End Role="Thread" EntitySet="Threads" />
+          </AssociationSet>
+          <AssociationSet Name="Participate" Association="Self.Participate">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="UserTheme" Association="Self.UserTheme">
+            <End Role="Theme" EntitySet="Themes" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="YoupModelStoreContainer" CdmEntityContainer="YoupEntities">
+        <EntityContainerMapping StorageEntityContainer="YoupStoreContainer" CdmEntityContainer="YoupEntities">
           <EntitySetMapping Name="Blogs">
-            <EntityTypeMapping TypeName="YoupModel.Blog">
+            <EntityTypeMapping TypeName="Youp.Blog">
               <MappingFragment StoreEntitySet="Blog">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -971,7 +1342,7 @@ FROM [dbo].[UserTheme] AS [UserTheme]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="BlogComments">
-            <EntityTypeMapping TypeName="YoupModel.BlogComment">
+            <EntityTypeMapping TypeName="Youp.BlogComment">
               <MappingFragment StoreEntitySet="BlogComment">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Content" ColumnName="Content" />
@@ -984,7 +1355,7 @@ FROM [dbo].[UserTheme] AS [UserTheme]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Cards">
-            <EntityTypeMapping TypeName="YoupModel.Card">
+            <EntityTypeMapping TypeName="Youp.Card">
               <MappingFragment StoreEntitySet="Card">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Colour" ColumnName="Colour" />
@@ -996,17 +1367,8 @@ FROM [dbo].[UserTheme] AS [UserTheme]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Connections">
-            <EntityTypeMapping TypeName="YoupModel.Connection">
-              <MappingFragment StoreEntitySet="Connection">
-                <ScalarProperty Name="IdConnection" ColumnName="IdConnection" />
-                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
-                <ScalarProperty Name="DateConnection" ColumnName="DateConnection" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Events">
-            <EntityTypeMapping TypeName="YoupModel.Event">
+            <EntityTypeMapping TypeName="Youp.Event">
               <MappingFragment StoreEntitySet="Event">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1022,12 +1384,11 @@ FROM [dbo].[UserTheme] AS [UserTheme]</DefiningQuery>
                 <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
                 <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
                 <ScalarProperty Name="DeletedAt" ColumnName="DeletedAt" />
-                <ScalarProperty Name="City" ColumnName="City" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EventComments">
-            <EntityTypeMapping TypeName="YoupModel.EventComment">
+            <EntityTypeMapping TypeName="Youp.EventComment">
               <MappingFragment StoreEntitySet="EventComment">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Content" ColumnName="Content" />
@@ -1040,7 +1401,7 @@ FROM [dbo].[UserTheme] AS [UserTheme]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Favorites">
-            <EntityTypeMapping TypeName="YoupModel.Favorite">
+            <EntityTypeMapping TypeName="Youp.Favorite">
               <MappingFragment StoreEntitySet="Favorite">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
@@ -1051,20 +1412,8 @@ FROM [dbo].[UserTheme] AS [UserTheme]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="HeatMaps">
-            <EntityTypeMapping TypeName="YoupModel.HeatMap">
-              <MappingFragment StoreEntitySet="HeatMap">
-                <ScalarProperty Name="IdHeatMap" ColumnName="IdHeatMap" />
-                <ScalarProperty Name="HeatMapX" ColumnName="HeatMapX" />
-                <ScalarProperty Name="HeatMapY" ColumnName="HeatMapY" />
-                <ScalarProperty Name="DateHeatMap" ColumnName="DateHeatMap" />
-                <ScalarProperty Name="IdPage" ColumnName="IdPage" />
-                <ScalarProperty Name="Width" ColumnName="Width" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Messages">
-            <EntityTypeMapping TypeName="YoupModel.Message">
+            <EntityTypeMapping TypeName="Youp.Message">
               <MappingFragment StoreEntitySet="Message">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -1077,24 +1426,8 @@ FROM [dbo].[UserTheme] AS [UserTheme]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Pages">
-            <EntityTypeMapping TypeName="YoupModel.Page">
-              <MappingFragment StoreEntitySet="Page">
-                <ScalarProperty Name="IdPage" ColumnName="IdPage" />
-                <ScalarProperty Name="IntitulePage" ColumnName="IntitulePage" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Participates">
-            <EntityTypeMapping TypeName="YoupModel.Participate">
-              <MappingFragment StoreEntitySet="Participate">
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="EventId" ColumnName="EventId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Photos">
-            <EntityTypeMapping TypeName="YoupModel.Photo">
+            <EntityTypeMapping TypeName="Youp.Photo">
               <MappingFragment StoreEntitySet="Photo">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
@@ -1106,7 +1439,7 @@ FROM [dbo].[UserTheme] AS [UserTheme]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Posts">
-            <EntityTypeMapping TypeName="YoupModel.Post">
+            <EntityTypeMapping TypeName="Youp.Post">
               <MappingFragment StoreEntitySet="Post">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -1117,13 +1450,11 @@ FROM [dbo].[UserTheme] AS [UserTheme]</DefiningQuery>
                 <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
                 <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
                 <ScalarProperty Name="DeletedAt" ColumnName="DeletedAt" />
-                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
-                <ScalarProperty Name="NombreLike" ColumnName="NombreLike" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Ranks">
-            <EntityTypeMapping TypeName="YoupModel.Rank">
+            <EntityTypeMapping TypeName="Youp.Rank">
               <MappingFragment StoreEntitySet="Rank">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="LevelRank" ColumnName="LevelRank" />
@@ -1131,7 +1462,7 @@ FROM [dbo].[UserTheme] AS [UserTheme]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Ratings">
-            <EntityTypeMapping TypeName="YoupModel.Rating">
+            <EntityTypeMapping TypeName="Youp.Rating">
               <MappingFragment StoreEntitySet="Rating">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Rating1" ColumnName="Rating" />
@@ -1145,7 +1476,7 @@ FROM [dbo].[UserTheme] AS [UserTheme]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Roles">
-            <EntityTypeMapping TypeName="YoupModel.Role">
+            <EntityTypeMapping TypeName="Youp.Role">
               <MappingFragment StoreEntitySet="Role">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Label" ColumnName="Label" />
@@ -1156,7 +1487,7 @@ FROM [dbo].[UserTheme] AS [UserTheme]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Themes">
-            <EntityTypeMapping TypeName="YoupModel.Theme">
+            <EntityTypeMapping TypeName="Youp.Theme">
               <MappingFragment StoreEntitySet="Theme">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1169,7 +1500,7 @@ FROM [dbo].[UserTheme] AS [UserTheme]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Threads">
-            <EntityTypeMapping TypeName="YoupModel.Thread">
+            <EntityTypeMapping TypeName="Youp.Thread">
               <MappingFragment StoreEntitySet="Thread">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -1183,7 +1514,7 @@ FROM [dbo].[UserTheme] AS [UserTheme]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="YoupModel.User">
+            <EntityTypeMapping TypeName="Youp.User">
               <MappingFragment StoreEntitySet="User">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
@@ -1199,30 +1530,25 @@ FROM [dbo].[UserTheme] AS [UserTheme]</DefiningQuery>
                 <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
                 <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
                 <ScalarProperty Name="DeletedAt" ColumnName="DeletedAt" />
-                <ScalarProperty Name="ResetPasswordToken" ColumnName="ResetPasswordToken" />
-                <ScalarProperty Name="ResetTokenSentAt" ColumnName="ResetTokenSentAt" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="UserHistories">
-            <EntityTypeMapping TypeName="YoupModel.UserHistory">
-              <MappingFragment StoreEntitySet="UserHistory">
-                <ScalarProperty Name="IdHistory" ColumnName="IdHistory" />
-                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
-                <ScalarProperty Name="Referer" ColumnName="Referer" />
-                <ScalarProperty Name="DateHistory" ColumnName="DateHistory" />
-                <ScalarProperty Name="UserAgent" ColumnName="UserAgent" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="UserThemes">
-            <EntityTypeMapping TypeName="YoupModel.UserTheme">
-              <MappingFragment StoreEntitySet="UserTheme">
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="ThemeId" ColumnName="ThemeId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
+          <AssociationSetMapping Name="Participate" TypeName="Youp.Participate" StoreEntitySet="Participate">
+            <EndProperty Name="Event">
+              <ScalarProperty Name="Id" ColumnName="EventId" />
+            </EndProperty>
+            <EndProperty Name="User">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="UserTheme" TypeName="Youp.UserTheme" StoreEntitySet="UserTheme">
+            <EndProperty Name="Theme">
+              <ScalarProperty Name="Id" ColumnName="ThemeId" />
+            </EndProperty>
+            <EndProperty Name="User">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
