@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "GestionBlog";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Bienvenue sur @ViewData["nomBlog"] </h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        @if ((bool)ViewBag.blog.IsActive) {
+
+            <a href="@Url.Action("DesactiverBlog","Blog", new { id = ViewBag.blog.Id })">Desactiver</a>
+          }else{
+
+            <a href="@Url.Action("ReactiverBlog","Blog", new { id = ViewBag.blog.Id })">Reactiver</a>
+              
+        }
+          
+        @*@using (Html.BeginForm("GestionBlog", "Blog", new { id = 1 }))
+            {
+                <input type="submit" value="Desactiver" />
+            }*@
+     
+        <a href="@Url.Action("GestionBlog","Blog", new { id = ViewBag.blog.Id })">Supprimer</a>
+
+
+        @if ((bool)ViewBag.blog.IsActive)
+        {
+
+            <a href="@Url.Action("CreatePost","Post")">Ajouter un article</a>
+            
+        }
+
+
+    </fieldset>
+    
+    <p>
+    
+    <div>
+        @Html.Partial("~/Views/Post/ListPosts.cshtml")
+
+    </div>
+</p>
+}
+

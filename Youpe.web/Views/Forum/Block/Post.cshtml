@@ -1,0 +1,49 @@
+﻿<h3 class="title"><span><cufon class="cufon cufon-canvas" alt="Testimonials" style="width: 146px; height: 24px;"><cufontext>Dernières discussions</cufontext></cufon></span></h3>
+<div class="widget">
+    <ul>
+        @foreach (var recent in ViewBag.MostRecent)
+        {
+            var id = recent.GetType().GetProperty("Id").GetValue(recent);
+            var title = recent.GetType().GetProperty("Title").GetValue(recent);
+            var createdAt = recent.GetType().GetProperty("CreatedAt").GetValue(recent);
+
+            string _title = title;
+            string _id = id.ToString();
+            <li onclick="goTo('Message/Index/@id')"> @Html.ActionLink(_title, "Index/" + _id, "Message") <span class="dateMessage">Dernier message le @createdAt</span></li>
+        }
+    </ul>
+    <h3 class="title"><span><cufon class="cufon cufon-canvas" alt="Testimonials" style="width: 146px; height: 24px;"><cufontext>Discussions les plus commentées</cufontext></cufon></span></h3>
+    <ul>
+        @foreach (var thr in ViewBag.MostCommented)
+        {
+            var id = thr.GetType().GetProperty("Id").GetValue(thr);
+            var title = thr.GetType().GetProperty("Title").GetValue(thr);
+            var createdAt = thr.GetType().GetProperty("CreatedAt").GetValue(thr);
+
+            string _title = title.ToString();
+            string _id = id.ToString();
+            
+            <li onclick="goTo('Message/Index/@id')">@Html.ActionLink(_title, "Index/" + _id, "Message") <span class="dateMessage">Dernier message le @createdAt</span></li>
+        }
+    </ul>
+    <h3 class="title"><span><cufon class="cufon cufon-canvas" alt="Testimonials" style="width: 146px; height: 24px;"><cufontext>Discussions favorites</cufontext></cufon></span></h3>
+    <ul>
+        @foreach (var fav in ViewBag.Favorites)
+        {
+            var id = fav.GetType().GetProperty("Id").GetValue(fav);
+            var title = fav.GetType().GetProperty("Title").GetValue(fav);
+            var createdAt = fav.GetType().GetProperty("CreatedAt").GetValue(fav);
+
+            string _title = title.ToString();
+            string _id = id.ToString();
+            
+            <li onclick="goTo('Message/Index/@id')">@Html.ActionLink(_title, "Index/" + _id, "Message") <span class="dateMessage">Dernier message le @createdAt</span></li>
+        }
+    </ul>
+</div>
+
+<script>
+    function goTo(link) {
+        window.location = link;
+    }
+</script>

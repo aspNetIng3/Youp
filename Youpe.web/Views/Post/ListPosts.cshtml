@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "ListPosts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div>
+    <h2>Liste Posts</h2>
+    @if (ViewBag.lstPosts != null)
+    {
+        foreach (var p in ViewBag.lstPosts)
+        {
+            
+            var id = p.GetType().GetProperty("Id").GetValue(p);
+            var title = p.GetType().GetProperty("Title").GetValue(p);
+            var content = p.GetType().GetProperty("Content").GetValue(p);
+            var date = p.GetType().GetProperty("CreatedAt").GetValue(p);
+
+            <div>
+                <h3>@title</h3><br />
+                <p>@content</p>
+                <p> created at @date</p>
+                <p>
+                    <a href="@Url.Action("DeletePost","Post",new {id=id})">Delete Post</a>  - 
+                    <a href="@Url.Action("CommentPost","Post",new {id=id})">Comment Post</a> 
+                </p>
+            </div>
+               
+        }
+            
+           
+    }
+    else
+    {
+        <div>Aucunn Post</div>
+    }
+</div>

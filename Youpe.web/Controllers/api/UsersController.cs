@@ -1,0 +1,45 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
+using Youpe.data.Enums;
+using Youpe.data.POCO;
+using Youpe.web.Models;
+
+namespace Youpe.web.Controllers.api
+{
+    /// <summary>
+    /// API controller to manage users
+    /// </summary>
+    public class UsersController : ApiController
+    {
+
+        List<UserProfile> usersData = new List<UserProfile>()
+        {
+            new UserProfile{Id=1, FirstName="John", LastName="Smith", Gender=Gender.Male,Mobile="9999999991",Email="john@demo.com", City="kn", State="as", Country="usa",Zip="12401"},
+            new UserProfile{Id=2, FirstName="Adam", LastName="Gril",Gender=Gender.Female, Mobile="9999999992",Email="adam@demo.com", City="bk",State="al", Country="usa",Zip="99701"},
+            new UserProfile{Id=3, FirstName="James", LastName="Franklin",Gender=Gender.Male, Mobile="9999999993",Email="james@demo.com", City="js",State="nj", Country="usa",Zip="07097"},
+            new UserProfile{Id=4, FirstName="Vicky", LastName="Merry" ,Gender=Gender.Female, Mobile="9999999994",Email="vicky@demo.com", City="ol",State="ny", Country="usa",Zip="14760"},
+            new UserProfile{Id=5, FirstName="Cena", LastName="Rego",Gender=Gender.Male, Mobile="9999999995",Email="cena@demo.com", City="as",State="tx", Country="usa",Zip="78610"}
+        };
+
+        public IEnumerable<UserProfile> Get()
+        {
+            // Return a static list of users
+            return usersData;
+        }
+
+        public UserProfile Put(UserProfile user)
+        {
+            //Update the user
+            return user;
+        }
+
+        public UserProfile Post(UserProfile user)
+        {
+            return null;
+        }
+    }
+}

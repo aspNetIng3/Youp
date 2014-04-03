@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "ListBlog";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ListBlog</h2>
+
+@if (ViewBag.lstBlog != null)
+{
+    foreach (var item in ViewBag.lstBlog)
+    {
+        var id = item.GetType().GetProperty("Id").GetValue(item);
+        var name = item.GetType().GetProperty("Name").GetValue(item);
+
+        <lu>
+            <li><a href="@Url.Action("GestionBlog","Blog",new {id=id})">@name</a></li>
+        </lu>
+         
+    }
+            
+}
+else
+{
+    <div>Aucun Blog</div>
+}

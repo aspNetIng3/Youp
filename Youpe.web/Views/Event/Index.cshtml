@@ -1,0 +1,157 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Event</h2>
+
+<style>
+    .table th, .table tr {
+        font-size: 1em;
+        padding: 2px !important;
+        text-align: center;
+        color: #444444;
+    }
+    .table td {
+        width:33%;
+    }
+    .thumbnail h3 {
+        min-height: 0px !important;
+        margin-bottom: 0 !important;
+        margin-top: 0 !important;
+    }
+    .red {
+        -moz-box-shadow: 0px 0px 5px 5px #fd6864;
+        -webkit-box-shadow: 0px 0px 5px 5px #fd6864;
+        -o-box-shadow: 0px 0px 5px 5px #fd6864;
+        box-shadow: 0px 0px 5px 5px #fd6864;
+        filter: progid:DXImageTransform.Microsoft.Shadow(color=#fd6864, Direction=NaN, Strength=5);
+    }
+
+    .yellow {
+        -moz-box-shadow: 0px 0px 5px 5px #ffffc7;
+        -webkit-box-shadow: 0px 0px 5px 5px #ffffc7;
+        -o-box-shadow: 0px 0px 5px 5px #ffffc7;
+        box-shadow: 0px 0px 5px 5px #ffffc7;
+        filter: progid:DXImageTransform.Microsoft.Shadow(color=#ffffc7, Direction=NaN, Strength=5);
+    }
+
+    .blue {
+        -moz-box-shadow: 0px 0px 5px 5px #34cdf9;
+        -webkit-box-shadow: 0px 0px 5px 5px #34cdf9;
+        -o-box-shadow: 0px 0px 5px 5px #34cdf9;
+        box-shadow: 0px 0px 5px 5px #34cdf9;
+        filter: progid:DXImageTransform.Microsoft.Shadow(color=#34cdf9, Direction=NaN, Strength=5);
+    }
+
+    .green {
+        -moz-box-shadow: 0px 0px 5px 5px #32cb00;
+        -webkit-box-shadow: 0px 0px 5px 5px #32cb00;
+        -o-box-shadow: 0px 0px 5px 5px #32cb00;
+        box-shadow: 0px 0px 5px 5px #32cb00;
+        filter: progid:DXImageTransform.Microsoft.Shadow(color=#32cb00, Direction=NaN, Strength=5);
+    }
+</style>
+
+<div class="row">
+    <section class="main-section">
+        <div class="breadcrumbs">
+            <a href="index.html">Accueil</a>/<a>Evenements</a>
+        </div>
+
+        <div class="tagline">
+            <div class="container">
+                <div class="row">
+                    <div class="span9">
+                        <img src="~/Images/home/Icon_Calendar.png" alt="some image" class="left freelance_img" />
+                        <h3 class="regular-size">Bienvenue sur Youp !</h3>
+                        <h6 class="subheader">Retrouvez nous sur l'integralité des evenement, actualité et forum.</h6>
+                    </div>
+                    <div class="span3">
+                        <a href="#" class="button big primary">Inscription</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <!-- BEGIN Portfolio ROW-->
+            <div class="portfolioarea top20">
+                <div class="span12 fix_margin">
+                    <ul class="nav nav-pills" style="margin-left:4% !important">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" id="drop4" role="button" data-toggle="dropdown" href="#">Event 1 <b class="caret"></b></a>
+                            <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
+                                <li><a tabindex="-1" href="#">Action</a></li>
+                                <li><a tabindex="-1" href="#">Another action</a></li>
+                                <li><a tabindex="-1" href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li><a tabindex="-1" href="#">Separated link</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" id="drop5" role="button" data-toggle="dropdown" href="#">Event 2 <b class="caret"></b></a>
+                            <ul id="menu2" class="dropdown-menu" role="menu" aria-labelledby="drop5">
+                                <li><a tabindex="-1" href="#">Action</a></li>
+                                <li><a tabindex="-1" href="#">Another action</a></li>
+                                <li><a tabindex="-1" href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li><a tabindex="-1" href="#">Separated link</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" id="drop5" role="button" data-toggle="dropdown" href="#">Event 3 <b class="caret"></b></a>
+                            <ul id="menu2" class="dropdown-menu" role="menu" aria-labelledby="drop5">
+                                <li><a tabindex="-1" href="#">Action</a></li>
+                                <li><a tabindex="-1" href="#">Another action</a></li>
+                                <li><a tabindex="-1" href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li><a tabindex="-1" href="#">Separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                    <div id="container" class="portfolioitems_container">
+                        @foreach (var _event in ViewBag.allEvents)
+                        {
+                            var id = _event.GetType().GetProperty("Id").GetValue(_event);
+                            var name = _event.GetType().GetProperty("Name").GetValue(_event);
+                            var description = _event.GetType().GetProperty("Description").GetValue(_event);
+                            var slot = _event.GetType().GetProperty("Slots").GetValue(_event);
+                            //dynamic users = _event.GetType().GetProperty("User").GetValue(_event);
+                            
+                            
+                            
+                            <div class="filteritem big_item psd site">
+                                <div class="portfolio_thumb">
+                                    <a href="#modal1" data-toggle="modal" class="hover_fade_in"><img src="~/Images/home/game.JPG" alt="modal portfolio" /></a>
+                                </div>
+                                <h4 class="portfolio_title">
+                                    @name
+                                    <small class="categories">
+                                        @description
+                            <br />
+                            <br />
+                            <table class="table table-bordered" style="width:100%">
+                                <tr>
+                                    <th>Libre</th>
+                                    <th>Part</th>
+                                    <th>Inscrip</th>
+                                </tr>
+                                <tr>
+                                    <td><center>@slot</center></td>
+                                    <td><center>2</center></td>
+                                    <td><center><span class="glyphicon glyphicon-share"></span></center></td>
+                                </tr>
+                            </table>
+                        </small>
+                    </h4>
+                </div>
+                        }
+                    </div>
+                </div><!-- END CONTENT -->
+        </div>
+    </section>
+</div>

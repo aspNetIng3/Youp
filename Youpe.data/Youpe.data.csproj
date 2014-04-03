@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A4CB194B-8070-48BC-B2BD-0F943F51EC49}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Youpe.data</RootNamespace>
+    <AssemblyName>Youpe.data</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.3.1.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4, Version=3.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AutoMapper.3.1.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Contexts\YoupContext.cs" />
+    <Compile Include="DTO\BlogCommentDTO.cs" />
+    <Compile Include="DTO\BlogDTO.cs" />
+    <Compile Include="DTO\CardDTO.cs" />
+    <Compile Include="DTO\EventCommentDTO.cs" />
+    <Compile Include="DTO\EventDTO.cs" />
+    <Compile Include="DTO\FavoriteDTO.cs" />
+    <Compile Include="DTO\MessageDTO.cs" />
+    <Compile Include="DTO\PhotoDTO.cs" />
+    <Compile Include="DTO\PostDTO.cs" />
+    <Compile Include="DTO\RankDTO.cs" />
+    <Compile Include="DTO\RatingDTO.cs" />
+    <Compile Include="DTO\RoleDTO.cs" />
+    <Compile Include="DTO\ThemeDTO.cs" />
+    <Compile Include="DTO\ThreadDTO.cs" />
+    <Compile Include="DTO\UserDTO.cs" />
+    <Compile Include="Enums\Gender.cs" />
+    <Compile Include="Extensions\Extensions.cs" />
+    <Compile Include="Models\BlogModel.cs" />
+    <Compile Include="Models\EventModel.cs" />
+    <Compile Include="Models\FavoriteModel.cs" />
+    <Compile Include="Models\ForumModel.cs" />
+    <Compile Include="Models\Mapper\MessageMapper.cs" />
+    <Compile Include="Models\MessageModel.cs" />
+    <Compile Include="Models\PostModel.cs" />
+    <Compile Include="Models\ThemeModel.cs" />
+    <Compile Include="Models\ThreadModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
+    <Compile Include="POCO\APoco.cs" />
+    <Compile Include="POCO\APoco1.cs" />
+    <Compile Include="POCO\APocoUser.cs" />
+    <Compile Include="POCO\Blog.cs" />
+    <Compile Include="POCO\BlogComment.cs" />
+    <Compile Include="POCO\Card.cs" />
+    <Compile Include="POCO\Event.cs" />
+    <Compile Include="POCO\EventComment.cs" />
+    <Compile Include="POCO\Favorite.cs" />
+    <Compile Include="POCO\Message.cs" />
+    <Compile Include="POCO\Photo.cs" />
+    <Compile Include="POCO\Post.cs" />
+    <Compile Include="POCO\Rank.cs" />
+    <Compile Include="POCO\Rating.cs" />
+    <Compile Include="POCO\Role.cs" />
+    <Compile Include="POCO\Theme.cs" />
+    <Compile Include="POCO\Thread.cs" />
+    <Compile Include="POCO\UserProfile.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IYoupRepository.cs" />
+    <Compile Include="Repositories\YoupRepository.cs" />
+    <Compile Include="Sessions\MySession.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\packages\AutoMapper.3.1.1\lib\net40\AutoMapper.Net4.dll">
+      <Link>AutoMapper.Net4.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
