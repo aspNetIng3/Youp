@@ -55,6 +55,9 @@
     <Compile Include="Card.cs">
       <DependentUpon>Youp.tt</DependentUpon>
     </Compile>
+    <Compile Include="Connection.cs">
+      <DependentUpon>Youp.tt</DependentUpon>
+    </Compile>
     <Compile Include="Event.cs">
       <DependentUpon>Youp.tt</DependentUpon>
     </Compile>
@@ -64,7 +67,13 @@
     <Compile Include="Favorite.cs">
       <DependentUpon>Youp.tt</DependentUpon>
     </Compile>
+    <Compile Include="HeatMap.cs">
+      <DependentUpon>Youp.tt</DependentUpon>
+    </Compile>
     <Compile Include="Message.cs">
+      <DependentUpon>Youp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Page.cs">
       <DependentUpon>Youp.tt</DependentUpon>
     </Compile>
     <Compile Include="Photo.cs">
@@ -89,7 +98,10 @@
     <Compile Include="Thread.cs">
       <DependentUpon>Youp.tt</DependentUpon>
     </Compile>
-    <Compile Include="User.cs">
+    <Compile Include="UserHistory.cs">
+      <DependentUpon>Youp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserYoup.cs">
       <DependentUpon>Youp.tt</DependentUpon>
     </Compile>
     <Compile Include="Youp.Context.cs">
@@ -109,14 +121,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
     <EntityDeploy Include="Youp.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Youp.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
-    <None Include="packages.config" />
     <None Include="Youp.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Youp.edmx</DependentUpon>
@@ -124,6 +134,7 @@
     </None>
     <None Include="Youp.edmx.diagram">
       <DependentUpon>Youp.edmx</DependentUpon>
+      <SubType>Designer</SubType>
     </None>
     <None Include="Youp.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

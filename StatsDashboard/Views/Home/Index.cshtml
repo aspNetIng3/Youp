@@ -3,38 +3,37 @@
 }
 
 <div class="row">
-    <fieldset class="col-md-6">
-        <legend>Global Activity</legend>
-        <div class="row">
-        </div>
-       
-         <div class="col-md-12" style="text-align:right">
-            <a href="~/"> + Informations about Global Activity </a>
-        </div> 
-    </fieldset>
-
-    <fieldset class="col-md-6">
+    <fieldset class="col-md-12">
         <legend>Users</legend>
-            <div class="col-md-12">
-                <h5 style="text-align: center; margin-top: 5px; margin-bottom: 20px;"><span style="color:rgba(255,169,0,1); font-weight: bold;">Registration</span> / <span style="color:rgba(170,170,170,1); font-weight: bold; ">Unsubscribe</span></h5>
-            </div>
+        <div class="col-md-2">
+            <div id="countUser" style="height:100px;"></div>
+            <div id="countUserActive" style="height:100px;"></div>
+            <div id="countUserDelete" style="height:100px;"></div>
+        </div>
 
-            <div class="col-md-12">
-                <canvas id="chartUserRegisterYear" height="200"></canvas>
-            </div>
+        <div class="col-md-6">
+            <h5 style="text-align: center; margin-top: 5px; margin-bottom: 20px;"><span style="font-weight: bold;">Connections</span></h5>
+            <canvas id="chartUserConnection" height="200"></canvas>
+        </div>
 
-            <div class="col-md-12" style="text-align:right">
-                <a href="~/User"> + Informations about Users</a>
-            </div>
+        <div class="col-md-4">
+            <h5 style="text-align: center; margin-top: 5px; margin-bottom: 20px;"><span style="color:rgba(255,169,0,1); font-weight: bold;">Registration</span> / <span style="color:rgba(170,170,170,1); font-weight: bold; ">Unsubscribe</span></h5>
+            <canvas id="chartUserRegisterYear" height="250"></canvas>
+        </div>
+
+        <div class="col-md-12" style="text-align:right">
+            <a href="~/User"> + Informations about Users</a>
+        </div>
     </fieldset>
 </div>
 
-<div class="row" style="margin-top:3%; margin-bottom:3%;">
+<div class="row" style="margin-top:2%; margin-bottom:2%;">
     <fieldset class="col-md-4">
         <legend>Forum</legend>
         <div class="row">
             <div class="col-md-12">
-                <h5 style="text-align: center; margin-top: 5px; margin-bottom: 20px;"><span style="color:rgba(255,0,49,1); font-weight: bold;">Thread</span> / <span style="color:rgba(170,170,170,1); font-weight: bold; ">Post</span></h5>
+                <h5 style="text-align: center; margin-top: 5px; margin-bottom: 15px;"><span style="color:rgba(255,0,49,1); font-weight: bold;">Thread</span> / <span style="color:rgba(170,170,170,1); font-weight: bold; ">Post</span></h5>
+                <canvas id="chartYear" height="200"></canvas>
             </div>
         </div>
 
@@ -46,9 +45,8 @@
     <fieldset class="col-md-4">
         <legend>Blog</legend>
         <div class="row">
-            <div>
-
-            </div>
+            <h5 style="text-align: center; margin-top: 5px; margin-bottom: 20px;"><span style="color: rgba(0,167,83,1); font-weight: bold;">Created</span> / <span style="color:rgba(170,170,170,1); font-weight: bold; ">Deleted</span></h5>
+            <canvas id="chartYearBlog" height="200"></canvas>
         </div>
 
         <div class="row">
@@ -86,72 +84,208 @@
 
 @section Scripts {
     <script>
-        var dataToDataChartEventCreateYear = [];
-        @foreach (KeyValuePair<int, int> pair in (Dictionary<int, int>)ViewData["eventCreateForMonths"])
+    var dataToDataChartEventCreateYear = [];
+    @foreach (KeyValuePair<int, int> pair in (Dictionary<int, int>)ViewData["eventCreateForMonths"])
         {
         <text>dataToDataChartEventCreateYear.push(@pair.Value);</text>
         }
 
-        var dataToDataChartUserRegisterYear = [];
-        @foreach (KeyValuePair<int, int> pair in (Dictionary<int, int>)ViewData["userRegisterForMonths"])
+    var dataToDataChartUserRegisterYear = [];
+    @foreach (KeyValuePair<int, int> pair in (Dictionary<int, int>)ViewData["userRegisterForMonths"])
         {
         <text>dataToDataChartUserRegisterYear.push(@pair.Value);</text>
         }
 
-        var dataToDataChartUserDeletedYear = [];
-        @foreach (KeyValuePair<int, int> pair in (Dictionary<int, int>)ViewData["userDeletedForMonths"])
+    var dataToDataChartUserDeletedYear = [];
+    @foreach (KeyValuePair<int, int> pair in (Dictionary<int, int>)ViewData["userDeletedForMonths"])
         {
         <text>dataToDataChartUserDeletedYear.push(@pair.Value);</text>
         }
 
-        var dataChartUserRegisterYear = {
-            labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-            datasets: [
-                {
-                    fillColor: "rgba(255,169,0,0.5)",
-                    strokeColor: "rgba(255,169,0,1)",
-                    pointColor: "rgba(255,169,0,1)",
-                    pointStrokeColor: "#fff",
-                    data: dataToDataChartUserRegisterYear
-                },
-                {
-                    fillColor: "rgba(170,170,170,0.5)",
-                    strokeColor: "rgba(170,170,170,1)",
-                    pointColor: "rgba(170,170,170,1)",
-                    pointStrokeColor: "#fff",
-                    data: dataToDataChartUserDeletedYear
-                }
-            ]
+        var dataToDataCharConnection = [];
+        var labelToDataChartUserRegisterMonth = [];
+        @foreach (KeyValuePair<int, int> pair in (Dictionary<int, int>)ViewData["connectionForMonth"])
+        {
+        <text>
+        dataToDataCharConnection.push(@pair.Value);
+        labelToDataChartUserRegisterMonth.push(@pair.Key);
+        </text>
         }
 
-        var dataChartEventCreateYear = {
-            labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-            datasets: [
-                {
-                    fillColor: "rgba(0,137,250,0.5)",
-                    strokeColor: "rgba(0,137,250,1)",
-                    pointColor: "rgba(0,137,250,1)",
-                    pointStrokeColor: "#fff",
-                    data: dataToDataChartEventCreateYear
-                }
-            ]
+    var dataChartUserConnection = {
+        labels: labelToDataChartUserRegisterMonth,
+        datasets: [
+            {
+                fillColor: "rgba(255,169,0,0.5)",
+                strokeColor: "rgba(255,169,0,1)",
+                pointColor: "rgba(255,169,0,1)",
+                pointStrokeColor: "#fff",
+                data: dataToDataCharConnection
+            }
+        ]
+    };
+
+    var dataChartUserRegisterYear = {
+        labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+        datasets: [
+            {
+                fillColor: "rgba(255,169,0,0.5)",
+                strokeColor: "rgba(255,169,0,1)",
+                pointColor: "rgba(255,169,0,1)",
+                pointStrokeColor: "#fff",
+                data: dataToDataChartUserRegisterYear
+            },
+            {
+                fillColor: "rgba(170,170,170,0.5)",
+                strokeColor: "rgba(170,170,170,1)",
+                pointColor: "rgba(170,170,170,1)",
+                pointStrokeColor: "#fff",
+                data: dataToDataChartUserDeletedYear
+            }
+        ]
+    }
+
+    var dataChartEventCreateYear = {
+        labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+        datasets: [
+            {
+                fillColor: "rgba(0,137,250,0.5)",
+                strokeColor: "rgba(0,137,250,1)",
+                pointColor: "rgba(0,137,250,1)",
+                pointStrokeColor: "#fff",
+                data: dataToDataChartEventCreateYear
+            }
+        ]
+    }
+
+    var dataToDataChartThreadYear = [];
+    @foreach (KeyValuePair<int, int> pair in (Dictionary<int, int>)ViewData["threadCreateFormonths"])
+        {
+        <text>dataToDataChartThreadYear.push(@pair.Value);</text>
         }
 
+    var dataToDataChartPostYear = [];
+    @foreach (KeyValuePair<int, int> pair in (Dictionary<int, int>)ViewData["postCreateFormonths"])
+        {
+        <text>dataToDataChartPostYear.push(@pair.Value);</text>
+        }
 
-        $(document).ready(function () {
+    var dataChartYear = {
+        labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+        datasets: [
+            {
+                fillColor: "rgba(255,0,49,0.5)",
+                strokeColor: "rgba(255,0,49,1)",
+                pointColor: "rgba(255,0,49,1)",
+                pointStrokeColor: "#fff",
+                data: dataToDataChartThreadYear
+            },
+            {
+                fillColor: "rgba(170,170,170,0.5)",
+                strokeColor: "rgba(170,170,170,1)",
+                pointColor: "rgba(170,170,170,1)",
+                pointStrokeColor: "#fff",
+                data: dataToDataChartPostYear
+            }
+        ]
+    }
 
-            var options = {
-                scaleFontColor: '#444'
-            };
+    var dataToDataChartYearBlog = [];
+    @foreach (KeyValuePair<int, int> pair in (Dictionary<int, int>)ViewData["blogForMonths"])
+        {
+        <text>dataToDataChartYearBlog.push(@pair.Value);</text>
+        }
 
-            var ctxChartUserRegisterYear = $("#chartUserRegisterYear").get(0).getContext("2d");
-            ctxChartUserRegisterYear.canvas.width = $("#chartUserRegisterYear").parent().width();
-            var chartUserRegisterYear = new Chart(ctxChartUserRegisterYear).Line(dataChartUserRegisterYear, options);
+    var dataToDataChartYearBlogDeleted = [];
+    @foreach (KeyValuePair<int, int> pair in (Dictionary<int, int>)ViewData["blogDeletedForMonths"])
+        {
+        <text>dataToDataChartYearBlogDeleted.push(@pair.Value);</text>
+        }
 
-            var ctxChartEventCreateYear = $("#chartEventCreateYear").get(0).getContext("2d");
-            ctxChartEventCreateYear.canvas.width = $("#chartEventCreateYear").parent().width();
-            var chartEventCreateYear = new Chart(ctxChartEventCreateYear).Line(dataChartEventCreateYear, options);
+    var dataChartYearBlog = {
+        labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+        datasets: [
+            {
+                fillColor: "rgba(0,167,83,0.5)",
+                strokeColor: "rgba(0,167,83,1)",
+                pointColor: "rgba(0,167,83,1)",
+                pointStrokeColor: "#fff",
+                data: dataToDataChartYearBlog
+            },
+            {
+                fillColor: "rgba(170,170,170,0.5)",
+                strokeColor: "rgba(170,170,170,1)",
+                pointColor: "rgba(170,170,170,1)",
+                pointStrokeColor: "#fff",
+                data: dataToDataChartYearBlogDeleted
+            }
+        ]
+    }
+
+
+
+    $(document).ready(function () {
+
+        var options = {
+            scaleFontColor: '#444'
+        };
+
+        var ctxChartUserRegisterYear = $("#chartUserRegisterYear").get(0).getContext("2d");
+        ctxChartUserRegisterYear.canvas.width = $("#chartUserRegisterYear").parent().width();
+        var chartUserRegisterYear = new Chart(ctxChartUserRegisterYear).Line(dataChartUserRegisterYear, options);
+
+        var ctxChartEventCreateYear = $("#chartEventCreateYear").get(0).getContext("2d");
+        ctxChartEventCreateYear.canvas.width = $("#chartEventCreateYear").parent().width();
+        var chartEventCreateYear = new Chart(ctxChartEventCreateYear).Line(dataChartEventCreateYear, options);
+
+        var ctxChartYear = $("#chartYear").get(0).getContext("2d");
+        ctxChartYear.canvas.width = $("#chartYear").parent().width();
+        var chartYear = new Chart(ctxChartYear).Line(dataChartYear, options);
+
+        var ctxChartYearBlog = $("#chartYearBlog").get(0).getContext("2d");
+        ctxChartYearBlog.canvas.width = $("#chartYearBlog").parent().width();
+        var chartYearBlog = new Chart(ctxChartYearBlog).Line(dataChartYearBlog, options);
+
+        var ctxChartUserConnection = $("#chartUserConnection").get(0).getContext("2d");
+        ctxChartUserConnection.canvas.width = $("#chartUserConnection").parent().width();
+        var chartUserConnection = new Chart(ctxChartUserConnection).Line(dataChartUserConnection, options);
+
+        var gCountUser = new JustGage({
+            id: "countUser",
+            value: parseInt('@ViewData["countUser"]'),
+            min: 0,
+            max: parseInt('@ViewData["countUser"]'),
+            title: "Users",
+            showMinMax: false,
+            levelColors: ['rgba(255,169,0,1)'],
+            gaugeColor: 'rgba(220,220,220,0.5)',
+            titleFontColor: '#444'
         });
+
+        var gCountUserActive = new JustGage({
+            id: "countUserActive",
+            value: parseInt('@ViewData["countUserActive"]'),
+            min: 0,
+            max: parseInt('@ViewData["countUser"]'),
+            title: "Active users",
+            showMinMax: false,
+            levelColors: ['rgba(255,169,0,1)'],
+            gaugeColor: 'rgba(220,220,220,0.5)',
+            titleFontColor: '#444'
+        });
+
+        var gCountUserDelete = new JustGage({
+            id: "countUserDelete",
+            value: parseInt('@ViewData["countUserDelete"]'),
+            min: 0,
+            max: parseInt('@ViewData["countUser"]'),
+            title: "Deleted users",
+            showMinMax: false,
+            levelColors: ['rgba(255,169,0,1)'],
+            gaugeColor: 'rgba(220,220,220,0.5)',
+            titleFontColor: '#444'
+        });
+    });
 
 
     </script>

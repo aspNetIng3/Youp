@@ -43,30 +43,14 @@
 </div>
 
 <div class="row">
-    <div class="col-md-6">
-       <h4>top 10 participants</h4>
-       <ol>
-           @foreach (KeyValuePair<string, int> pair in ((Dictionary<string, int>)ViewData["topTenParticipants"]))
-           {
-           <li>
-               @pair.Key (@pair.Value)
-           </li>
-           }
-       </ol>
+    <div class="col-md-12">
+        <h3 style="text-align: center; margin-top: 5px; margin-bottom: 20px;">Connections</h3>
     </div>
-
-    <div class="col-md-6">
-        <h4>top 10 creators</h4>
-        <ol>
-            @foreach (KeyValuePair<string, int> pair in ((Dictionary<string, int>)ViewData["topTenCreators"]))
-            {
-            <li>
-                @pair.Key (@pair.Value)
-            </li>
-            }
-        </ol>
+    <div class="col-md-12">
+        <canvas id="chartUserConnection" height="200"></canvas>
     </div>
 </div>
+
 
 <div class="row">
     <div class="col-md-12">
@@ -79,6 +63,7 @@
         <div id="map" style="width:100%;height:500px;"></div>
     </div>
     <div class="col-md-3">
+        <h5 style="text-align: left; margin-top: 5px; font-weight: bold;">Top 10 Cities</h5>
         <ul>
             @foreach (KeyValuePair<string, int> pair in ((Dictionary<string, int>)ViewData["topTenCities"]))
             {
@@ -140,8 +125,29 @@
         <text>
     labelToDataChartUserDeletedMonth.push(@pair.Key);
     dataToDataChartUserDeletedMonth.push(@pair.Value);
-    </text>
+        </text>
         }
+
+        var dataToDataCharConnection = [];
+        @foreach (KeyValuePair<int, int> pair in (Dictionary<int, int>)ViewData["connectionForMonth"])
+        {
+        <text>
+        dataToDataCharConnection.push(@pair.Value);
+        </text>
+        }
+
+    var dataChartUserConnection = {
+        labels: labelToDataChartUserRegisterMonth,
+        datasets: [
+            {
+                fillColor: "rgba(255,169,0,0.5)",
+                strokeColor: "rgba(255,169,0,1)",
+                pointColor: "rgba(255,169,0,1)",
+                pointStrokeColor: "#fff",
+                data: dataToDataCharConnection
+            }
+        ]
+    };
 
     var dataChartUserRegisterYear = {
         labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
@@ -197,6 +203,12 @@
         ctxChartUserRegisterMonth.canvas.width = $("#chartUserRegisterMonth").parent().width();
         var chartUserRegisterMonth = new Chart(ctxChartUserRegisterMonth).Line(dataChartUserRegisterMonth, options);
 
+
+        var ctxChartUserConnection = $("#chartUserConnection").get(0).getContext("2d");
+        ctxChartUserConnection.canvas.width = $("#chartUserConnection").parent().width();
+        var chartUserConnection = new Chart(ctxChartUserConnection).Line(dataChartUserConnection, options);
+        
+
         var gCountUser = new JustGage({
             id: "countUser",
             value: parseInt('@ViewData["countUser"]'),
@@ -251,29 +263,48 @@
     var geocoder = null;
     var markers = [];
 
+    var temp = [];
+
     function add() {
         @foreach (KeyValuePair<string, int> pair in (Dictionary<string, int>)ViewData["citiesStats"])
         {
             <text>
-            geocoder.geocode({ 'address': '@pair.Key' }, function (results, status) {
-                if (status == google.maps.GeocoderStatus.OK) {
-                    for(var i=0;i <parseInt('@pair.Value');i++) {
-                        markers.push(
-                            new google.maps.Marker({
-                                title: '@pair.Key',
-                                position: results[0].geometry.location,
-                                clickable: false,
-                                draggable: true,
-                                flat: true
-                            })
-                        );
+            if (temp['@pair.Key']) {
+                for(var i=0;i <parseInt('@pair.Value');i++) {
+                    markers.push(
+                        new google.maps.Marker({
+                            title: '@pair.Key',
+                            position: temp['@pair.Key'],
+                            clickable: false,
+                            draggable: true,
+                            flat: true
+                        })
+                    );
+                }
+                updateMarkers();
+            }
+            else {
+                geocoder.geocode({ 'address': '@pair.Key' }, function (results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        temp['@pair.Key'] = results[0].geometry.location;
+                        for(var i=0;i <parseInt('@pair.Value');i++) {
+                            markers.push(
+                                new google.maps.Marker({
+                                    title: '@pair.Key',
+                                    position: results[0].geometry.location,
+                                    clickable: false,
+                                    draggable: true,
+                                    flat: true
+                                })
+                            );
+                        }
+                        updateMarkers();
                     }
-                    updateMarkers();
-                }
-                else {
-                    alert('Geocode was not successful for the following reason: ' + status);
-                }
-            });
+                    else {
+                        alert('Geocode was not successful for the following reason: ' + status);
+                    }
+                });
+            }
             </text>
         }
     }

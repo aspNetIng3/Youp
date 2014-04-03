@@ -48,7 +48,7 @@ namespace StatsAPI.Controllers
         // Retourne le nombre de messages pour l'utilisateur choisi
         public HttpResponseMessage GetCountMessagesByUser(int userId)
         {
-            User user = db.Users.Find(userId);
+            UserYoup user = db.UserYoups.Find(userId);
 
             if(user == null)
             {

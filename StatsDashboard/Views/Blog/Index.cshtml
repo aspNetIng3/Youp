@@ -1,0 +1,134 @@
+﻿@{
+    ViewBag.Title = "Stats - Forum";
+}
+
+<div class="row">
+    <div class="col-md-3">
+        <div id="count" style="width:100%;height:200px;"></div>
+    </div>
+    <div class="col-md-3">
+        <div id="active" style="width:100%;height:200px;"></div>
+    </div>
+    <div class="col-md-3">
+        <div id="delete" style="width:100%;height:200px;"></div>
+    </div>
+    <div class="col-md-3">
+        
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <hr />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h3 style="text-align: center; margin-top: 5px; margin-bottom: 20px;"><span style="color: rgba(0,167,83,1); font-weight: bold;">Created</span> / <span style="color:rgba(170,170,170,1); font-weight: bold; ">Deleted</span></h3>
+    </div>
+    <div class="col-md-12">
+        <canvas id="chartYear" height="200"></canvas>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <hr />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <canvas id="themeThread" height="170"></canvas>
+    </div>
+    <div class="col-md-6">
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+
+        
+        var dataToDataChartYear = [];
+    @foreach (KeyValuePair<int, int> pair in (Dictionary<int, int>)ViewData["blogForMonths"])
+        {
+        <text>dataToDataChartYear.push(@pair.Value);</text>
+        }
+
+        var dataToDataChartYearDeleted = [];
+    @foreach (KeyValuePair<int, int> pair in (Dictionary<int, int>)ViewData["blogDeletedForMonths"])
+        {
+        <text>dataToDataChartYearDeleted.push(@pair.Value);</text>
+        }
+
+        var dataChartYear = {
+            labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+            datasets: [
+                {
+                    fillColor: "rgba(0,167,83,0.5)",
+                    strokeColor: "rgba(0,167,83,1)",
+                    pointColor: "rgba(0,167,83,1)",
+                    pointStrokeColor: "#fff",
+                    data: dataToDataChartYear
+                },
+                {
+                    fillColor: "rgba(170,170,170,0.5)",
+                    strokeColor: "rgba(170,170,170,1)",
+                    pointColor: "rgba(170,170,170,1)",
+                    pointStrokeColor: "#fff",
+                    data: dataToDataChartYearDeleted
+                }
+            ]
+        }
+
+       $(document).ready(function () {
+           
+           var options = {
+               scaleFontColor: '#444'
+           };
+
+           var ctxChartYear = $("#chartYear").get(0).getContext("2d");
+           ctxChartYear.canvas.width = $("#chartYear").parent().width();
+           var chartYear = new Chart(ctxChartYear).Line(dataChartYear, options);
+
+
+           var gCount = new JustGage({
+                id: "count",
+                value: parseInt('@ViewData["count"]'),
+                min: 0,
+                max: parseInt('@ViewData["count"]'),
+                title: "Blogs",
+                showMinMax: false,
+                levelColors: ['rgba(0,167,83,1)'],
+                gaugeColor: 'rgba(220,220,220,0.5)',
+                titleFontColor: '#444'
+            });
+
+           var gActive = new JustGage({
+                id: "active",
+                value: parseInt('@ViewData["active"]'),
+                min: 0,
+                max: parseInt('@ViewData["count"]'),
+                title: "Active",
+                showMinMax: false,
+                levelColors: ['rgba(0,167,83,1)'],
+                gaugeColor: 'rgba(220,220,220,0.5)',
+                titleFontColor: '#444'
+           });
+
+           var gDelete = new JustGage({
+               id: "delete",
+               value: parseInt('@ViewData["delete"]'),
+               min: 0,
+               max: parseInt('@ViewData["count"]'),
+               title: "Deleted",
+               showMinMax: false,
+               levelColors: ['rgba(0,167,83,1)'],
+               gaugeColor: 'rgba(220,220,220,0.5)',
+               titleFontColor: '#444'
+           });
+            
+        });
+    </script>
+}
