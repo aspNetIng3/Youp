@@ -1,21 +1,29 @@
-﻿<h2 class="most-recent">Dernières discussions</h2>
-<ul>
-    @foreach (YoupRepository.Model.ThreadPOCO key in (ViewBag.MostRecent as IEnumerable<YoupRepository.Model.ThreadPOCO>))
-    {
-        <li class="thread-item">@Html.ActionLink(key.Data.Title, "Index/" + key.Data.Id, "Message")</li>
+﻿<h3 class="title"><span><cufon class="cufon cufon-canvas" alt="Testimonials" style="width: 146px; height: 24px;"><cufontext>Dernières discussions</cufontext></cufon></span></h3>
+<div class="widget">
+    <ul>
+        @foreach (YoupRepository.Model.ThreadPOCO key in (ViewBag.MostRecent as IEnumerable<YoupRepository.Model.ThreadPOCO>))
+        {
+            <li onclick="goTo('Message/Index/@(key.Data.Id)')">@Html.ActionLink(key.Data.Title, "Index/" + key.Data.Id, "Message") <span class="dateMessage">Dernier message le @key.Data.CreatedAt</span></li>
+        }
+    </ul>
+    <h3 class="title"><span><cufon class="cufon cufon-canvas" alt="Testimonials" style="width: 146px; height: 24px;"><cufontext>Discussions les plus commentées</cufontext></cufon></span></h3>
+    <ul>
+        @foreach (YoupRepository.Model.ThreadPOCO key in (ViewBag.MostCommented as IEnumerable<YoupRepository.Model.ThreadPOCO>))
+{
+    <li onclick="goTo('Message/Index/@(key.Data.Id)')">@Html.ActionLink(key.Data.Title, "Index/" + key.Data.Id, "Message") <span class="dateMessage">Dernier message le @key.Data.CreatedAt</span></li>
+}
+    </ul>
+    <h3 class="title"><span><cufon class="cufon cufon-canvas" alt="Testimonials" style="width: 146px; height: 24px;"><cufontext>Discussions favorites</cufontext></cufon></span></h3>
+    <ul>
+        @foreach (YoupRepository.Model.ThreadPOCO key in (ViewBag.Favorites as IEnumerable<YoupRepository.Model.ThreadPOCO>))
+{
+    <li onclick="goTo('Message/Index/@(key.Data.Id)')">@Html.ActionLink(key.Data.Title, "Index/" + key.Data.Id, "Message") <span class="dateMessage">Dernier message le @key.Data.CreatedAt</span></li>
+}
+    </ul>
+</div>
+
+<script>
+    function goTo(link) {
+        window.location = link;
     }
-</ul>
-<h2 class="most-recent">Discussions les plus commentées</h2>
-<ul>
-    @foreach (YoupRepository.Model.ThreadPOCO key in (ViewBag.MostCommented as IEnumerable<YoupRepository.Model.ThreadPOCO>))
-    {
-        <li class="thread-item">@Html.ActionLink(key.Data.Title, "Index/" + key.Data.Id, "Message")</li>
-    }
-</ul>
-<h2 class="most-recent">Discussions favorites</h2>
-<ul>
-    @foreach (YoupRepository.Model.ThreadPOCO key in (ViewBag.Favorites as IEnumerable<YoupRepository.Model.ThreadPOCO>))
-    {
-        <li class="thread-item">@Html.ActionLink(key.Data.Title, "Index/" + key.Data.Id, "Message")</li>
-    }
-</ul>
+</script>

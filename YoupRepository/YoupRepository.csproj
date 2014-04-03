@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{13BC9A09-8812-47A3-9F8D-77B8E7B2C6C8}</ProjectGuid>
+    <ProjectGuid>{599878DD-D333-4E21-B764-409A5790BCF1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>YoupRepository</RootNamespace>
@@ -88,12 +88,46 @@
     <Compile Include="DAL\Database\FavoriteDatabase.cs" />
     <Compile Include="DAL\Database\MessageDatabase.cs" />
     <Compile Include="DAL\Database\ThemeDatabase.cs" />
-    <Compile Include="DAL\Database\UserThemeDatabase.cs" />
     <Compile Include="DAL\Database\UserDatabase.cs" />
     <Compile Include="DAL\IDatabase\IEventDatabase.cs" />
     <Compile Include="DAL\IDatabase\IThreadDatabase.cs" />
     <Compile Include="DAL\Database\EventDatabase.cs" />
     <Compile Include="DAL\Database\ThreadDatabase.cs" />
+    <Compile Include="DAL\IDatabase\UserThemeDatabase.cs" />
+    <Compile Include="DAL\IDatabase\Model\DTO\BaseDTO\FavoriteBaseDTO.cs" />
+    <Compile Include="DAL\IDatabase\Model\DTO\BaseDTO\MessageBaseDTO.cs" />
+    <Compile Include="DAL\IDatabase\Model\DTO\BlogCommentDTO.cs" />
+    <Compile Include="DAL\IDatabase\Model\DTO\BlogDTO.cs" />
+    <Compile Include="DAL\IDatabase\Model\DTO\CardDTO.cs" />
+    <Compile Include="DAL\IDatabase\Model\DTO\EventCommentDTO.cs" />
+    <Compile Include="DAL\IDatabase\Model\DTO\EventDTO.cs" />
+    <Compile Include="DAL\IDatabase\Model\POCO\BlogPOCO.cs" />
+    <Compile Include="DAL\IDatabase\Model\POCO\CardPOCO.cs" />
+    <Compile Include="DAL\IDatabase\Model\POCO\EventCommentPOCO.cs" />
+    <Compile Include="DAL\IDatabase\Model\POCO\FavoritePOCO.cs" />
+    <Compile Include="DAL\IDatabase\Model\POCO\MessagePOCO.cs" />
+    <Compile Include="DAL\IDatabase\Model\POCO\PhotoPOCO.cs" />
+    <Compile Include="DAL\IDatabase\Model\POCO\PostPOCO.cs" />
+    <Compile Include="DAL\IDatabase\Model\POCO\RankPOCO.cs" />
+    <Compile Include="DAL\IDatabase\Model\POCO\RatingPOCO.cs" />
+    <Compile Include="DAL\IDatabase\Model\POCO\RolePOCO.cs" />
+    <Compile Include="DAL\IDatabase\Model\POCO\UserPOCO.cs" />
+    <Compile Include="DAL\IDatabase\Model\POCO\ThemePOCO.cs" />
+    <Compile Include="DAL\IDatabase\Model\POCO\BlogCommentPOCO.cs" />
+    <Compile Include="DAL\IDatabase\Model\DTO\FavoriteDTO.cs" />
+    <Compile Include="DAL\IDatabase\Model\DTO\MessageDTO.cs" />
+    <Compile Include="DAL\IDatabase\Model\DTO\PhotoDTO.cs" />
+    <Compile Include="DAL\IDatabase\Model\DTO\PostDTO.cs" />
+    <Compile Include="DAL\IDatabase\Model\DTO\RankDTO.cs" />
+    <Compile Include="DAL\IDatabase\Model\DTO\RatingDTO.cs" />
+    <Compile Include="DAL\IDatabase\Model\DTO\RoleDTO.cs" />
+    <Compile Include="DAL\IDatabase\Model\DTO\ThemeDTO.cs" />
+    <Compile Include="DAL\IDatabase\Model\DTO\BaseDTO\EventBaseDTO.cs" />
+    <Compile Include="DAL\IDatabase\Model\DTO\BaseDTO\ThreadBaseDTO.cs" />
+    <Compile Include="DAL\IDatabase\Model\DTO\ThreadDTO.cs" />
+    <Compile Include="DAL\IDatabase\Model\POCO\EventPOCO.cs" />
+    <Compile Include="DAL\IDatabase\Model\POCO\ThreadPOCO.cs" />
+    <Compile Include="DAL\IDatabase\Model\DTO\UserDTO.cs" />
     <Compile Include="Event.cs">
       <DependentUpon>Youp.tt</DependentUpon>
     </Compile>
@@ -109,40 +143,6 @@
     <Compile Include="Message.cs">
       <DependentUpon>Youp.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\DTO\BaseDTO\FavoriteBaseDTO.cs" />
-    <Compile Include="Model\DTO\BaseDTO\MessageBaseDTO.cs" />
-    <Compile Include="Model\DTO\BlogCommentDTO.cs" />
-    <Compile Include="Model\DTO\BlogDTO.cs" />
-    <Compile Include="Model\DTO\CardDTO.cs" />
-    <Compile Include="Model\DTO\EventCommentDTO.cs" />
-    <Compile Include="Model\DTO\EventDTO.cs" />
-    <Compile Include="Model\POCO\BlogPOCO.cs" />
-    <Compile Include="Model\POCO\CardPOCO.cs" />
-    <Compile Include="Model\POCO\EventCommentPOCO.cs" />
-    <Compile Include="Model\POCO\FavoritePOCO.cs" />
-    <Compile Include="Model\POCO\MessagePOCO.cs" />
-    <Compile Include="Model\POCO\PhotoPOCO.cs" />
-    <Compile Include="Model\POCO\PostPOCO.cs" />
-    <Compile Include="Model\POCO\RankPOCO.cs" />
-    <Compile Include="Model\POCO\RatingPOCO.cs" />
-    <Compile Include="Model\POCO\RolePOCO.cs" />
-    <Compile Include="Model\POCO\UserPOCO.cs" />
-    <Compile Include="Model\POCO\ThemePOCO.cs" />
-    <Compile Include="Model\POCO\BlogCommentPOCO.cs" />
-    <Compile Include="Model\DTO\FavoriteDTO.cs" />
-    <Compile Include="Model\DTO\MessageDTO.cs" />
-    <Compile Include="Model\DTO\PhotoDTO.cs" />
-    <Compile Include="Model\DTO\PostDTO.cs" />
-    <Compile Include="Model\DTO\RankDTO.cs" />
-    <Compile Include="Model\DTO\RatingDTO.cs" />
-    <Compile Include="Model\DTO\RoleDTO.cs" />
-    <Compile Include="Model\DTO\ThemeDTO.cs" />
-    <Compile Include="Model\DTO\BaseDTO\EventBaseDTO.cs" />
-    <Compile Include="Model\DTO\BaseDTO\ThreadBaseDTO.cs" />
-    <Compile Include="Model\DTO\ThreadDTO.cs" />
-    <Compile Include="Model\POCO\EventPOCO.cs" />
-    <Compile Include="Model\POCO\ThreadPOCO.cs" />
-    <Compile Include="Model\DTO\UserDTO.cs" />
     <Compile Include="Page.cs">
       <DependentUpon>Youp.tt</DependentUpon>
     </Compile>
@@ -163,6 +163,9 @@
       <DependentUpon>Youp.tt</DependentUpon>
     </Compile>
     <Compile Include="Role.cs">
+      <DependentUpon>Youp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
       <DependentUpon>Youp.tt</DependentUpon>
     </Compile>
     <Compile Include="Theme.cs">

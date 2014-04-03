@@ -1,0 +1,7 @@
+﻿<h2 class="most-recent">Discussions @ViewBag.ThemeTitle</h2>
+<ul>
+    @foreach (YoupRepository.Model.ThreadPOCO key in (ViewBag.ThemeThreads as IEnumerable<YoupRepository.Model.ThreadPOCO>))
+    {
+        <li class="thread-item">@Html.ActionLink(key.Data.Title, "Index/" + key.Data.Id, "Message")</li>
+    }
+</ul>

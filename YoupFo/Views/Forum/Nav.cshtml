@@ -1,7 +1,7 @@
 ﻿<div id="nav-content">
     <div id="nav-forum">
         <ul class="nav nav-pills">
-            @foreach (YoupFo.Models.ForumModels key in (ViewBag.ListForum as IEnumerable<YoupFo.Models.ForumModels>))
+            @foreach (YoupFo.Models.ThemeModel key in (ViewBag.ListForum as IEnumerable<YoupFo.Models.ThemeModel>))
             {
                 <li class="blue2"><a data-id="@key.Id" href="#">@key.Title</a></li>
             }
@@ -9,16 +9,23 @@
     </div>
 
    
-    @foreach (YoupFo.Models.ForumModels key in (ViewBag.ListForum as IEnumerable<YoupFo.Models.ForumModels>))
+    @foreach (YoupFo.Models.ThemeModel key in (ViewBag.ListForum as IEnumerable<YoupFo.Models.ThemeModel>))
 {
     <div data-id="@key.Id" class="nav-subforum" style="display: none;">
         <ul class="nav nav-pills">
-            @foreach (YoupFo.Models.ForumModels subkey in (@key.SousForums as IEnumerable<YoupFo.Models.ForumModels>))
+            @foreach (YoupFo.Models.ThemeModel subkey in (@key.SousForums as IEnumerable<YoupFo.Models.ThemeModel>))
             {
-                <li class="blue1"><a href="#">@subkey.Title</a></li>
+                <li class="blue1">
+                    @Html.ActionLink(
+                        linkText: @subkey.Title,       // Nom du lien 
+                        actionName: "ThemeThreads",
+                        controllerName: "Forum",
+                        routeValues: new { id = @subkey.Id },
+                        htmlAttributes: null
+                    )
+                </li>
             }
         </ul>
     </div>
 }
-
 </div>

@@ -33,14 +33,6 @@ namespace YoupRepository.DAL
 
             Participate notDisplay = ye.Participates.Where(c => c.UserId == id).SingleOrDefault();
 
-            /*
-            if (notDisplay != null)
-            {
-                //notDisplay.DeletedAt = DateTime.Now;
-                return Update(notDisplay);
-            }
-             * */
-
             return false;
         }
 

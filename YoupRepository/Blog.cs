@@ -14,6 +14,11 @@ namespace YoupRepository
     
     public partial class Blog
     {
+        public Blog()
+        {
+            this.Posts = new HashSet<Post>();
+        }
+    
         public int Id { get; set; }
         public string Name { get; set; }
         public string UserId { get; set; }
@@ -21,5 +26,8 @@ namespace YoupRepository
         public Nullable<System.DateTime> CreatedAt { get; set; }
         public Nullable<System.DateTime> UpdatedAt { get; set; }
         public Nullable<System.DateTime> DeletedAt { get; set; }
+    
+        public virtual User User { get; set; }
+        public virtual ICollection<Post> Posts { get; set; }
     }
 }

@@ -20,5 +20,7 @@ namespace YoupRepository
         public System.DateTime DateHeatMap { get; set; }
         public int IdPage { get; set; }
         public int Width { get; set; }
+    
+        public virtual Page Page { get; set; }
     }
 }

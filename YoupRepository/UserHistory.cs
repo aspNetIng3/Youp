@@ -19,5 +19,7 @@ namespace YoupRepository
         public string Referer { get; set; }
         public System.DateTime DateHistory { get; set; }
         public string UserAgent { get; set; }
+    
+        public virtual User User { get; set; }
     }
 }

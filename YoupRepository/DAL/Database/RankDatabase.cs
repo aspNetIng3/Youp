@@ -33,14 +33,6 @@ namespace YoupRepository.DAL
 
             Rank notDisplay = ye.Ranks.Where(c => c.Id == id).SingleOrDefault();
 
-            /*
-            if (notDisplay != null)
-            {
-                notDisplay.DeletedAt = DateTime.Now;
-                return Update(notDisplay);
-            }
-             * */
-
             return false;
         }
 

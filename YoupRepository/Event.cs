@@ -14,6 +14,15 @@ namespace YoupRepository
     
     public partial class Event
     {
+        public Event()
+        {
+            this.Cards = new HashSet<Card>();
+            this.EventComments = new HashSet<EventComment>();
+            this.Ratings = new HashSet<Rating>();
+            this.Threads = new HashSet<Thread>();
+            this.Users = new HashSet<User>();
+        }
+    
         public string Id { get; set; }
         public string Name { get; set; }
         public int Slots { get; set; }
@@ -29,5 +38,13 @@ namespace YoupRepository
         public System.DateTime UpdatedAt { get; set; }
         public Nullable<System.DateTime> DeletedAt { get; set; }
         public string City { get; set; }
+    
+        public virtual ICollection<Card> Cards { get; set; }
+        public virtual Theme Theme { get; set; }
+        public virtual User User { get; set; }
+        public virtual ICollection<EventComment> EventComments { get; set; }
+        public virtual ICollection<Rating> Ratings { get; set; }
+        public virtual ICollection<Thread> Threads { get; set; }
+        public virtual ICollection<User> Users { get; set; }
     }
 }

@@ -7,12 +7,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{08360D7D-1D2A-4E82-B296-8BDBEA8E0F2B}</ProjectGuid>
+    <ProjectGuid>{2B8821EC-398D-48D3-990F-FE9B56ECD78C}</ProjectGuid>
     <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>YoupFO</RootNamespace>
-    <AssemblyName>YoupFO</AssemblyName>
+    <RootNamespace>YoupFo</RootNamespace>
+    <AssemblyName>YoupFo</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -20,6 +20,10 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -29,6 +33,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\YoupFo.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -44,8 +49,6 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -162,16 +165,27 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Controllers\ApiUserController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\ForumController.cs" />
+    <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="Controllers\MessageApiController.cs" />
+    <Compile Include="Controllers\ThemeApiController.cs" />
+    <Compile Include="Controllers\ThreadApiController.cs" />
+    <Compile Include="Controllers\YoupController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ThemeModel.cs" />
+    <Compile Include="Models\MessageModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Content\bootstrap-responsive.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\Color.css" />
+    <Content Include="Content\Forum.css" />
+    <Content Include="Content\Message.css" />
+    <Content Include="Content\style.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -226,6 +240,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\_Layout.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -239,12 +254,45 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="Images\layout\Thumbs.db" />
+    <Content Include="Scripts\cufon\.DS_Store" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Images\layout\logo.png" />
+    <Content Include="Images\neverSayNoToPanda.jpeg" />
+    <Content Include="Scripts\audiojs\audio.min.js" />
+    <Content Include="Scripts\audiojs\audiojs.swf" />
+    <Content Include="Scripts\audiojs\player-graphics.gif" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\cufon\Aller_400.font.js" />
+    <Content Include="Scripts\cufon\Bebas_400.font.js" />
+    <Content Include="Scripts\cufon\Cabin_400.font.js" />
+    <Content Include="Scripts\cufon\cantarell.js" />
+    <Content Include="Scripts\cufon\Cicle_Gordita_700.font.js" />
+    <Content Include="Scripts\cufon\ColaborateLight_400.font.js" />
+    <Content Include="Scripts\cufon\cufon-yui.js" />
+    <Content Include="Scripts\cufon\Josefin_Sans_Std_300.font.js" />
+    <Content Include="Scripts\cufon\Luxi_Serif_400.font.js" />
+    <Content Include="Scripts\cufon\Museo_Sans_500.font.js" />
+    <Content Include="Scripts\cufon\Nobile_400.font.js" />
+    <Content Include="Scripts\cufon\Oswald_400.font.js" />
+    <Content Include="Scripts\cufon\Quicksand_Book_400.font.js" />
+    <Content Include="Scripts\cufon\Samba_400.font.js" />
+    <Content Include="Scripts\cufon\Sansation_400.font.js" />
+    <Content Include="Scripts\cufon\Yanone_Kaffeesatz_400.font.js" />
+    <Content Include="Scripts\custom.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.min.js" />
+    <Content Include="Scripts\jquery.countdown.min.js" />
+    <Content Include="Scripts\jquery.easing.1.3.js" />
+    <Content Include="Scripts\jquery.fitvids.js" />
+    <Content Include="Scripts\jquery.flexslider-min.js" />
+    <Content Include="Scripts\jquery.isotope.min.js" />
+    <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\jquery.mousewheel.js" />
+    <Content Include="Scripts\jquery.quicksand.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
@@ -254,6 +302,11 @@
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\Forum\nav.js" />
+    <Content Include="Scripts\modernizr.js" />
+    <Content Include="Scripts\options.js" />
+    <Content Include="Scripts\superfish.js" />
+    <Content Include="Scripts\vibecom_slider.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -281,26 +334,31 @@
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Forum\Index.cshtml" />
+    <Content Include="Views\Forum\Nav.cshtml" />
+    <Content Include="Views\Forum\Block\Post.cshtml" />
+    <Content Include="Views\Message\Index.cshtml" />
+    <Content Include="Views\Forum\ThemeThreads.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Shared\_header.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
-    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\YoupRepository\YoupRepository.csproj">
+      <Project>{599878dd-d333-4e21-b764-409a5790bcf1}</Project>
+      <Name>YoupRepository</Name>
+    </ProjectReference>
     <ProjectReference Include="..\YoupService\YoupService.csproj">
-      <Project>{017d492a-4155-4679-ac47-259163172fca}</Project>
+      <Project>{f2d0d5e2-2867-419b-9e69-5141fddf42c2}</Project>
       <Name>YoupService</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -318,9 +376,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>14658</DevelopmentServerPort>
+          <DevelopmentServerPort>3157</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:14658/</IISUrl>
+          <IISUrl>http://localhost:4717/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

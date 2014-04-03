@@ -29,18 +29,13 @@ namespace YoupService
             Mapper.CreateMap<Favorite, FavoriteDTO>()
                 .ForMember(c => c.Thread, option => option.Ignore())
                 .ForMember(c => c.User, option => option.Ignore());
-
-            Mapper.CreateMap<ThreadDTO, Thread>()
+            Mapper.CreateMap<Theme, ThemeDTO>()
+                .ForMember(c => c.Theme1, option => option.Ignore())
+                .ForMember(c => c.Theme2, option => option.Ignore())
+                .ForMember(c => c.Threads, option => option.Ignore())
                 .ForMember(c => c.Event, option => option.Ignore())
-                .ForMember(c => c.Messages, option => option.Ignore())
-                .ForMember(c => c.Theme, option => option.Ignore())
-                .ForMember(c => c.Favorites, option => option.Ignore());
-            Mapper.CreateMap<MessageDTO, Message>()
-                .ForMember(c => c.Thread, option => option.Ignore())
-                .ForMember(c => c.User, option => option.Ignore());
-            Mapper.CreateMap<FavoriteDTO, Favorite>()
-                .ForMember(c => c.Thread, option => option.Ignore())
-                .ForMember(c => c.User, option => option.Ignore());
+                .ForMember(c => c.Posts, option => option.Ignore())
+                .ForMember(c => c.Users, option => option.Ignore());
         }
     }
 }

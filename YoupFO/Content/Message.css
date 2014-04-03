@@ -1,0 +1,57 @@
+﻿
+#conversation .col-md-offset-2 {
+    text-align: right;
+}
+
+#conversation .row {
+   color: #FFF;
+   padding: 10px;
+   margin: 10px auto;
+}
+#conversation .col-md-10 {
+    display: block;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+#conversation .col-md-10 {
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 10px;
+}
+
+#conversation .masthead {
+    display: inline-block;
+}
+
+#conversation .masthead .title {
+    font-size: 18px;
+    color: #333;
+    text-transform: uppercase;
+}
+
+#conversation .create {
+    color: #bfbfbf;
+}
+
+#conversation .left {
+    background: #F2DAC7;
+}
+#conversation .right {
+    background: #d1c5a4;
+}
+
+#conversation img.profil {
+    width: 99%;
+    height: 99%;
+}
+
+#form-create {
+    background: #333;
+    padding: 20px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+

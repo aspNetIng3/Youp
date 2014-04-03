@@ -41,6 +41,7 @@ namespace YoupRepository
         public DbSet<Rank> Ranks { get; set; }
         public DbSet<Rating> Ratings { get; set; }
         public DbSet<Role> Roles { get; set; }
+        public DbSet<sysdiagram> sysdiagrams { get; set; }
         public DbSet<Theme> Themes { get; set; }
         public DbSet<Thread> Threads { get; set; }
         public DbSet<User> Users { get; set; }

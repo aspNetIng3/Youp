@@ -1,5 +1,25 @@
-﻿.menuElement {
+﻿.most-recent {
+    
+}
+
+.menuElement {
     width : 20%;
+}
+
+
+h3.title {
+    margin-top: 50px;
+}
+
+.widget li {
+    font-size: 1.3em;
+    border-bottom: 1px solid grey;
+    margin: 20px 0;
+}
+
+.dateMessage {
+    float: right;
+    font-size: 0.7em;
 }
 
 /* Nav Forum */
@@ -8,7 +28,7 @@
     margin: 0 auto;
     width: 19%;
     text-align: center;
-    margin : 0 5px;
+    margin : 0 10px 0 0;
     font-weight: bold;
 }
 
@@ -19,7 +39,7 @@
 .nav-subforum li {
     text-align: center;
     min-width: 13%;
-    margin : 5px 5px;
+    margin : 5px 10px 0 0;
     font-weight: bold;
 }
 

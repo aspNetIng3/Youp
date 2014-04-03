@@ -21,13 +21,21 @@ namespace YoupFo.Controllers
         {
             _cs = threadService;
         }
-
+        /// <summary>
+        /// Retourne la liste des 10 derniers threads
+        /// </summary>
+        /// <returns></returns>
         public List<ThreadDTO> GetAll()
         {
             List<ThreadDTO> listThreadsDto = new List<ThreadDTO>();
             _cs.getThreads(1,10).ForEach(c => listThreadsDto.Add(c.Data));
             return listThreadsDto;
         }
+        /// <summary>
+        /// Création d'un thread
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
         public HttpResponseMessage Post(ThreadDTO item)
         {
             ThreadPOCO current = new ThreadPOCO(item);
@@ -37,6 +45,7 @@ namespace YoupFo.Controllers
             response.Headers.Location = new Uri(uri);
             return response;
         }
+        //Récupére un thread par son identifiant
         public ThreadDTO Get(int id)
         {
             ThreadPOCO current = _cs.getThread(id);
@@ -46,7 +55,11 @@ namespace YoupFo.Controllers
             }
             return current.Data;
         }
-
+        /// <summary>
+        /// Modification d'un thread
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="thread"></param>
         public void Put(int id, ThreadDTO thread)
         {
             ThreadPOCO current = new ThreadPOCO(thread);
@@ -56,7 +69,10 @@ namespace YoupFo.Controllers
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             }
         }
-
+        /// <summary>
+        /// Suppression d'un thread
+        /// </summary>
+        /// <param name="id"></param>
         public void Delete(int id)
         {
             if (!_cs.Delete(id))

@@ -23,7 +23,7 @@ namespace YoupService.Services
             List<MessagePOCO> listMessages = new List<MessagePOCO>();
             ThreadService thService = new ThreadService();
 
-            return getPaginatedMessages(getAllMessages(), threadId, nbResultsPerThread);
+            return getPaginatedMessages(getAllMessages(threadId), 1, nbResultsPerThread);
         }
 
         public MessagePOCO Create(MessagePOCO tpc)
@@ -64,17 +64,16 @@ namespace YoupService.Services
             else
             {
                 int lastValidIndex = lastIndex > lastAvailableIndex ? lastAvailableIndex : lastIndex;
-                int count = lastValidIndex - firstIndex;
+                int count = lastValidIndex - firstIndex + 1;
                 return messages.GetRange(firstIndex, count);
             }
         }
-        private List<MessagePOCO> getAllMessages()
+        private List<MessagePOCO> getAllMessages(int threadId)
         {
-            // TODO Mock method, uncomplete...
             List<MessagePOCO> messages = new List<MessagePOCO>();
      
             _messageDatabase.getMessages().ForEach(
-                me => { messages.Add(ProcessToPoco(me)); }
+                me => { if (me.ThreadId == threadId) { messages.Add(ProcessToPoco(me)); } }
             );
             return messages;
         }

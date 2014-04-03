@@ -21,13 +21,21 @@ namespace YoupFo.Controllers
         {
             _cs = MessageService;
         }
-
+        /// <summary>
+        /// Retourne les 10 derniers messages en base
+        /// </summary>
+        /// <returns></returns>
         public List<MessageDTO> GetAll()
         {
             List<MessageDTO> listMessagesDto = new List<MessageDTO>();
             _cs.getMessages(1,10).ForEach(c => listMessagesDto.Add(c.Data));
             return listMessagesDto;
         }
+        /// <summary>
+        /// Création d'un message
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
         public HttpResponseMessage Post(MessageDTO item)
         {
             MessagePOCO current = new MessagePOCO(item);
@@ -37,6 +45,11 @@ namespace YoupFo.Controllers
             response.Headers.Location = new Uri(uri);
             return response;
         }
+        /// <summary>
+        /// Récupération d'un message par son identifiant
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public MessageDTO Get(int id)
         {
             MessagePOCO current = _cs.getMessage(id);
@@ -46,7 +59,11 @@ namespace YoupFo.Controllers
             }
             return current.Data;
         }
-
+        /// <summary>
+        /// Modification d'un message 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="Message"></param>
         public void Put(int id, MessageDTO Message)
         {
             MessagePOCO current = new MessagePOCO(Message);
@@ -56,7 +73,7 @@ namespace YoupFo.Controllers
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             }
         }
-
+        //Suppression d'un message
         public void Delete(int id)
         {
             if (!_cs.Delete(id))

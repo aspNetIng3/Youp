@@ -37,7 +37,11 @@ namespace YoupFo
 
             bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css",
                         "~/Content/_Layout.css",
+                        "~/Content/bootstrap.css",
+                        "~/Content/bootstrap-responsive.css",
+                        "~/Content/style.css",
                         "~/Content/Forum.css",
+                        "~/Content/Message.css",
                         "~/Content/Color.css"));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(

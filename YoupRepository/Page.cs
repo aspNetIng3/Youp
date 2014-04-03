@@ -14,7 +14,14 @@ namespace YoupRepository
     
     public partial class Page
     {
+        public Page()
+        {
+            this.HeatMaps = new HashSet<HeatMap>();
+        }
+    
         public int IdPage { get; set; }
         public string IntitulePage { get; set; }
+    
+        public virtual ICollection<HeatMap> HeatMaps { get; set; }
     }
 }

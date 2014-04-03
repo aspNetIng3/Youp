@@ -17,5 +17,7 @@ namespace YoupRepository
         public int IdConnection { get; set; }
         public string IdUser { get; set; }
         public System.DateTime DateConnection { get; set; }
+    
+        public virtual User User { get; set; }
     }
 }

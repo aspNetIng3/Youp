@@ -18,11 +18,23 @@ namespace YoupService.Services
         {
             _themeDatabase = new ThemeDatabase();
         }
+        public ThemePOCO GetTheme(int id)
+        {
+            return ProcessToPoco(_themeDatabase.getTheme(id));
+        }
 
         public List<ThemePOCO> GetThemes() {
             List<ThemePOCO> themes = new List<ThemePOCO>();
             _themeDatabase.getThemes()
                 .ForEach(th => { themes.Add(ProcessToPoco(th)); });
+            return themes;
+        }
+        public List<ThemePOCO> GetFirstLevelThemes()
+        {
+            List<ThemePOCO> themes = new List<ThemePOCO>();
+            _themeDatabase.getThemes().ForEach(
+                th => { if (th.ThemeId == null) { themes.Add(ProcessToPoco(th)); } }
+            );
             return themes;
         }
 
@@ -37,8 +49,28 @@ namespace YoupService.Services
 
         public ThemePOCO ProcessToPoco(Theme th)
         {
-            Mapper.CreateMap<Theme, ThemeDTO>();
             return new ThemePOCO(Mapper.Map<Theme, ThemeDTO>(th));
+        }
+
+        public ThemePOCO getTheme(int id)
+        {
+            Theme th = _themeDatabase.getTheme(id);
+            return new ThemePOCO(Mapper.Map<Theme, ThemeDTO>(th));
+        }
+        public ThemePOCO Create(ThemePOCO tpc)
+        {
+            Theme th = _themeDatabase.Create(Mapper.Map<ThemeDTO, Theme>(tpc.Data));
+            return new ThemePOCO(Mapper.Map<Theme, ThemeDTO>(th));
+        }
+
+        public bool Delete(int id)
+        {
+            return _themeDatabase.Delete(id);
+        }
+
+        public bool Update(ThemePOCO tpc)
+        {
+            return _themeDatabase.Update(Mapper.Map<ThemeDTO, Theme>(tpc.Data));
         }
     }
 }
