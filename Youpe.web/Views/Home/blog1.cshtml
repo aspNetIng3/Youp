@@ -1,0 +1,43 @@
+﻿@{
+    Layout = null;
+}
+
+
+
+
+<div class="container" ng-controller="BlogController">
+    <form ng-submit="search()">
+      	<input type="text" ng-model="keyword" size="30" placeholder="search">
+      	<input class="btn-primary" type="submit" value="Search">
+    </form>
+    <h2>{{lstBlogs.length}} results.</h2>
+    <p>
+    	Sort by 
+    	<a href="" ng-click="sort = 'createdat'; reverse=!reverse">Created At</a> |
+    	<a href="" ng-click="sort = 'updatedat'; reverse=!reverse">Updated At</a> |
+    	<a href="" ng-click="sort = 'name'; reverse=!reverse">Name</a> 
+    </p>
+
+    <li ng-repeat="blog in lstBlogs | orderBy:sort:reverse">
+    	<div><a href="#">{{blog.name}}</a>, <i>{{repo.name}}</i></div>
+    </li>
+
+
+    <div class="well well-large">
+            <h3>Blog Details</h3>
+            <form>
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" data-ng-model="selectedBlog.name" />
+                
+                <input type="button" id="btnSubmit" class="btn" data-ng-click="updateBlog(selectedBlog)" value="UPDATE" />
+            </form>
+        </div>
+
+
+
+    @*<li ng-repeat="repo in repos | orderBy:sort:reverse">
+    	<div><a href="https://github.com/{{repo.owner}}/{{repo.name}}">{{repo.name}}</a>, <i>{{repo.description}}</i></div>
+    	<div>Created by <a href="https://github.com/{{repo.owner}}">{{repo.owner}}</a> at {{repo.created_at | date:'fullDate'}}</div>
+    	<div>Size: {{repo.size}} - Forks: {{repo.forks}} - Followers: {{repo.followers}} - Watchers: {{repo.watchers}}</div>
+    </li>*@
+</div>

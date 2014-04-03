@@ -1,0 +1,21 @@
+﻿@{
+    Layout = null;
+}
+
+    <h2>Search</h2>
+
+Rechercher les données
+<input type="text" ng-model="message" />
+
+Bonjour {{ message }} !!
+
+<div ng-repeat="driver in driverList">
+    <span>{{$index+1}}</span> 
+    <span>{{driver.Drive.firstName}}</span>
+</div>
+
+<div class="grid-style" data-ng-grid="userGrid">
+    </div>
+
+
+

@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Youpe.data.POCO
+{
+    public class Card : APocoUser
+    {
+        public string Color { get; set; }
+        public Int64? EventId { get; set; }
+
+        [ForeignKey("EventId")]
+        public Event Event { get; set; }
+    }
+}

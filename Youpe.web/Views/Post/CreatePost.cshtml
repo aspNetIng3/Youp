@@ -1,0 +1,52 @@
+﻿@model Youpe.data.Models.PostModel
+
+@{
+    ViewBag.Title = "CreatePost";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>EditPost</h2>
+
+@using (Html.BeginForm(Html.BeginForm("CreatePost", "Post", FormMethod.Post, new { enctype = "multipart/form-data" })))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+
+
+    <fieldset>
+        <legend>Post</legend>
+
+        <div>
+            <input type="file" name="file" />
+            <input type="submit" value="OK" />
+        </div>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Title)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Title, new { @Value = ViewData["Titre"] })
+            @Html.ValidationMessageFor(model => model.Title, "test")
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Content)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.Content, 5, 1, new { @Value = ViewData["Content"]})
+            @Html.ValidationMessageFor(model => model.Content)
+        </div>
+
+        <div class="editor-field">
+            @Html.LabelFor(Model => Model.Visibility)
+            @Html.DropDownList("Visibility", ViewBag.Visibility as SelectList)
+        </div>
+
+
+        <p>
+            <input type="submit" value="Modifier" />
+        </p>
+
+    </fieldset>
+}

@@ -1,0 +1,40 @@
+﻿<table>
+    <tbody>
+        <tr>
+            @{
+                int i = 0;
+                int max = 3;
+                string close_tag = "";
+            }
+
+            @foreach (dynamic d in Model)
+            {
+                if (i % max == 0)
+                {
+                    Response.Write("</tr><tr>");
+                }
+                if (ViewEngines.Engines.FindPartialView(Html.ViewContext.Controller.ControllerContext, (string)string.Format("SearchResult_{0}", @d.GetDictionary()["type"])) != null)
+                {
+                    @close_tag
+                    <td>
+                        <table class="page-results @d.GetDictionary()["type"]">
+                            <tbody>
+                                @Html.Partial((string)string.Format("SearchResult_{0}", @d.GetDictionary()["type"]), (object)@d.GetDictionary())
+                                <tr>
+                                    <td>Created At : @d.GetDictionary()["CreatedAt"]</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                    if (i < max)
+                    {
+                        i++;
+                    }
+                    else
+                    {
+                        i = 0;
+                    }
+                }
+            }
+    </tbody>
+</table>

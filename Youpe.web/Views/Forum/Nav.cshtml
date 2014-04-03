@@ -1,0 +1,31 @@
+﻿<div id="nav-content">
+    <div id="nav-forum">
+        <ul class="nav nav-pills">
+            @foreach (YoupFo.Models.ThemeModel key in (ViewBag.ListForum as IEnumerable<YoupFo.Models.ThemeModel>))
+            {
+                <li class="blue2"><a data-id="@key.Id" href="#">@key.Title</a></li>
+            }
+        </ul>
+    </div>
+
+   
+    @foreach (YoupFo.Models.ThemeModel key in (ViewBag.ListForum as IEnumerable<YoupFo.Models.ThemeModel>))
+{
+    <div data-id="@key.Id" class="nav-subforum" style="display: none;">
+        <ul class="nav nav-pills">
+            @foreach (YoupFo.Models.ThemeModel subkey in (@key.SousForums as IEnumerable<YoupFo.Models.ThemeModel>))
+            {
+                <li class="blue1">
+                    @Html.ActionLink(
+                        linkText: @subkey.Title,
+                        actionName: "ThemeThreads",
+                        controllerName: "Forum",
+                        routeValues: new { id = @subkey.Id },
+                        htmlAttributes: null
+                    )
+                </li>
+            }
+        </ul>
+    </div>
+}
+</div>
