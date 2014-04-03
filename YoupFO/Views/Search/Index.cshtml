@@ -1,0 +1,104 @@
+﻿@using System.Web.Mvc.Html;
+<script type="text/javascript" src="@Url.Content("~/Scripts/more.js")"></script>
+<div class="search-module">
+    @using (Html.BeginForm("Search", "Search", System.Web.Mvc.FormMethod.Post))
+    {
+        <table>
+            <tbody>
+                <tr>
+                    <td><input type="text" id="Search" name="search" /></td>
+                    <td><input type="submit" value="" name="Search-Button" class="search" /></td>
+                </tr>
+            </tbody>
+        </table>
+    <table class="search-footer">
+        <tbody>
+            <tr>
+                <td><img src="../Images/more.png" onmouseover="setImage(this, 'more_mouse_hover');" onmouseout="    setImage(this, 'more');" onclick="showOrHide($('#multi-criteria-research'));" width="32" height="32" alt="" class="more" /></td>
+            </tr>
+            <tr id="multi-criteria-research">
+                <td style=""><input type="checkbox" value="stats" name="stats"/> Stats</td>
+                <td><input type="checkbox" value="forums" name="forums" /> Forum</td>
+                <td><input type="checkbox" value="blogs" name="blogs" /> Blog</td>
+                <td><input type="checkbox" value="events" name="events" /> Event</td>
+                <td><input type="checkbox" value="users" name="users" /> User</td>
+            </tr>
+        </tbody>
+    </table>
+    }
+</div>
+
+<div class="results">
+    @if (Model != null)
+    { 
+        if (Model.Count == 0)
+        {
+            <p>No results found!</p>
+        }
+        else
+        {
+            @Html.Partial("SearchResult")
+        }
+    }
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,56 @@
+[2014-03-28 09:02:58,795][INFO ][node                     ] [Youp-Search-Node-First] version[1.0.1], pid[8708], build[5c03844/2014-02-25T15:52:53Z]
+[2014-03-28 09:02:58,796][INFO ][node                     ] [Youp-Search-Node-First] initializing ...
+[2014-03-28 09:02:58,800][INFO ][plugins                  ] [Youp-Search-Node-First] loaded [], sites []
+[2014-03-28 09:03:02,220][INFO ][node                     ] [Youp-Search-Node-First] initialized
+[2014-03-28 09:03:02,221][INFO ][node                     ] [Youp-Search-Node-First] starting ...
+[2014-03-28 09:03:02,566][INFO ][transport                ] [Youp-Search-Node-First] bound_address {inet[/0:0:0:0:0:0:0:0:9300]}, publish_address {inet[/192.168.8.200:9300]}
+[2014-03-28 09:03:06,035][INFO ][cluster.service          ] [Youp-Search-Node-First] new_master [Youp-Search-Node-First][Ksaj1PW9RqWajhoyLBzQ7w][KEVIN-PC-ROG][inet[/192.168.8.200:9300]], reason: zen-disco-join (elected_as_master)
+[2014-03-28 09:03:06,059][INFO ][discovery                ] [Youp-Search-Node-First] prayagcluster/Ksaj1PW9RqWajhoyLBzQ7w
+[2014-03-28 09:03:06,307][INFO ][http                     ] [Youp-Search-Node-First] bound_address {inet[/0:0:0:0:0:0:0:0:9200]}, publish_address {inet[/192.168.8.200:9200]}
+[2014-03-28 09:03:06,761][INFO ][gateway                  ] [Youp-Search-Node-First] recovered [3] indices into cluster_state
+[2014-03-28 09:03:07,585][INFO ][node                     ] [Youp-Search-Node-First] started
+[2014-03-28 09:05:55,220][WARN ][http.netty               ] [Youp-Search-Node-First] Caught exception while handling client http traffic, closing connection [id: 0xa6a96ab5, /0:0:0:0:0:0:0:1:3574 => /0:0:0:0:0:0:0:1:9200]
+java.io.IOException: Une connexion existante a dû être fermée par l’hôte distant
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(Unknown Source)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(Unknown Source)
+	at sun.nio.ch.IOUtil.read(Unknown Source)
+	at sun.nio.ch.SocketChannelImpl.read(Unknown Source)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioWorker.read(NioWorker.java:64)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:108)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:318)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+[2014-03-28 11:34:14,177][INFO ][node                     ] [Youp-Search-Node-First] version[1.0.1], pid[6796], build[5c03844/2014-02-25T15:52:53Z]
+[2014-03-28 11:34:14,178][INFO ][node                     ] [Youp-Search-Node-First] initializing ...
+[2014-03-28 11:34:14,181][INFO ][plugins                  ] [Youp-Search-Node-First] loaded [], sites []
+[2014-03-28 11:34:17,678][INFO ][node                     ] [Youp-Search-Node-First] initialized
+[2014-03-28 11:34:17,679][INFO ][node                     ] [Youp-Search-Node-First] starting ...
+[2014-03-28 11:34:18,046][INFO ][transport                ] [Youp-Search-Node-First] bound_address {inet[/0:0:0:0:0:0:0:0:9300]}, publish_address {inet[/10.11.161.220:9300]}
+[2014-03-28 11:34:21,539][INFO ][cluster.service          ] [Youp-Search-Node-First] new_master [Youp-Search-Node-First][spBUGUIyRY6nvXX1Zq4DGg][KEVIN-PC-ROG][inet[/10.11.161.220:9300]], reason: zen-disco-join (elected_as_master)
+[2014-03-28 11:34:21,583][INFO ][discovery                ] [Youp-Search-Node-First] prayagcluster/spBUGUIyRY6nvXX1Zq4DGg
+[2014-03-28 11:34:21,848][INFO ][http                     ] [Youp-Search-Node-First] bound_address {inet[/0:0:0:0:0:0:0:0:9200]}, publish_address {inet[/10.11.161.220:9200]}
+[2014-03-28 11:34:22,247][INFO ][gateway                  ] [Youp-Search-Node-First] recovered [3] indices into cluster_state
+[2014-03-28 11:34:23,022][INFO ][node                     ] [Youp-Search-Node-First] started
+[2014-03-28 11:36:23,322][WARN ][http.netty               ] [Youp-Search-Node-First] Caught exception while handling client http traffic, closing connection [id: 0xebb11179, /0:0:0:0:0:0:0:1:27529 => /0:0:0:0:0:0:0:1:9200]
+java.io.IOException: Une connexion existante a dû être fermée par l’hôte distant
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(Unknown Source)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(Unknown Source)
+	at sun.nio.ch.IOUtil.read(Unknown Source)
+	at sun.nio.ch.SocketChannelImpl.read(Unknown Source)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioWorker.read(NioWorker.java:64)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:108)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:318)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)

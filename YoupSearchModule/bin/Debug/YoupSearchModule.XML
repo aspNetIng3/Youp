@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>YoupSearchModule</name>
+    </assembly>
+    <members>
+        <member name="T:YoupSearchModule.ElasticSearchEntity">
+             <summary>
+            ElasticSearchEntity is used to stored all properties and values of an object into this entity.
+            After have obtained the JSON string related to the query, JSON objects are set into a ElasticSearchEntity 
+            and all of theirs properties  are stored into a dictionary of ElasticSearchEntity instance
+             </summary>
+        </member>
+        <member name="M:YoupSearchModule.ElasticSearchEntity.CreateFrom(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Create a new ElasticSearchEntity object
+            </summary>
+            <param name="members">Dictionnary of index</param>
+            <returns>ElasticSearchEntity</returns>
+        </member>
+        <member name="M:YoupSearchModule.ElasticSearchEntity.GetValue(System.String)">
+            <summary>
+            Get the value of the class dictionnary from the index
+            </summary>
+            <param name="property"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YoupSearchModule.ElasticSearchEntity.GetDictionary">
+            <summary>
+            Getter
+            </summary>
+            <returns>Return the dictionnary which contains all properties and  object values</returns>
+        </member>
+        <member name="M:YoupSearchModule.ElasticSearchEntity.SetMembers(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Set the dictionary which contains all properties and  object values
+            </summary>
+            <param name="members"></param>
+        </member>
+        <member name="M:YoupSearchModule.ElasticSearchEntity.SetPropertyAndValue(System.String,System.Object)">
+            <summary>
+            Add a property to the dictionary if not exists else, set existing property
+            </summary>
+            <param name="property">Key of the dictionary(object prooperty)</param>
+            <param name="value">Value related to the key</param>
+        </member>
+        <member name="M:YoupSearchModule.ElasticSearchEntity.TryInvokeMember(System.Dynamic.InvokeMemberBinder,System.Object[],System.Object@)">
+            <summary>
+            Method usefull to determine if the object contain in the dictionary related to the key passed into the binder,
+            has a delegate type to call it like a method. 
+            </summary>
+            <param name="binder">Represents the invoke member dynamic operation at the call site</param>
+            <param name="args">Arguments wich are contains in the delegate method</param>
+            <param name="result">Result of the method called dynamically from the object</param>
+            <returns>If returns true, the object can be called like a method</returns>
+        </member>
+        <member name="T:YoupSearchModule.EntityMapper">
+            <summary>
+            Map a JSON string to a ElasticSearchEntity
+            </summary>
+        </member>
+        <member name="M:YoupSearchModule.EntityMapper.ToElasticSearchEntity(System.String)">
+            <summary>
+            Convert a json string to a List Of ElasticSearchEntity
+            </summary>
+            <param name="json">JSON string which contains results of the query</param>
+            <returns></returns>
+        </member>
+        <member name="M:YoupSearchModule.EntityMapper.Deserialize(System.Collections.Generic.IDictionary{System.String,System.Object},System.Type,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="dictionary"></param>
+            <param name="type"></param>
+            <param name="serializer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YoupSearchModule.EntityMapper.Serialize(System.Object,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <param name="serializer"></param>
+            <returns></returns>
+        </member>
+        <member name="P:YoupSearchModule.EntityMapper.SupportedTypes">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:YoupSearchModule.PlainElasticSearcher">
+            <summary>
+            Class usefull to search objects on a cluster with a JSON query
+            </summary>
+        </member>
+        <member name="M:YoupSearchModule.PlainElasticSearcher.#ctor">
+            <summary>
+            Initialize object to search indexes with a default connection to the cluster of Elastic Search (host= localhost, port=9200)
+            </summary>
+        </member>
+        <member name="M:YoupSearchModule.PlainElasticSearcher.#ctor(System.String,System.Int32)">
+            <summary>
+            Initialize object to search indexes with  connection to the cluster of Elastic Search
+            </summary>
+            <param name="host">Host of the cluster</param>
+            <param name="port">Port to connect to the cluster</param>
+        </member>
+        <member name="M:YoupSearchModule.PlainElasticSearcher.Search(System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="jsonQuery">JSONQuery which contain elements to catch in the searched object</param>
+            <param name="indexName">Name of the index which contains the searched object</param>
+            <param name="indexType">String Type of the searched object</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

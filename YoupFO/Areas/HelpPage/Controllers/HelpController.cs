@@ -1,9 +1,9 @@
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using YoupFo.Areas.HelpPage.Models;
+using YoupFO.Areas.HelpPage.Models;
 
-namespace YoupFo.Areas.HelpPage.Controllers
+namespace YoupFO.Areas.HelpPage.Controllers
 {
     /// <summary>
     /// The controller that will handle requests for the help page.

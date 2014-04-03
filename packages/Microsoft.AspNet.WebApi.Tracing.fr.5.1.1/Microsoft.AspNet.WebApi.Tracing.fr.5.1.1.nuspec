@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Microsoft.AspNet.WebApi.Tracing.fr</id>
+    <version>5.1.1</version>
+    <title>Ressources en français pour les Microsoft ASP.NET Web API 2.1 Tracing</title>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <licenseUrl>http://www.microsoft.com/web/webpi/eula/aspnetcomponent_rtw_FRA.htm</licenseUrl>
+    <projectUrl>http://www.asp.net/web-api</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Ce package contient les assemblys satellites en français pour ASP.NET Web API Tracing.</description>
+    <summary>Ressources en français pour le package Microsoft.AspNet.WebApi.Tracing</summary>
+    <releaseNotes>Please visit http://go.microsoft.com/fwlink/?LinkId=389866 to view the release notes.</releaseNotes>
+    <copyright>© Microsoft Corporation. Tous droits réservés.</copyright>
+    <language>fr</language>
+    <tags>Microsoft AspNet WebApi AspNetWebApi Diagnostics Tracing</tags>
+    <dependencies>
+      <dependency id="Microsoft.AspNet.WebApi.Tracing" version="[5.1.1]" />
+    </dependencies>
+  </metadata>
+</package>

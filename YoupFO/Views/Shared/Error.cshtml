@@ -1,4 +1,6 @@
-﻿@{
+﻿@model  System.Web.Mvc.HandleErrorInfo
+
+@{
     Layout = null;
 }
 
@@ -10,9 +12,20 @@
     <title>Erreur</title>
 </head>
 <body>
-    <hgroup>
-        <h1>Erreur.</h1>
-        <h2>Une erreur s’est produite lors du traitement de la requête.</h2>
-    </hgroup>
+    <h1>Error .</h1>
+    <h2>An error occurred while processing your request.</h2>
+    @{
+        if (Request.IsLocal)
+        {
+            <hgroup>
+                <p>Controller: @Model.ControllerName</p>
+                <p>Action: @Model.ActionName</p>
+                <p>Exception: @Model.Exception</p>
+                <p>ExceptionSource: @Model.Exception.Source</p>
+                <p>Exception StackTrace: @Model.Exception.StackTrace</p>
+            </hgroup>
+        }
+    }
+    
 </body>
 </html>

@@ -1,0 +1,45 @@
+[2014-04-03 09:29:42,974][INFO ][node                     ] [Youp-Search-Node-First] version[1.0.1], pid[2864], build[5c03844/2014-02-25T15:52:53Z]
+[2014-04-03 09:29:42,976][INFO ][node                     ] [Youp-Search-Node-First] initializing ...
+[2014-04-03 09:29:42,980][INFO ][plugins                  ] [Youp-Search-Node-First] loaded [], sites []
+[2014-04-03 09:29:47,420][INFO ][node                     ] [Youp-Search-Node-First] initialized
+[2014-04-03 09:29:47,421][INFO ][node                     ] [Youp-Search-Node-First] starting ...
+[2014-04-03 09:29:47,874][INFO ][transport                ] [Youp-Search-Node-First] bound_address {inet[/0:0:0:0:0:0:0:0:9300]}, publish_address {inet[/192.168.20.128:9300]}
+[2014-04-03 09:29:51,409][INFO ][cluster.service          ] [Youp-Search-Node-First] new_master [Youp-Search-Node-First][jXmaXp5QTBO4wchPKI_JXA][KEVIN-PC-ROG][inet[/192.168.20.128:9300]], reason: zen-disco-join (elected_as_master)
+[2014-04-03 09:29:51,440][INFO ][discovery                ] [Youp-Search-Node-First] prayagcluster/jXmaXp5QTBO4wchPKI_JXA
+[2014-04-03 09:29:51,736][INFO ][http                     ] [Youp-Search-Node-First] bound_address {inet[/0:0:0:0:0:0:0:0:9200]}, publish_address {inet[/192.168.20.128:9200]}
+[2014-04-03 09:29:52,313][INFO ][gateway                  ] [Youp-Search-Node-First] recovered [3] indices into cluster_state
+[2014-04-03 09:29:53,031][INFO ][node                     ] [Youp-Search-Node-First] started
+[2014-04-03 09:33:16,349][WARN ][http.netty               ] [Youp-Search-Node-First] Caught exception while handling client http traffic, closing connection [id: 0xc8f4eadc, /0:0:0:0:0:0:0:1:6649 => /0:0:0:0:0:0:0:1:9200]
+java.io.IOException: Une connexion existante a dû être fermée par l’hôte distant
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(Unknown Source)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(Unknown Source)
+	at sun.nio.ch.IOUtil.read(Unknown Source)
+	at sun.nio.ch.SocketChannelImpl.read(Unknown Source)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioWorker.read(NioWorker.java:64)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:108)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:318)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+[2014-04-03 09:36:56,409][WARN ][http.netty               ] [Youp-Search-Node-First] Caught exception while handling client http traffic, closing connection [id: 0x00b3c920, /0:0:0:0:0:0:0:1:7377 => /0:0:0:0:0:0:0:1:9200]
+java.io.IOException: Une connexion existante a dû être fermée par l’hôte distant
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(Unknown Source)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(Unknown Source)
+	at sun.nio.ch.IOUtil.read(Unknown Source)
+	at sun.nio.ch.SocketChannelImpl.read(Unknown Source)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioWorker.read(NioWorker.java:64)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:108)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:318)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)

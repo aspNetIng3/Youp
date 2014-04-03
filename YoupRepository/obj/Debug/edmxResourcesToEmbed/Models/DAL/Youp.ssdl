@@ -1,0 +1,660 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Youp.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="YoupStoreContainer">
+    <EntitySet Name="Blogs" EntityType="Youp.Store.Blogs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BlogComments" EntityType="Youp.Store.BlogComments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Cards" EntityType="Youp.Store.Cards" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Events" EntityType="Youp.Store.Events" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EventComments" EntityType="Youp.Store.EventComments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Favorites" EntityType="Youp.Store.Favorites" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Messages" EntityType="Youp.Store.Messages" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Photos" EntityType="Youp.Store.Photos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Posts" EntityType="Youp.Store.Posts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Ranks" EntityType="Youp.Store.Ranks" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Ratings" EntityType="Youp.Store.Ratings" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Roles" EntityType="Youp.Store.Roles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Themes" EntityType="Youp.Store.Themes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Threads" EntityType="Youp.Store.Threads" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="Youp.Store.Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Participate" EntityType="Youp.Store.Participate" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserTheme" EntityType="Youp.Store.UserTheme" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="Blog_fkBlogUser1" Association="Youp.Store.Blog_fkBlogUser1">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Blog" EntitySet="Blogs" />
+    </AssociationSet>
+    <AssociationSet Name="Post_fkPostBlog1" Association="Youp.Store.Post_fkPostBlog1">
+      <End Role="Blog" EntitySet="Blogs" />
+      <End Role="Post" EntitySet="Posts" />
+    </AssociationSet>
+    <AssociationSet Name="BlogComment_fkBlogCommentPost1" Association="Youp.Store.BlogComment_fkBlogCommentPost1">
+      <End Role="Post" EntitySet="Posts" />
+      <End Role="BlogComment" EntitySet="BlogComments" />
+    </AssociationSet>
+    <AssociationSet Name="BlogComment_fkBlogCommentUser1" Association="Youp.Store.BlogComment_fkBlogCommentUser1">
+      <End Role="User" EntitySet="Users" />
+      <End Role="BlogComment" EntitySet="BlogComments" />
+    </AssociationSet>
+    <AssociationSet Name="Card_fkCardEvent1" Association="Youp.Store.Card_fkCardEvent1">
+      <End Role="Event" EntitySet="Events" />
+      <End Role="Card" EntitySet="Cards" />
+    </AssociationSet>
+    <AssociationSet Name="Card_fkCardUser1" Association="Youp.Store.Card_fkCardUser1">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Card" EntitySet="Cards" />
+    </AssociationSet>
+    <AssociationSet Name="Event_fkEventTheme1" Association="Youp.Store.Event_fkEventTheme1">
+      <End Role="Theme" EntitySet="Themes" />
+      <End Role="Event" EntitySet="Events" />
+    </AssociationSet>
+    <AssociationSet Name="Event_fkEventUser1" Association="Youp.Store.Event_fkEventUser1">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Event" EntitySet="Events" />
+    </AssociationSet>
+    <AssociationSet Name="EventComment_fkCommentEvent1" Association="Youp.Store.EventComment_fkCommentEvent1">
+      <End Role="Event" EntitySet="Events" />
+      <End Role="EventComment" EntitySet="EventComments" />
+    </AssociationSet>
+    <AssociationSet Name="Rating_fkRatingEvent1" Association="Youp.Store.Rating_fkRatingEvent1">
+      <End Role="Event" EntitySet="Events" />
+      <End Role="Rating" EntitySet="Ratings" />
+    </AssociationSet>
+    <AssociationSet Name="Thread_fkThreadEvent1" Association="Youp.Store.Thread_fkThreadEvent1">
+      <End Role="Event" EntitySet="Events" />
+      <End Role="Thread" EntitySet="Threads" />
+    </AssociationSet>
+    <AssociationSet Name="EventComment_fkCommentUser1" Association="Youp.Store.EventComment_fkCommentUser1">
+      <End Role="User" EntitySet="Users" />
+      <End Role="EventComment" EntitySet="EventComments" />
+    </AssociationSet>
+    <AssociationSet Name="Favorite_fkFavoriteThread1" Association="Youp.Store.Favorite_fkFavoriteThread1">
+      <End Role="Thread" EntitySet="Threads" />
+      <End Role="Favorite" EntitySet="Favorites" />
+    </AssociationSet>
+    <AssociationSet Name="Favorite_fkFavoriteUser1" Association="Youp.Store.Favorite_fkFavoriteUser1">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Favorite" EntitySet="Favorites" />
+    </AssociationSet>
+    <AssociationSet Name="Message_fkMessageThread1" Association="Youp.Store.Message_fkMessageThread1">
+      <End Role="Thread" EntitySet="Threads" />
+      <End Role="Message" EntitySet="Messages" />
+    </AssociationSet>
+    <AssociationSet Name="Message_fkMessageUser1" Association="Youp.Store.Message_fkMessageUser1">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Message" EntitySet="Messages" />
+    </AssociationSet>
+    <AssociationSet Name="Photo_fkPhotoUser1" Association="Youp.Store.Photo_fkPhotoUser1">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Photo" EntitySet="Photos" />
+    </AssociationSet>
+    <AssociationSet Name="Post_fkPostTheme1" Association="Youp.Store.Post_fkPostTheme1">
+      <End Role="Theme" EntitySet="Themes" />
+      <End Role="Post" EntitySet="Posts" />
+    </AssociationSet>
+    <AssociationSet Name="User_fkUserRank1" Association="Youp.Store.User_fkUserRank1">
+      <End Role="Rank" EntitySet="Ranks" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="Rating_fkRatingUser1" Association="Youp.Store.Rating_fkRatingUser1">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Rating" EntitySet="Ratings" />
+    </AssociationSet>
+    <AssociationSet Name="User_fkUserRole1" Association="Youp.Store.User_fkUserRole1">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="Theme_fkThemeTheme1" Association="Youp.Store.Theme_fkThemeTheme1">
+      <End Role="Theme" EntitySet="Themes" />
+      <End Role="Theme1" EntitySet="Themes" />
+    </AssociationSet>
+    <AssociationSet Name="Thread_fkThreadTheme1" Association="Youp.Store.Thread_fkThreadTheme1">
+      <End Role="Theme" EntitySet="Themes" />
+      <End Role="Thread" EntitySet="Threads" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Participate_Event" Association="Youp.Store.FK_Participate_Event">
+      <End Role="Event" EntitySet="Events" />
+      <End Role="Participate" EntitySet="Participate" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Participate_User" Association="Youp.Store.FK_Participate_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Participate" EntitySet="Participate" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserTheme_Theme" Association="Youp.Store.FK_UserTheme_Theme">
+      <End Role="Theme" EntitySet="Themes" />
+      <End Role="UserTheme" EntitySet="UserTheme" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserTheme_User" Association="Youp.Store.FK_UserTheme_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserTheme" EntitySet="UserTheme" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Blogs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="36" />
+    <Property Name="IsActive" Type="smallint" Nullable="true" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="true" />
+    <Property Name="UpdatedAt" Type="datetime" Nullable="true" />
+    <Property Name="DeletedAt" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="BlogComments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PostId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="36" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetime" Nullable="false" />
+    <Property Name="DeletedAt" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Cards">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Colour" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="36" />
+    <Property Name="EventId" Type="nvarchar" Nullable="false" MaxLength="36" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetime" Nullable="false" />
+    <Property Name="DeletedAt" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Events">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="36" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Slots" Type="int" Nullable="false" />
+    <Property Name="Cost" Type="float" Nullable="true" />
+    <Property Name="Public" Type="smallint" Nullable="true" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="36" />
+    <Property Name="ThemeId" Type="int" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Lattitude" Type="real" Nullable="true" />
+    <Property Name="Longitude" Type="real" Nullable="true" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetime" Nullable="false" />
+    <Property Name="DeletedAt" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="EventComments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EventId" Type="nvarchar" Nullable="false" MaxLength="36" />
+    <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="36" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetime" Nullable="false" />
+    <Property Name="DeletedAt" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Favorites">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="36" />
+    <Property Name="ThreadId" Type="int" Nullable="false" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetime" Nullable="false" />
+    <Property Name="DeletedAt" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Messages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" Nullable="true" MaxLength="255" />
+    <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ThreadId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="36" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetime" Nullable="false" />
+    <Property Name="DeletedAt" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Photos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="36" />
+    <Property Name="Url" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetime" Nullable="false" />
+    <Property Name="DeletedAt" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Posts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Visibility" Type="int" Nullable="true" />
+    <Property Name="ThemeId" Type="int" Nullable="false" />
+    <Property Name="BlogId" Type="int" Nullable="false" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetime" Nullable="false" />
+    <Property Name="DeletedAt" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Ranks">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LevelRank" Type="nvarchar" Nullable="false" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Ratings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Rating1" Type="int" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="36" />
+    <Property Name="EventId" Type="nvarchar" Nullable="false" MaxLength="36" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetime" Nullable="false" />
+    <Property Name="DeletedAt" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Label" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetime" Nullable="false" />
+    <Property Name="DeletedAt" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Themes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ThemeId" Type="int" Nullable="false" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetime" Nullable="false" />
+    <Property Name="DeletedAt" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Threads">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" Nullable="true" MaxLength="255" />
+    <Property Name="IsSharable" Type="smallint" Nullable="true" />
+    <Property Name="ThemeId" Type="int" Nullable="false" />
+    <Property Name="EventId" Type="nvarchar" Nullable="true" MaxLength="36" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetime" Nullable="false" />
+    <Property Name="DeletedAt" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="36" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Password" Type="nvarchar" Nullable="true" MaxLength="255" />
+    <Property Name="GuidFacebook" Type="nvarchar" Nullable="true" MaxLength="255" />
+    <Property Name="IsActive" Type="smallint" Nullable="true" />
+    <Property Name="Gender" Type="nchar" Nullable="true" MaxLength="1" />
+    <Property Name="Birthday" Type="datetime" Nullable="true" />
+    <Property Name="Address" Type="nvarchar" Nullable="true" MaxLength="255" />
+    <Property Name="RankId" Type="int" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetime" Nullable="false" />
+    <Property Name="DeletedAt" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Participate">
+    <Key>
+      <PropertyRef Name="Events1_Id" />
+      <PropertyRef Name="Users_Id" />
+    </Key>
+    <Property Name="Events1_Id" Type="nvarchar" Nullable="false" MaxLength="36" />
+    <Property Name="Users_Id" Type="nvarchar" Nullable="false" MaxLength="36" />
+  </EntityType>
+  <EntityType Name="UserTheme">
+    <Key>
+      <PropertyRef Name="Themes_Id" />
+      <PropertyRef Name="Users_Id" />
+    </Key>
+    <Property Name="Themes_Id" Type="int" Nullable="false" />
+    <Property Name="Users_Id" Type="nvarchar" Nullable="false" MaxLength="36" />
+  </EntityType>
+  <Association Name="Blog_fkBlogUser1">
+    <End Role="User" Type="Youp.Store.Users" Multiplicity="1" />
+    <End Role="Blog" Type="Youp.Store.Blogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Blog">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Post_fkPostBlog1">
+    <End Role="Blog" Type="Youp.Store.Blogs" Multiplicity="1" />
+    <End Role="Post" Type="Youp.Store.Posts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Blog">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Post">
+        <PropertyRef Name="BlogId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BlogComment_fkBlogCommentPost1">
+    <End Role="Post" Type="Youp.Store.Posts" Multiplicity="1" />
+    <End Role="BlogComment" Type="Youp.Store.BlogComments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Post">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BlogComment">
+        <PropertyRef Name="PostId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BlogComment_fkBlogCommentUser1">
+    <End Role="User" Type="Youp.Store.Users" Multiplicity="1" />
+    <End Role="BlogComment" Type="Youp.Store.BlogComments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BlogComment">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Card_fkCardEvent1">
+    <End Role="Event" Type="Youp.Store.Events" Multiplicity="1" />
+    <End Role="Card" Type="Youp.Store.Cards" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Card">
+        <PropertyRef Name="EventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Card_fkCardUser1">
+    <End Role="User" Type="Youp.Store.Users" Multiplicity="1" />
+    <End Role="Card" Type="Youp.Store.Cards" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Card">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Event_fkEventTheme1">
+    <End Role="Theme" Type="Youp.Store.Themes" Multiplicity="1" />
+    <End Role="Event" Type="Youp.Store.Events" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Theme">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Event">
+        <PropertyRef Name="ThemeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Event_fkEventUser1">
+    <End Role="User" Type="Youp.Store.Users" Multiplicity="1" />
+    <End Role="Event" Type="Youp.Store.Events" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Event">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EventComment_fkCommentEvent1">
+    <End Role="Event" Type="Youp.Store.Events" Multiplicity="1" />
+    <End Role="EventComment" Type="Youp.Store.EventComments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventComment">
+        <PropertyRef Name="EventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Rating_fkRatingEvent1">
+    <End Role="Event" Type="Youp.Store.Events" Multiplicity="1" />
+    <End Role="Rating" Type="Youp.Store.Ratings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Rating">
+        <PropertyRef Name="EventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Thread_fkThreadEvent1">
+    <End Role="Event" Type="Youp.Store.Events" Multiplicity="0..1" />
+    <End Role="Thread" Type="Youp.Store.Threads" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Thread">
+        <PropertyRef Name="EventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EventComment_fkCommentUser1">
+    <End Role="User" Type="Youp.Store.Users" Multiplicity="1" />
+    <End Role="EventComment" Type="Youp.Store.EventComments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventComment">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Favorite_fkFavoriteThread1">
+    <End Role="Thread" Type="Youp.Store.Threads" Multiplicity="1" />
+    <End Role="Favorite" Type="Youp.Store.Favorites" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Thread">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Favorite">
+        <PropertyRef Name="ThreadId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Favorite_fkFavoriteUser1">
+    <End Role="User" Type="Youp.Store.Users" Multiplicity="1" />
+    <End Role="Favorite" Type="Youp.Store.Favorites" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Favorite">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Message_fkMessageThread1">
+    <End Role="Thread" Type="Youp.Store.Threads" Multiplicity="1" />
+    <End Role="Message" Type="Youp.Store.Messages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Thread">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Message">
+        <PropertyRef Name="ThreadId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Message_fkMessageUser1">
+    <End Role="User" Type="Youp.Store.Users" Multiplicity="1" />
+    <End Role="Message" Type="Youp.Store.Messages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Message">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Photo_fkPhotoUser1">
+    <End Role="User" Type="Youp.Store.Users" Multiplicity="1" />
+    <End Role="Photo" Type="Youp.Store.Photos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Photo">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Post_fkPostTheme1">
+    <End Role="Theme" Type="Youp.Store.Themes" Multiplicity="1" />
+    <End Role="Post" Type="Youp.Store.Posts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Theme">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Post">
+        <PropertyRef Name="ThemeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="User_fkUserRank1">
+    <End Role="Rank" Type="Youp.Store.Ranks" Multiplicity="1" />
+    <End Role="User" Type="Youp.Store.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rank">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="RankId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Rating_fkRatingUser1">
+    <End Role="User" Type="Youp.Store.Users" Multiplicity="1" />
+    <End Role="Rating" Type="Youp.Store.Ratings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Rating">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="User_fkUserRole1">
+    <End Role="Role" Type="Youp.Store.Roles" Multiplicity="1" />
+    <End Role="User" Type="Youp.Store.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Theme_fkThemeTheme1">
+    <End Role="Theme" Type="Youp.Store.Themes" Multiplicity="1" />
+    <End Role="Theme1" Type="Youp.Store.Themes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Theme">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Theme1">
+        <PropertyRef Name="ThemeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Thread_fkThreadTheme1">
+    <End Role="Theme" Type="Youp.Store.Themes" Multiplicity="1" />
+    <End Role="Thread" Type="Youp.Store.Threads" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Theme">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Thread">
+        <PropertyRef Name="ThemeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Participate_Event">
+    <End Role="Event" Type="Youp.Store.Events" Multiplicity="1" />
+    <End Role="Participate" Type="Youp.Store.Participate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Participate">
+        <PropertyRef Name="Events1_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Participate_User">
+    <End Role="Participate" Type="Youp.Store.Participate" Multiplicity="*" />
+    <End Role="User" Type="Youp.Store.Users" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Participate">
+        <PropertyRef Name="Users_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserTheme_Theme">
+    <End Role="Theme" Type="Youp.Store.Themes" Multiplicity="1" />
+    <End Role="UserTheme" Type="Youp.Store.UserTheme" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Theme">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserTheme">
+        <PropertyRef Name="Themes_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserTheme_User">
+    <End Role="UserTheme" Type="Youp.Store.UserTheme" Multiplicity="*" />
+    <End Role="User" Type="Youp.Store.Users" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserTheme">
+        <PropertyRef Name="Users_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

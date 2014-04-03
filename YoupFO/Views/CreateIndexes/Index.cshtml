@@ -1,0 +1,19 @@
+﻿
+<h2>Index</h2>
+@using System.Web.Mvc.Html;
+@using (((System.Web.Mvc.WebViewPage)WebPageContext.Current.Page).Html.BeginForm("Launch","CreateIndexes", System.Web.Mvc.FormMethod.Post))
+{
+    <table>
+        <tbody>
+            <tr>
+                <td>Launch The Indexation : </td>
+                <td><input type="submit" value="launch" /></td>
+            </tr>
+        </tbody>
+    </table>
+}
+
+@foreach (dynamic element in Model)
+{
+    <p>element</p>
+}

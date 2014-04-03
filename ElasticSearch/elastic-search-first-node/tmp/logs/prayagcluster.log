@@ -1,0 +1,75 @@
+[2014-03-20 09:40:53,469][INFO ][node                     ] [Margali Szardos] version[1.0.1], pid[2584], build[5c03844/2014-02-25T15:52:53Z]
+[2014-03-20 09:40:56,916][INFO ][node                     ] [Margali Szardos] initializing ...
+[2014-03-20 09:40:56,929][INFO ][plugins                  ] [Margali Szardos] loaded [], sites []
+[2014-03-20 09:40:59,684][INFO ][node                     ] [Margali Szardos] initialized
+[2014-03-20 09:40:59,684][INFO ][node                     ] [Margali Szardos] starting ...
+[2014-03-20 09:40:59,892][INFO ][transport                ] [Margali Szardos] bound_address {inet[/0:0:0:0:0:0:0:0:9300]}, publish_address {inet[/10.11.161.232:9300]}
+[2014-03-20 09:41:03,067][INFO ][cluster.service          ] [Margali Szardos] new_master [Margali Szardos][Xg1mW9erRGeTevNyeCA3nQ][kevin-PC][inet[/10.11.161.232:9300]], reason: zen-disco-join (elected_as_master)
+[2014-03-20 09:41:03,127][INFO ][discovery                ] [Margali Szardos] prayagcluster/Xg1mW9erRGeTevNyeCA3nQ
+[2014-03-20 09:41:03,204][INFO ][http                     ] [Margali Szardos] bound_address {inet[/0:0:0:0:0:0:0:0:9200]}, publish_address {inet[/10.11.161.232:9200]}
+[2014-03-20 09:41:03,870][INFO ][gateway                  ] [Margali Szardos] recovered [4] indices into cluster_state
+[2014-03-20 09:41:04,884][INFO ][node                     ] [Margali Szardos] started
+[2014-03-20 09:54:30,046][INFO ][node                     ] [Margali Szardos] stopping ...
+[2014-03-20 09:54:30,148][INFO ][node                     ] [Margali Szardos] stopped
+[2014-03-20 09:54:30,148][INFO ][node                     ] [Margali Szardos] closing ...
+[2014-03-20 09:54:30,154][INFO ][node                     ] [Margali Szardos] closed
+[2014-03-20 13:14:53,073][INFO ][node                     ] [Paul Norbert Ebersol] version[1.0.1], pid[5044], build[5c03844/2014-02-25T15:52:53Z]
+[2014-03-20 13:14:53,074][INFO ][node                     ] [Paul Norbert Ebersol] initializing ...
+[2014-03-20 13:14:53,078][INFO ][plugins                  ] [Paul Norbert Ebersol] loaded [], sites []
+[2014-03-20 13:14:55,529][INFO ][node                     ] [Paul Norbert Ebersol] initialized
+[2014-03-20 13:14:55,530][INFO ][node                     ] [Paul Norbert Ebersol] starting ...
+[2014-03-20 13:14:55,681][INFO ][transport                ] [Paul Norbert Ebersol] bound_address {inet[/0:0:0:0:0:0:0:0:9300]}, publish_address {inet[/192.168.1.32:9300]}
+[2014-03-20 13:14:58,810][INFO ][cluster.service          ] [Paul Norbert Ebersol] new_master [Paul Norbert Ebersol][4nQeYgvrSIWbhvk80d64Tw][kevin-PC][inet[/192.168.1.32:9300]], reason: zen-disco-join (elected_as_master)
+[2014-03-20 13:14:58,838][INFO ][discovery                ] [Paul Norbert Ebersol] prayagcluster/4nQeYgvrSIWbhvk80d64Tw
+[2014-03-20 13:14:58,917][INFO ][http                     ] [Paul Norbert Ebersol] bound_address {inet[/0:0:0:0:0:0:0:0:9200]}, publish_address {inet[/192.168.1.32:9200]}
+[2014-03-20 13:14:59,516][INFO ][gateway                  ] [Paul Norbert Ebersol] recovered [4] indices into cluster_state
+[2014-03-20 13:15:00,737][INFO ][node                     ] [Paul Norbert Ebersol] started
+[2014-03-20 13:29:50,680][INFO ][node                     ] [Paul Norbert Ebersol] stopping ...
+[2014-03-20 13:29:50,776][INFO ][node                     ] [Paul Norbert Ebersol] stopped
+[2014-03-20 13:29:50,777][INFO ][node                     ] [Paul Norbert Ebersol] closing ...
+[2014-03-20 13:29:50,783][INFO ][node                     ] [Paul Norbert Ebersol] closed
+[2014-03-20 13:29:54,868][INFO ][node                     ] [Youp-Search-Node-Second] version[1.0.1], pid[6236], build[5c03844/2014-02-25T15:52:53Z]
+[2014-03-20 13:29:54,869][INFO ][node                     ] [Youp-Search-Node-Second] initializing ...
+[2014-03-20 13:29:54,874][INFO ][plugins                  ] [Youp-Search-Node-Second] loaded [], sites []
+[2014-03-20 13:29:57,397][INFO ][node                     ] [Youp-Search-Node-Second] initialized
+[2014-03-20 13:29:57,397][INFO ][node                     ] [Youp-Search-Node-Second] starting ...
+[2014-03-20 13:29:57,547][INFO ][transport                ] [Youp-Search-Node-Second] bound_address {inet[/0:0:0:0:0:0:0:0:9300]}, publish_address {inet[/192.168.1.32:9300]}
+[2014-03-20 13:30:00,687][INFO ][cluster.service          ] [Youp-Search-Node-Second] new_master [Youp-Search-Node-Second][yi-L_4EGQJeXa6_P2hKHcg][kevin-PC][inet[/192.168.1.32:9300]], reason: zen-disco-join (elected_as_master)
+[2014-03-20 13:30:00,719][INFO ][discovery                ] [Youp-Search-Node-Second] prayagcluster/yi-L_4EGQJeXa6_P2hKHcg
+[2014-03-20 13:30:00,799][INFO ][http                     ] [Youp-Search-Node-Second] bound_address {inet[/0:0:0:0:0:0:0:0:9200]}, publish_address {inet[/192.168.1.32:9200]}
+[2014-03-20 13:30:01,431][INFO ][gateway                  ] [Youp-Search-Node-Second] recovered [4] indices into cluster_state
+[2014-03-20 13:30:02,929][INFO ][node                     ] [Youp-Search-Node-Second] started
+[2014-03-20 13:34:09,467][INFO ][node                     ] [Youp-Search-Node-Second] stopping ...
+[2014-03-20 13:34:09,559][INFO ][node                     ] [Youp-Search-Node-Second] stopped
+[2014-03-20 13:34:09,560][INFO ][node                     ] [Youp-Search-Node-Second] closing ...
+[2014-03-20 13:34:09,566][INFO ][node                     ] [Youp-Search-Node-Second] closed
+[2014-03-20 13:34:50,119][INFO ][node                     ] [Youp-Search-Node-Second] version[1.0.1], pid[1292], build[5c03844/2014-02-25T15:52:53Z]
+[2014-03-20 13:34:50,120][INFO ][node                     ] [Youp-Search-Node-Second] initializing ...
+[2014-03-20 13:34:50,125][INFO ][plugins                  ] [Youp-Search-Node-Second] loaded [], sites []
+[2014-03-20 13:34:52,808][INFO ][node                     ] [Youp-Search-Node-Second] initialized
+[2014-03-20 13:34:52,809][INFO ][node                     ] [Youp-Search-Node-Second] starting ...
+[2014-03-20 13:34:52,972][INFO ][transport                ] [Youp-Search-Node-Second] bound_address {inet[/0:0:0:0:0:0:0:0:9300]}, publish_address {inet[/192.168.1.32:9300]}
+[2014-03-20 13:34:56,116][INFO ][cluster.service          ] [Youp-Search-Node-Second] new_master [Youp-Search-Node-Second][oeOEWseYQQeKP3cdlJiTVQ][kevin-PC][inet[/192.168.1.32:9300]], reason: zen-disco-join (elected_as_master)
+[2014-03-20 13:34:56,146][INFO ][discovery                ] [Youp-Search-Node-Second] prayagcluster/oeOEWseYQQeKP3cdlJiTVQ
+[2014-03-20 13:34:56,214][INFO ][http                     ] [Youp-Search-Node-Second] bound_address {inet[/0:0:0:0:0:0:0:0:9200]}, publish_address {inet[/192.168.1.32:9200]}
+[2014-03-20 13:34:56,258][INFO ][gateway                  ] [Youp-Search-Node-Second] recovered [0] indices into cluster_state
+[2014-03-20 13:34:56,259][INFO ][node                     ] [Youp-Search-Node-Second] started
+[2014-03-20 13:36:48,140][INFO ][node                     ] [Youp-Search-Node-Second] stopping ...
+[2014-03-20 13:36:48,177][INFO ][node                     ] [Youp-Search-Node-Second] stopped
+[2014-03-20 13:36:48,178][INFO ][node                     ] [Youp-Search-Node-Second] closing ...
+[2014-03-20 13:36:48,190][INFO ][node                     ] [Youp-Search-Node-Second] closed
+[2014-03-20 13:37:08,992][INFO ][node                     ] [Youp-Search-Node-Second] version[1.0.1], pid[6888], build[5c03844/2014-02-25T15:52:53Z]
+[2014-03-20 13:37:08,993][INFO ][node                     ] [Youp-Search-Node-Second] initializing ...
+[2014-03-20 13:37:08,997][INFO ][plugins                  ] [Youp-Search-Node-Second] loaded [], sites []
+[2014-03-20 13:37:11,475][INFO ][node                     ] [Youp-Search-Node-Second] initialized
+[2014-03-20 13:37:11,475][INFO ][node                     ] [Youp-Search-Node-Second] starting ...
+[2014-03-20 13:37:11,629][INFO ][transport                ] [Youp-Search-Node-Second] bound_address {inet[/0:0:0:0:0:0:0:0:9300]}, publish_address {inet[/192.168.1.32:9300]}
+[2014-03-20 13:37:14,757][INFO ][cluster.service          ] [Youp-Search-Node-Second] new_master [Youp-Search-Node-Second][KhKs1ENJSSqdqJF_rIlLtg][kevin-PC][inet[/192.168.1.32:9300]], reason: zen-disco-join (elected_as_master)
+[2014-03-20 13:37:14,785][INFO ][discovery                ] [Youp-Search-Node-Second] prayagcluster/KhKs1ENJSSqdqJF_rIlLtg
+[2014-03-20 13:37:14,848][INFO ][http                     ] [Youp-Search-Node-Second] bound_address {inet[/0:0:0:0:0:0:0:0:9200]}, publish_address {inet[/192.168.1.32:9200]}
+[2014-03-20 13:37:14,854][INFO ][gateway                  ] [Youp-Search-Node-Second] recovered [0] indices into cluster_state
+[2014-03-20 13:37:14,855][INFO ][node                     ] [Youp-Search-Node-Second] started
+[2014-03-20 13:39:32,248][INFO ][node                     ] [Youp-Search-Node-Second] stopping ...
+[2014-03-20 13:39:32,289][INFO ][node                     ] [Youp-Search-Node-Second] stopped
+[2014-03-20 13:39:32,289][INFO ][node                     ] [Youp-Search-Node-Second] closing ...
+[2014-03-20 13:39:32,301][INFO ][node                     ] [Youp-Search-Node-Second] closed

@@ -1,0 +1,3 @@
+G:\school\ingesup\asp\SearchModule\Youp\SearchModuleProject\SearchModuleTester\obj\Debug\YoupSearchModuleTester.csprojResolveAssemblyReference.cache
+G:\school\ingesup\asp\SearchModule\Youp\SearchModuleProject\SearchModuleTester\obj\Debug\SearchModuleTester.dll
+G:\school\ingesup\asp\SearchModule\Youp\SearchModuleProject\SearchModuleTester\obj\Debug\SearchModuleTester.pdb

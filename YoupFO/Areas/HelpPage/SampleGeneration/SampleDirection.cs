@@ -1,4 +1,4 @@
-namespace YoupFo.Areas.HelpPage
+namespace YoupFO.Areas.HelpPage
 {
     /// <summary>
     /// Indicates whether the sample is used for request or response
