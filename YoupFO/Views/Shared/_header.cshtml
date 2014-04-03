@@ -28,12 +28,20 @@
                         <li class="menu-item">
                             <a href="/forum">Forum</a>
                         </li>
-                        <li class="menu-item">
-                            <a href="/blog">Blog</a>
-                        </li>
 
                         <li class="menu-item">
-                            <a href="blog.html">Se connecter</a>
+                            @if(Session["User"] == null) {
+                                <a href="/User/login">Connexion</a>
+                            }
+                            else
+                            {
+                                <a href="/User/logout">Se déconnecter</a>
+                            }
+                        </li>
+                        <li class="menu-item">
+                            @if(Session["User"] == null) {
+                                <a href="/User/Create">S'inscrire</a>
+                            }
                         </li>
                         <li class="menu-item" style="float: right;margin-left: 264px;margin-top: 2px;">
                             <form class="navbar-form navbar-left" role="search" novalidate="novalidate">

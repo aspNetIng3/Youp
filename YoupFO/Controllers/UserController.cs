@@ -23,6 +23,8 @@ namespace YoupFO.Controllers
             
             if (!service.isAuthenticate(Session["User"]))
                 return Redirect("/");
+
+            
             IEnumerable<UserS> userSs = service.GetUsers();
             List<User> users = new List<User>();
             foreach (UserS userS in userSs)
@@ -155,6 +157,7 @@ namespace YoupFO.Controllers
                 if (result != null)
                 {
                     Session["User"] = ConvertFO.ToFO(result);
+                    Session["Id"] = ConvertFO.ToFO(result).Id;
                     return RedirectToAction("/");
                 }
                 else
